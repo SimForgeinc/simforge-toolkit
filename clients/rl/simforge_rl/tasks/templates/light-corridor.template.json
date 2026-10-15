@@ -1,0 +1,170 @@
+{
+ "scenarioVersion": 2,
+ "meta": {
+  "name": "Bench light",
+  "description": "Renderer benchmark: a few cars on a two-way corridor.",
+  "createdAt": "2026-09-27T00:00:00.000Z",
+  "modifiedAt": "2026-09-27T00:00:00.000Z",
+  "appVersion": "simforge/0.2.0",
+  "archetype": "bench.bench-light",
+  "tags": [
+   "bench"
+  ],
+  "author": "SimForge renderer benchmark",
+  "negativeControl": false
+ },
+ "params": {
+  "declarations": [],
+  "constraints": []
+ },
+ "metricSubject": "ego",
+ "environment": {
+  "weather": "clear",
+  "timeOfDay": "noon"
+ },
+ "anchor": {
+  "id": "bench-two-way-corridor",
+  "corridor": {
+   "throughLanesSameDir": {
+    "value": [
+     1,
+     2
+    ],
+    "essentiality": "required"
+   },
+   "throughLanesOpposing": {
+    "value": [
+     1,
+     3
+    ],
+    "essentiality": "required"
+   },
+   "runwayUpstreamM": {
+    "value": [
+     15,
+     null
+    ],
+    "essentiality": "required"
+   },
+   "runwayDownstreamM": {
+    "value": [
+     200,
+     null
+    ],
+    "essentiality": "required"
+   }
+  },
+  "features": [],
+  "policy": {
+   "allowMirror": false,
+   "maxSitesPerMap": 12,
+   "diversity": "strict",
+   "minScore": 0.4
+  }
+ },
+ "roles": [
+  {
+   "id": "ego",
+   "kind": "on_reference",
+   "label": "ego at 50 km/h (the moving host)",
+   "actor": {
+    "class": "car",
+    "catalogId": "vehicle.sedan"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 10,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 50
+  },
+  {
+   "id": "lead",
+   "kind": "on_reference",
+   "label": "lead",
+   "actor": {
+    "class": "car",
+    "catalogId": "vehicle.hatchback"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 40,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 48
+  },
+  {
+   "id": "oncoming-1",
+   "kind": "opposing",
+   "label": "oncoming-1",
+   "actor": {
+    "class": "car",
+    "catalogId": "vehicle.suv"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 95,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 40,
+   "k": 0
+  },
+  {
+   "id": "oncoming-2",
+   "kind": "opposing",
+   "label": "oncoming-2",
+   "actor": {
+    "class": "van",
+    "catalogId": "vehicle.van"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 150,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 35,
+   "k": 0
+  },
+  {
+   "id": "watcher",
+   "kind": "on_reference",
+   "label": "a pedestrian standing at the kerb, facing down the road (the stationary host)",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 24,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  }
+ ],
+ "props": [],
+ "choreography": {
+  "clipSeconds": 12,
+  "warmupSeconds": 0,
+  "interactions": [
+   {
+    "id": "lead-brake-lamps",
+    "actor": "lead",
+    "verb": "set",
+    "trigger": {
+     "kind": "at",
+     "t": 6.0
+    },
+    "target": {
+     "key": "lights.brake",
+     "value": true
+    }
+   }
+  ]
+ }
+}

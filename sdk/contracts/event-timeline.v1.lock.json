@@ -1,0 +1,828 @@
+{
+  "digestRule": "sha256 of simforge.canonical-json/v1 over the document as written",
+  "format": "simforge.event-timeline-contract-lock/v1",
+  "jsonSchema": {
+    "$defs": {
+      "EgoRelative": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "anyOf": [
+              {
+                "enum": [
+                  "same",
+                  "opposite",
+                  "crossing-left-right",
+                  "crossing-right-left"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Direction"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "enum": [
+                  "front",
+                  "front-left",
+                  "front-right",
+                  "left",
+                  "right",
+                  "behind",
+                  "behind-left",
+                  "behind-right"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position"
+          },
+          "rangeM": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rangem"
+          }
+        },
+        "required": [
+          "position",
+          "direction",
+          "rangeM"
+        ],
+        "title": "EgoRelative",
+        "type": "object"
+      },
+      "Entity": {
+        "additionalProperties": false,
+        "description": "An entity. Free-form `attrs`, except these keys, which have a fixed shape and a CASCADE meaning:\n`visibleS` [t0S, t1S]; `egoRelativePose` [PoseWindow] (not on the ego); `properties` [Property] and `amount`\n(agents and the ego; `judgment` on the ego); `states` [LightState] (traffic lights); `objectStates` [ObjectState]\n(traffic objects); `containment` [Containment] (agents, the ego, traffic objects); `lanes`, `outLanes`, `oneWay`\n(environments); `types` [str] and `env` (conditions); `cascadeType` (the CASCADE type string, when the class\nalone does not render it).",
+        "properties": {
+          "attrs": {
+            "additionalProperties": true,
+            "description": "facts about the entity; visibleS, egoRelativePose, properties, states and cascadeType have a fixed shape",
+            "title": "Attrs",
+            "type": "object"
+          },
+          "class": {
+            "enum": [
+              "bicycle",
+              "bus",
+              "car",
+              "motorcycle",
+              "pedestrian",
+              "trailer",
+              "truck",
+              "unknown",
+              "trafficLight",
+              "trafficObject",
+              "environment",
+              "condition"
+            ],
+            "title": "Class",
+            "type": "string"
+          },
+          "displayName": {
+            "minLength": 1,
+            "title": "Displayname",
+            "type": "string"
+          },
+          "id": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Id",
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "ego",
+              "key",
+              "background",
+              "ambient"
+            ],
+            "title": "Role",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "class",
+          "role",
+          "displayName",
+          "attrs"
+        ],
+        "title": "Entity",
+        "type": "object"
+      },
+      "Event": {
+        "additionalProperties": false,
+        "properties": {
+          "actor": {
+            "title": "Actor",
+            "type": "string"
+          },
+          "egoRelative": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/EgoRelative"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Id",
+            "type": "string"
+          },
+          "isAction": {
+            "description": "false for measurements: kept in the timeline, never serialized as graph actions",
+            "title": "Isaction",
+            "type": "boolean"
+          },
+          "kind": {
+            "enum": [
+              "newLead",
+              "minGap",
+              "minTtc",
+              "crossingConflict",
+              "brake",
+              "hardBrake",
+              "stop",
+              "start",
+              "cutIn",
+              "cutOut",
+              "actorLaneChange",
+              "laneChange",
+              "vruCrossing",
+              "crossAhead",
+              "yield",
+              "junctionEntry",
+              "junctionExit",
+              "turnLeft",
+              "turnRight",
+              "uTurn",
+              "drive",
+              "follow",
+              "creep",
+              "park",
+              "reverse",
+              "overtake",
+              "nudge",
+              "maneuverAbort",
+              "walk",
+              "run",
+              "stand",
+              "jaywalk",
+              "other"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "other": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Other"
+          },
+          "tEndS": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tends"
+          },
+          "tS": {
+            "title": "Ts",
+            "type": "number"
+          },
+          "value": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "description": "kind-specific measurements; the registry names the indexed one",
+            "title": "Value",
+            "type": "object"
+          },
+          "visibleToEgo": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "filled once the Perceived Event Timeline exists",
+            "title": "Visibletoego"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "isAction",
+          "tS",
+          "tEndS",
+          "actor",
+          "other",
+          "value",
+          "egoRelative",
+          "visibleToEgo"
+        ],
+        "title": "Event",
+        "type": "object"
+      },
+      "Extractor": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "thresholds": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "description": "every threshold the extractor used, by name",
+            "title": "Thresholds",
+            "type": "object"
+          },
+          "version": {
+            "minLength": 1,
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "thresholds"
+        ],
+        "title": "Extractor",
+        "type": "object"
+      },
+      "Source": {
+        "additionalProperties": false,
+        "properties": {
+          "clipRef": {
+            "description": "opaque reference to the clip",
+            "title": "Clipref",
+            "type": "string"
+          },
+          "digest": {
+            "description": "sha256 hex of the source document (canonical JSON)",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Digest",
+            "type": "string"
+          },
+          "engineSemVer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "ENGINE_SEM_VER of the trace's engine; null for non-sim sources",
+            "title": "Enginesemver"
+          },
+          "kind": {
+            "enum": [
+              "trace",
+              "recording",
+              "cascade",
+              "model"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "producer": {
+            "description": "causal-facts@<version>, or the producing tool",
+            "minLength": 1,
+            "title": "Producer",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "digest",
+          "producer",
+          "clipRef",
+          "engineSemVer"
+        ],
+        "title": "Source",
+        "type": "object"
+      },
+      "Window": {
+        "additionalProperties": false,
+        "properties": {
+          "t0S": {
+            "title": "T0S",
+            "type": "number"
+          },
+          "t1S": {
+            "title": "T1S",
+            "type": "number"
+          }
+        },
+        "required": [
+          "t0S",
+          "t1S"
+        ],
+        "title": "Window",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "egoId": {
+        "title": "Egoid",
+        "type": "string"
+      },
+      "entities": {
+        "items": {
+          "$ref": "#/$defs/Entity"
+        },
+        "title": "Entities",
+        "type": "array"
+      },
+      "events": {
+        "items": {
+          "$ref": "#/$defs/Event"
+        },
+        "title": "Events",
+        "type": "array"
+      },
+      "extractor": {
+        "$ref": "#/$defs/Extractor"
+      },
+      "schema": {
+        "const": "simforge.event-timeline/v1",
+        "title": "Schema",
+        "type": "string"
+      },
+      "source": {
+        "$ref": "#/$defs/Source"
+      },
+      "window": {
+        "$ref": "#/$defs/Window"
+      }
+    },
+    "required": [
+      "schema",
+      "source",
+      "extractor",
+      "egoId",
+      "window",
+      "entities",
+      "events"
+    ],
+    "title": "EventTimeline",
+    "type": "object"
+  },
+  "kinds": [
+    {
+      "doc": "a new lead vehicle in the ego's corridor",
+      "indexValue": "gapM",
+      "isAction": false,
+      "kind": "newLead",
+      "origin": "tl-v1",
+      "valueFields": {
+        "gapM": "number"
+      }
+    },
+    {
+      "doc": "smallest bumper gap to a lead or obstacle",
+      "indexValue": "gapM",
+      "isAction": false,
+      "kind": "minGap",
+      "origin": "tl-v1",
+      "valueFields": {
+        "actorSpeedMps": "number",
+        "egoSpeedMps": "number",
+        "gapM": "number"
+      }
+    },
+    {
+      "doc": "smallest time to collision with a lead or obstacle",
+      "indexValue": "ttcS",
+      "isAction": false,
+      "kind": "minTtc",
+      "origin": "tl-v1",
+      "valueFields": {
+        "closingMps": "number",
+        "gapM": "number",
+        "ttcS": "number"
+      }
+    },
+    {
+      "doc": "paths cross ahead of the ego; post-encroachment time",
+      "indexValue": "petS",
+      "isAction": false,
+      "kind": "crossingConflict",
+      "origin": "tl-v1",
+      "valueFields": {
+        "egoSpeedMps": "number",
+        "firstThrough": "string",
+        "gapM": "number",
+        "petS": "number"
+      }
+    },
+    {
+      "doc": "sustained deceleration",
+      "indexValue": "decelMps2",
+      "isAction": true,
+      "kind": "brake",
+      "origin": "tl-v1",
+      "valueFields": {
+        "decelMps2": "number",
+        "qualifier": "string",
+        "speedFromMps": "number",
+        "speedToMps": "number"
+      }
+    },
+    {
+      "doc": "deceleration of at least 4 m/s2 with a speed drop of at least 3 m/s",
+      "indexValue": "decelMps2",
+      "isAction": true,
+      "kind": "hardBrake",
+      "origin": "tl-v1",
+      "valueFields": {
+        "decelMps2": "number",
+        "qualifier": "string",
+        "speedFromMps": "number",
+        "speedToMps": "number"
+      }
+    },
+    {
+      "doc": "is at a standstill: comes to a stop, or is stopped from the start of the clip",
+      "indexValue": "durationS",
+      "isAction": true,
+      "kind": "stop",
+      "origin": "tl-v1",
+      "valueFields": {
+        "durationS": "number",
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "moves off from a standstill",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "start",
+      "origin": "tl-v1",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "an actor changes into the ego's lane ahead of it",
+      "indexValue": "gapM",
+      "isAction": true,
+      "kind": "cutIn",
+      "origin": "tl-v1",
+      "valueFields": {
+        "actorSpeedMps": "number",
+        "egoSpeedMps": "number",
+        "fromSide": "string",
+        "gapM": "number",
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "the lead changes out of the ego's lane",
+      "indexValue": "gapM",
+      "isAction": true,
+      "kind": "cutOut",
+      "origin": "tl-v1",
+      "valueFields": {
+        "gapM": "number",
+        "qualifier": "string",
+        "toSide": "string"
+      }
+    },
+    {
+      "doc": "a non-ego lane change that is neither a cut-in nor a cut-out",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "actorLaneChange",
+      "origin": "tl-v1",
+      "valueFields": {
+        "qualifier": "string",
+        "side": "string"
+      }
+    },
+    {
+      "doc": "the ego changes lane",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "laneChange",
+      "origin": "tl-v1",
+      "valueFields": {
+        "basis": "string",
+        "fromLane": "string",
+        "qualifier": "string",
+        "side": "string",
+        "toLane": "string"
+      }
+    },
+    {
+      "doc": "a vulnerable road user crosses the ego's path",
+      "indexValue": "gapM",
+      "isAction": true,
+      "kind": "vruCrossing",
+      "origin": "tl-v1",
+      "valueFields": {
+        "egoSpeedMps": "number",
+        "firstThrough": "string",
+        "gapM": "number",
+        "petS": "number",
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "a vehicle crosses the ego's path ahead",
+      "indexValue": "gapM",
+      "isAction": true,
+      "kind": "crossAhead",
+      "origin": "tl-v1",
+      "valueFields": {
+        "egoSpeedMps": "number",
+        "gapM": "number",
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "slows or waits for another road user (other = who it yields to)",
+      "indexValue": "minSpeedMps",
+      "isAction": true,
+      "kind": "yield",
+      "origin": "tl-v1",
+      "valueFields": {
+        "minSpeedMps": "number",
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "enters a junction",
+      "indexValue": "speedMps",
+      "isAction": true,
+      "kind": "junctionEntry",
+      "origin": "tl-v1",
+      "valueFields": {
+        "control": "string",
+        "junction": "string",
+        "qualifier": "string",
+        "speedMps": "number",
+        "turn": "string"
+      }
+    },
+    {
+      "doc": "leaves a junction",
+      "indexValue": "speedMps",
+      "isAction": true,
+      "kind": "junctionExit",
+      "origin": "tl-v1",
+      "valueFields": {
+        "junction": "string",
+        "qualifier": "string",
+        "speedMps": "number"
+      }
+    },
+    {
+      "doc": "turns left",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "turnLeft",
+      "origin": "plan",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "turns right",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "turnRight",
+      "origin": "plan",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "makes a U-turn",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "uTurn",
+      "origin": "plan",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "drives in its lane",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "drive",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "follows another road user",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "follow",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "creeps forward",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "creep",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "parks",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "park",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "reverses",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "reverse",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "overtakes another road user",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "overtake",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "nudges around an obstruction",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "nudge",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "aborts a manoeuvre",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "maneuverAbort",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "a pedestrian walks",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "walk",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "a pedestrian runs",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "run",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "a pedestrian stands",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "stand",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "a pedestrian crosses outside a crossing",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "jaywalk",
+      "origin": "cascade",
+      "valueFields": {
+        "qualifier": "string"
+      }
+    },
+    {
+      "doc": "an action with no kind of its own; value.description or value.cascadeType says what",
+      "indexValue": null,
+      "isAction": true,
+      "kind": "other",
+      "origin": "cascade",
+      "valueFields": {
+        "cascadeType": "string",
+        "description": "string",
+        "qualifier": "string"
+      }
+    }
+  ],
+  "owner": "research/causal-facts (causal_facts.timeline, causal_facts.kinds)",
+  "scenarioIndexEvents": {
+    "columns": {
+      "actor_role": "event.actor (an entity id; for sim clips the scenario role id)",
+      "document_id": "from the loader (the scenario document), not the timeline",
+      "kind": "event.kind",
+      "ordinal": "position of the event in timeline.events",
+      "other_role": "event.other",
+      "t_s": "event.tS",
+      "value": "float(event.value[kinds[event.kind].indexValue]), or null; indexValue always names a number field (valueFields), and a non-numeric value raises rather than coerces",
+      "workspace_id": "from the loader, not the timeline"
+    },
+    "function": "causal_facts.timeline.index_rows",
+    "table": "simforge.scenario_index_events"
+  },
+  "schema": "simforge.event-timeline/v1",
+  "timeGrid": "seconds from the clip's tick 0, on a 0.01 s grid"
+}

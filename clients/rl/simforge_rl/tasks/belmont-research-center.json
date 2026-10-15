@@ -1,0 +1,160 @@
+{
+  "schema": "simforge-rl.scenario-set/v1",
+  "scenarios": [
+    {
+      "name": "adult-midblock-crossing@06273638",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "06273638046cbcfd"
+    },
+    {
+      "name": "adult-midblock-crossing@2ce8488b",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "2ce8488b39eb7b9e"
+    },
+    {
+      "name": "backing-out-vehicle@04796a49",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "04796a491a237624"
+    },
+    {
+      "name": "backing-out-vehicle@0616396f",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "0616396fb98f9972"
+    },
+    {
+      "name": "cpnco-parked-row@303f196b",
+      "weight": 1.0,
+      "template": "templates/cpnco-parked-row.template.json",
+      "site": "303f196bea18f91e"
+    },
+    {
+      "name": "cut-in-brake@6322f2c3",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "6322f2c3fb2bde45"
+    },
+    {
+      "name": "cut-in-brake@64da1c6f",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "64da1c6fc293bd69"
+    },
+    {
+      "name": "cutout-reveals-stopped@38df6763",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "38df6763cf969154"
+    },
+    {
+      "name": "cutout-reveals-stopped@39e5d67a",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "39e5d67aa4a15d38"
+    },
+    {
+      "name": "cyclist-crossing-path@056780a6",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "056780a646a05fc3"
+    },
+    {
+      "name": "cyclist-crossing-path@103c4429",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "103c44293bf33d3b"
+    },
+    {
+      "name": "disabled-vehicle@0574ada7",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "0574ada71f24567a"
+    },
+    {
+      "name": "disabled-vehicle@0a92c5a7",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "0a92c5a7b2935be1"
+    },
+    {
+      "name": "lead-hard-brake@1be4bc76",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "1be4bc76dd4ce794"
+    },
+    {
+      "name": "lead-hard-brake@21c90265",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "21c90265e6701655"
+    },
+    {
+      "name": "light-corridor@1c2b8ef6",
+      "weight": 0.5,
+      "template": "templates/light-corridor.template.json",
+      "site": "1c2b8ef678453f12"
+    },
+    {
+      "name": "light-corridor@1ee51849",
+      "weight": 0.5,
+      "template": "templates/light-corridor.template.json",
+      "site": "1ee51849955a6f72"
+    },
+    {
+      "name": "opposing-turn-encroachment@08f2ea73",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "08f2ea7340d567fb"
+    },
+    {
+      "name": "opposing-turn-encroachment@0a67cc33",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "0a67cc3323997b12"
+    },
+    {
+      "name": "sideswipe@222059c2",
+      "weight": 0.5,
+      "template": "templates/sideswipe.template.json",
+      "site": "222059c26f12e929"
+    },
+    {
+      "name": "sideswipe@2ad61f41",
+      "weight": 0.5,
+      "template": "templates/sideswipe.template.json",
+      "site": "2ad61f41c16e8235"
+    },
+    {
+      "name": "urban-mixed@1c2b8ef6",
+      "weight": 0.5,
+      "template": "templates/urban-mixed.template.json",
+      "site": "1c2b8ef678453f12"
+    },
+    {
+      "name": "urban-mixed@1ee51849",
+      "weight": 0.5,
+      "template": "templates/urban-mixed.template.json",
+      "site": "1ee51849955a6f72"
+    },
+    {
+      "name": "vehicle-pulls-out@799a0c9d",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "799a0c9d2b4414fb"
+    },
+    {
+      "name": "vehicle-pulls-out@80aa8320",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "80aa8320c07a01ab"
+    }
+  ],
+  "map": {
+    "name": "belmont-research-center",
+    "version": "v9",
+    "xodrSha256": "234c9ffd76dff2d61c9d4324ada21e185cfd3cfb66a762727a87f89e007a9d50"
+  }
+}

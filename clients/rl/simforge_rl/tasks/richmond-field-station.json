@@ -1,0 +1,154 @@
+{
+  "schema": "simforge-rl.scenario-set/v1",
+  "scenarios": [
+    {
+      "name": "adult-midblock-crossing@158aa402",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "158aa4020f77d2be"
+    },
+    {
+      "name": "adult-midblock-crossing@27d53507",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "27d535076d02d7ae"
+    },
+    {
+      "name": "backing-out-vehicle@02931707",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "0293170780e964e5"
+    },
+    {
+      "name": "backing-out-vehicle@2622e37c",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "2622e37cf1792d94"
+    },
+    {
+      "name": "cpnco-parked-row@c7794a7c",
+      "weight": 0.5,
+      "template": "templates/cpnco-parked-row.template.json",
+      "site": "c7794a7ce907531d"
+    },
+    {
+      "name": "cpnco-parked-row@de9c337a",
+      "weight": 0.5,
+      "template": "templates/cpnco-parked-row.template.json",
+      "site": "de9c337ab2ecc7de"
+    },
+    {
+      "name": "cyclist-crossing-path@0e7787e6",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "0e7787e6e1586b97"
+    },
+    {
+      "name": "cyclist-crossing-path@16d03889",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "16d03889d83c1e23"
+    },
+    {
+      "name": "disabled-vehicle@69939930",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "69939930958ba2e6"
+    },
+    {
+      "name": "disabled-vehicle@894df17b",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "894df17b293d2c12"
+    },
+    {
+      "name": "lead-hard-brake@1e29b9bd",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "1e29b9bd216ae5f3"
+    },
+    {
+      "name": "lead-hard-brake@391af02d",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "391af02dd90d4247"
+    },
+    {
+      "name": "light-corridor@1c0e6bed",
+      "weight": 1.0,
+      "template": "templates/light-corridor.template.json",
+      "site": "1c0e6bed326e8d09"
+    },
+    {
+      "name": "ltap-opposing@9fc1b2c2",
+      "weight": 1.0,
+      "template": "templates/ltap-opposing.template.json",
+      "site": "9fc1b2c2d3a811de"
+    },
+    {
+      "name": "oncoming-overtake@b1ed39e5",
+      "weight": 0.5,
+      "template": "templates/oncoming-overtake.template.json",
+      "site": "b1ed39e590f6cacc"
+    },
+    {
+      "name": "oncoming-overtake@ddc37703",
+      "weight": 0.5,
+      "template": "templates/oncoming-overtake.template.json",
+      "site": "ddc37703075db048"
+    },
+    {
+      "name": "opposing-turn-encroachment@23afb358",
+      "weight": 1.0,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "23afb3580150d467"
+    },
+    {
+      "name": "queue-tail@e2e894a1",
+      "weight": 0.5,
+      "template": "templates/queue-tail.template.json",
+      "site": "e2e894a13515938a"
+    },
+    {
+      "name": "queue-tail@1ae48fb3",
+      "weight": 0.5,
+      "template": "templates/queue-tail.template.json",
+      "site": "1ae48fb34d2e28b2"
+    },
+    {
+      "name": "red-light-late-entry@027da72d",
+      "weight": 1.0,
+      "template": "templates/red-light-late-entry.template.json",
+      "site": "027da72d636aba90"
+    },
+    {
+      "name": "right-turn-crosswalk@109e9d91",
+      "weight": 1.0,
+      "template": "templates/right-turn-crosswalk.template.json",
+      "site": "109e9d91d5b86efc"
+    },
+    {
+      "name": "urban-mixed@42144495",
+      "weight": 1.0,
+      "template": "templates/urban-mixed.template.json",
+      "site": "421444951aeedcdf"
+    },
+    {
+      "name": "vehicle-pulls-out@85b4ac66",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "85b4ac661d5835bb"
+    },
+    {
+      "name": "vehicle-pulls-out@6fcaaefa",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "6fcaaefa2786b6d7"
+    }
+  ],
+  "map": {
+    "name": "richmond-field-station",
+    "version": "v9",
+    "xodrSha256": "531c1bd6f568c56a41fd868ffe1cec0e92bc7dcda9c794c67a8f80a450186b18"
+  }
+}

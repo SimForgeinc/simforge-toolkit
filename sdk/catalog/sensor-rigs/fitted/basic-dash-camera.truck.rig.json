@@ -1,0 +1,32 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "dashcam-front",
+      "sensorLabel": "Front Camera",
+      "outputName": "dashcam-front",
+      "transform": {
+        "position": {
+          "x": 3.95,
+          "y": 3.7,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 90,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    }
+  ]
+}

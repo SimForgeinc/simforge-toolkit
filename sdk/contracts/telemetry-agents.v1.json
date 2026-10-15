@@ -1,0 +1,10 @@
+{
+  "schema": "simforge.telemetry-agents/v1",
+  "description": "How the simforge CLI and the runtime tell which AI coding agent ran a command, for usage reports under an agreement that lists it (terms draft 4, section 3(a)(vi)). A marker counts when the variable is set and not empty; the first agent with a set marker wins, in this order; with none set the answer is none. Only the agent word is reported, never a variable's name or value.",
+  "agents": [
+    { "agent": "claude-code", "markers": ["CLAUDECODE", "CLAUDE_CODE_ENTRYPOINT"] },
+    { "agent": "codex", "markers": ["CODEX_SANDBOX", "CODEX_SANDBOX_NETWORK_DISABLED", "CODEX_MANAGED_BY_NPM", "CODEX_THREAD_ID"] },
+    { "agent": "cursor", "markers": ["CURSOR_AGENT"] },
+    { "agent": "other-agent", "markers": ["GEMINI_CLI", "OPENCODE", "GOOSE_TERMINAL"] }
+  ]
+}

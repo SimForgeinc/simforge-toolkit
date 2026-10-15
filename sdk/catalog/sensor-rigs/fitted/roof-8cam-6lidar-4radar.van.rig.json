@@ -1,0 +1,489 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "cam0",
+      "sensorLabel": "CAM0",
+      "outputName": "cam0",
+      "transform": {
+        "position": {
+          "x": 1.16685,
+          "y": 2.2517,
+          "z": 0.7958
+        },
+        "rotation": {
+          "yawRad": 2.129301687433082,
+          "pitchRad": -0.4363323129985824,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "cam1",
+      "sensorLabel": "CAM1",
+      "outputName": "cam1",
+      "transform": {
+        "position": {
+          "x": 1.16695,
+          "y": 2.2517,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": -0.17453292519943295,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "cam2",
+      "sensorLabel": "CAM2",
+      "outputName": "cam2",
+      "transform": {
+        "position": {
+          "x": -1.14255,
+          "y": 2.2517,
+          "z": 0.7958
+        },
+        "rotation": {
+          "yawRad": 1.0471975511965976,
+          "pitchRad": -0.4363323129985824,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "cam3",
+      "sensorLabel": "CAM3",
+      "outputName": "cam3",
+      "transform": {
+        "position": {
+          "x": 1.26935,
+          "y": 2.2727,
+          "z": 0.5953
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 30,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "cam4",
+      "sensorLabel": "CAM4",
+      "outputName": "cam4",
+      "transform": {
+        "position": {
+          "x": -1.14255,
+          "y": 2.2517,
+          "z": -0.7958
+        },
+        "rotation": {
+          "yawRad": -1.0471975511965976,
+          "pitchRad": -0.4363323129985824,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "cam5",
+      "sensorLabel": "CAM5",
+      "outputName": "cam5",
+      "transform": {
+        "position": {
+          "x": -1.14255,
+          "y": 2.2517,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 3.141592653589793,
+          "pitchRad": -0.17453292519943295,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "cam6",
+      "sensorLabel": "CAM6",
+      "outputName": "cam6",
+      "transform": {
+        "position": {
+          "x": 1.16695,
+          "y": 2.2517,
+          "z": -0.7985
+        },
+        "rotation": {
+          "yawRad": -2.129301687433082,
+          "pitchRad": -0.4363323129985824,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "cam7",
+      "sensorLabel": "CAM7",
+      "outputName": "cam7",
+      "transform": {
+        "position": {
+          "x": 1.25615,
+          "y": 2.2727,
+          "z": -0.5927
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": -0.08726646259971647,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 60,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "lidar-front-left",
+      "sensorLabel": "Front left — Seyond Falcon",
+      "outputName": "lidar-front-left",
+      "transform": {
+        "position": {
+          "x": 1.20185,
+          "y": 2.3278,
+          "z": 0.4772
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 100,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 12.5,
+        "lowerFovDeg": -12.5,
+        "horizontalFovDeg": 120
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "lidar-front-left-wide",
+      "sensorLabel": "Front left wide — Seyond Robin W",
+      "outputName": "lidar-front-left-wide",
+      "transform": {
+        "position": {
+          "x": 1.18345,
+          "y": 2.2786,
+          "z": 0.7671
+        },
+        "rotation": {
+          "yawRad": 2.0943951023931953,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 100,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 35,
+        "lowerFovDeg": -35,
+        "horizontalFovDeg": 120
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "lidar-front-right",
+      "sensorLabel": "Front right — Seyond Falcon",
+      "outputName": "lidar-front-right",
+      "transform": {
+        "position": {
+          "x": 1.20185,
+          "y": 2.3278,
+          "z": -0.4798
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 100,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 12.5,
+        "lowerFovDeg": -12.5,
+        "horizontalFovDeg": 120
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "lidar-front-right-wide",
+      "sensorLabel": "Front right wide — Seyond Robin W",
+      "outputName": "lidar-front-right-wide",
+      "transform": {
+        "position": {
+          "x": 1.18355,
+          "y": 2.2786,
+          "z": -0.7698
+        },
+        "rotation": {
+          "yawRad": -2.0943951023931953,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 100,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 35,
+        "lowerFovDeg": -35,
+        "horizontalFovDeg": 120
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "lidar-rear-left",
+      "sensorLabel": "Rear left — Seyond Robin W",
+      "outputName": "lidar-rear-left",
+      "transform": {
+        "position": {
+          "x": -1.15915,
+          "y": 2.2786,
+          "z": 0.7671
+        },
+        "rotation": {
+          "yawRad": 1.0471975511965976,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 100,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 35,
+        "lowerFovDeg": -35,
+        "horizontalFovDeg": 120
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "lidar-rear-right",
+      "sensorLabel": "Rear right — Seyond Robin W",
+      "outputName": "lidar-rear-right",
+      "transform": {
+        "position": {
+          "x": -1.15915,
+          "y": 2.2786,
+          "z": -0.7671
+        },
+        "rotation": {
+          "yawRad": -1.0471975511965976,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 100,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 35,
+        "lowerFovDeg": -35,
+        "horizontalFovDeg": 120
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "rad-01",
+      "sensorLabel": "RAD-01 — Altos V4",
+      "outputName": "rad-01",
+      "transform": {
+        "position": {
+          "x": 1.25845,
+          "y": 2.2748,
+          "z": 0.4871
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "radar",
+      "attributes": {
+        "horizontalFovDeg": 30,
+        "verticalFovDeg": 30,
+        "rangeM": 100,
+        "pointsPerSecond": 1500
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "rad-02",
+      "sensorLabel": "RAD-02 — Altos V4",
+      "outputName": "rad-02",
+      "transform": {
+        "position": {
+          "x": 1.25845,
+          "y": 2.2748,
+          "z": -0.4699
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "radar",
+      "attributes": {
+        "horizontalFovDeg": 30,
+        "verticalFovDeg": 30,
+        "rangeM": 100,
+        "pointsPerSecond": 1500
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "rad-03",
+      "sensorLabel": "RAD-03 — Altos RF6",
+      "outputName": "rad-03",
+      "transform": {
+        "position": {
+          "x": -1.26935,
+          "y": 2.2315,
+          "z": 0.461
+        },
+        "rotation": {
+          "yawRad": 2.792526803190927,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "radar",
+      "attributes": {
+        "horizontalFovDeg": 30,
+        "verticalFovDeg": 30,
+        "rangeM": 100,
+        "pointsPerSecond": 1500
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "rad-04",
+      "sensorLabel": "RAD-04 — Altos RF6",
+      "outputName": "rad-04",
+      "transform": {
+        "position": {
+          "x": -1.21965,
+          "y": 2.2315,
+          "z": -0.5142
+        },
+        "rotation": {
+          "yawRad": -2.792526803190927,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "radar",
+      "attributes": {
+        "horizontalFovDeg": 30,
+        "verticalFovDeg": 30,
+        "rangeM": 100,
+        "pointsPerSecond": 1500
+      }
+    }
+  ]
+}

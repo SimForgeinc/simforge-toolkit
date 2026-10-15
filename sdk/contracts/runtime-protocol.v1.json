@@ -1,0 +1,878 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simforge.ai/contracts/runtime-protocol.v1.json",
+  "title": "SimForge runtime protocol v1",
+  "description": "Open orchestration contract for the closed runtime. UTF-8 NDJSON over stdio/same-user sockets, maximum encoded line 64 MiB. Runtime API1 is independent of renderer MsgPack5, binary env v1 and canonical framed world truth. Handshake first; responses correlate id/op, subscribed world notifications may interleave without id. No shell, unauthenticated remote exposure or local/cloud fallback. Local world browser bridge is authenticated loopback only.",
+  "oneOf": [
+    { "$ref": "#/$defs/request" },
+    { "$ref": "#/$defs/success" },
+    { "$ref": "#/$defs/failure" },
+    { "$ref": "#/$defs/notification" }
+  ],
+  "$defs": {
+    "schemaName": { "const": "simforge.runtime/v1" },
+    "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "operation": {
+      "enum": [
+        "handshake", "help", "command", "compile", "simulate", "render", "preview", "transfer", "evaluate",
+        "env.create", "env.reset", "env.step", "env.observe", "env.checkpoint", "env.restore", "env.close",
+        "world.create", "world.join", "world.claim", "world.command", "world.subscribe", "world.poll", "world.unsubscribe", "world.snapshot", "world.checkpoint", "world.restore", "world.time", "world.record", "world.close",
+        "env.batch.create", "env.batch.reset", "env.batch.step", "env.batch.observe", "env.batch.close"
+      ]
+    },
+    "envOperation": {
+      "enum": ["env.create", "env.reset", "env.step", "env.observe", "env.checkpoint", "env.restore", "env.close"]
+    },
+    "worldId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "clientId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "subscriptionId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "actorId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "worldPacing": {
+      "enum": ["realtime", "fast", "paused"]
+    },
+    "worldOperation": {
+      "enum": ["world.create", "world.join", "world.claim", "world.command", "world.subscribe", "world.poll", "world.unsubscribe", "world.snapshot", "world.checkpoint", "world.restore", "world.time", "world.record", "world.close"]
+    },
+    "batchOperation": {
+      "enum": ["env.batch.create", "env.batch.reset", "env.batch.step", "env.batch.observe", "env.batch.close"]
+    },
+    "reconnectToken": {
+      "type": "string",
+      "minLength": 32,
+      "maxLength": 256,
+      "x-sensitive": true,
+      "description": "Secret bound to a host-issued client identity. Private SDK response only: never CLI stdout, logs, URLs, truth frames or physics checkpoints. CLI persists secrets in a 0600 file."
+    },
+    "worldPopulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vehicles", "pedestrians"],
+      "properties": {
+        "vehicles": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+        "pedestrians": {"type": "integer", "minimum": 0, "maximum": 4294967295}
+      },
+      "description": "Requested native ongoing population. Runtime admission enforces total actor/host limits; no city-scale throughput is promised."
+    },
+    "worldCreateParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv"],
+      "properties": {
+        "argv": {"$ref": "#/$defs/argv"},
+        "cwd": {"$ref": "#/$defs/cwd"},
+        "pacing": {"$ref": "#/$defs/worldPacing"},
+        "population": {"$ref": "#/$defs/worldPopulation"}
+      },
+      "description": "World source argv reuses the runtime loader (map/scenario/workspace and journal directory flags), omitting world serve and transport/pacing/population flags. Default pacing realtime; one host owns integer 50 Hz advancement. World persists beyond client disconnect; no online activation. Local world hosting only."
+    },
+    "worldJoinParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "clientId": {"$ref": "#/$defs/clientId"},
+        "reconnectToken": {"$ref": "#/$defs/reconnectToken"}
+      },
+      "dependentRequired": {"clientId": ["reconnectToken"], "reconnectToken": ["clientId"]}
+    },
+    "worldClaimParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "actorId", "action"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "actorId": {"$ref": "#/$defs/actorId"},
+        "action": {"enum": ["claim", "release"]}
+      }
+    },
+    "worldCommandParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "seq", "command"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "seq": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "command": {"$ref": "#/$defs/worldCommand"}
+      },
+      "description": "Client identity is assigned/bound by the host, never trusted from command input. Strict per-client sequence; deterministic clientId then seq order at a tick boundary. Native command refusal is an outcome, not a transport failure. Host-only structural/signal commands; actor controls require an exclusive claim."
+    },
+    "worldSubscribeParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "rateHz": {"type": "integer", "minimum": 1, "maximum": 50}
+      },
+      "description": "rateHz controls delivery flush, not physics rate or truth sampling. Full canonical native framed bytes are forwarded unchanged. Each subscription is bounded, drop-oldest, and never blocks physics; no events before subscription."
+    },
+    "worldPollParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "subscriptionId"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "subscriptionId": {"$ref": "#/$defs/subscriptionId"},
+        "maxFrames": {"type": "integer", "minimum": 1, "maximum": 256}
+      }
+    },
+    "worldSubscriptionParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "subscriptionId"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "subscriptionId": {"$ref": "#/$defs/subscriptionId"}
+      }
+    },
+    "worldHandleParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"}
+      }
+    },
+    "worldRestoreParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "checkpointBase64"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "checkpointBase64": {"$ref": "#/$defs/base64"}
+      },
+      "description": "Host only. Verify build/map/input identity, restore paused, invalidate subscriptions and discard stale queues before acknowledgement; clients explicitly snapshot/resubscribe. Physics checkpoint contains no authentication secrets."
+    },
+    "worldTimeParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "pacing": {"$ref": "#/$defs/worldPacing"},
+        "advanceTicks": {"type": "integer", "minimum": 1, "maximum": 4294967295}
+      },
+      "description": "Host only. advanceTicks is permitted only while paused and within the advertised finite host budget. Realtime/fast have exactly one host clock; retain overload lag, never discard simulation ticks."
+    },
+    "worldRecordParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "action"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "action": {"enum": ["start", "stop", "status"]},
+        "path": {"type": "string", "minLength": 1},
+        "chunkTicks": {"type": "integer", "minimum": 2, "maximum": 6000}
+      },
+      "description": "Host only. Start requires path; stop finalizes real recording/v1 chunks and the hashed root manifest. Chunk/index IO is bounded and durable; never publish an uncreated output path.",
+      "allOf": [
+        {"if": {"properties": {"action": {"const": "start"}}}, "then": {"required": ["path"]}}
+      ]
+    },
+    "controlIndication": {
+      "enum": ["green", "yellow", "red", "flashing_yellow", "flashing_red", "off", "green_arrow", "yellow_arrow", "red_x", "proceed", "stop", "flashing_yellow_arrow", "flashing_red_arrow"]
+    },
+    "worldVehicleControl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["throttle", "brake", "steer"],
+      "properties": {
+        "throttle": {"type": "number", "minimum": 0, "maximum": 1},
+        "brake": {"type": "number", "minimum": 0, "maximum": 1},
+        "steer": {"type": "number", "minimum": -1, "maximum": 1},
+        "handbrake": {"type": "boolean"}
+      },
+      "description": "Existing native VehicleControl: normalized pedals/steer, no alternate driving model."
+    },
+    "worldAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "motionDirection": {"enum": [1, -1, null]},
+        "targetSpeedMps": {"type": ["number", "null"]},
+        "targetAccelerationMps2": {"type": ["number", "null"]},
+        "previewPoint": {"type": ["object", "null"], "required": ["x", "y"], "properties": {"x": {"type": "number"}, "y": {"type": "number"}}, "additionalProperties": false},
+        "previewHeadingRad": {"type": ["number", "null"]},
+        "control": {"anyOf": [{"$ref": "#/$defs/worldVehicleControl"}, {"type": "null"}]},
+        "kinematicPose": {"type": ["object", "null"], "required": ["x", "y", "headingRad", "speedMps", "tEndS"], "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "headingRad": {"type": "number"}, "speedMps": {"type": "number", "minimum": 0}, "tEndS": {"type": "number"}}, "additionalProperties": false}
+      },
+      "description": "Existing native ActionOverride, camelCase. Preview/kinematic coordinates are xodr-local x/y, not spawn scene x/z; native applicability/finite-value checks remain authoritative."
+    },
+    "actorKind": {
+      "enum": ["vehicle", "car", "truck", "bus", "van", "motorcycle", "bicycle", "pedestrian", "scooter", "sidewalk_robot", "drone", "animal", "static_object"]
+    },
+    "worldSpawn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "pose"],
+      "properties": {
+        "id": {"$ref": "#/$defs/actorId"},
+        "kind": {"$ref": "#/$defs/actorKind"},
+        "pose": {"type": "object", "additionalProperties": false, "required": ["x", "z"], "properties": {"x": {"type": "number"}, "z": {"type": "number"}, "headingRad": {"type": "number"}}},
+        "speedMps": {"type": "number"},
+        "dims": {"type": "object", "additionalProperties": false, "required": ["l", "w", "h"], "properties": {"l": {"type": "number", "exclusiveMinimum": 0}, "w": {"type": "number", "exclusiveMinimum": 0}, "h": {"type": "number", "exclusiveMinimum": 0}}},
+        "route": {"type": "object", "description": "Existing native RouteSpec/scenario-contract DTO; runtime validates it, never substitutes a route."},
+        "cruiseSpeedMps": {"type": "number"},
+        "snapToLane": {"type": "boolean"},
+        "static": {"type": "boolean"},
+        "tags": {"type": "array", "items": {"type": "string"}}
+      },
+      "description": "Existing SpawnRequest; scene-frame x/z, engine lane/overlap validation, native allocated IDs only on commit. No ambient/sensor-observer injection through unsupported native actor edits."
+    },
+    "worldLifecycleOp": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["kind", "spawn"], "properties": {"kind": {"const": "spawn"}, "spawn": {"$ref": "#/$defs/worldSpawn"}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "actorId"], "properties": {"kind": {"const": "despawn"}, "actorId": {"$ref": "#/$defs/actorId"}}}
+      ]
+    },
+    "worldCommand": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["kind", "spawn"], "properties": {"kind": {"const": "spawn"}, "spawn": {"$ref": "#/$defs/worldSpawn"}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "actorId"], "properties": {"kind": {"const": "despawn"}, "actorId": {"$ref": "#/$defs/actorId"}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "ops"], "properties": {"kind": {"const": "batch"}, "ops": {"type": "array", "items": {"$ref": "#/$defs/worldLifecycleOp"}, "minItems": 1}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "actorId", "action"], "properties": {"kind": {"const": "act"}, "actorId": {"$ref": "#/$defs/actorId"}, "action": {"anyOf": [{"$ref": "#/$defs/worldAction"}, {"type": "null"}]}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "actorId", "command"], "properties": {"kind": {"const": "driverCommand"}, "actorId": {"$ref": "#/$defs/actorId"}, "command": {"anyOf": [{"$ref": "#/$defs/worldVehicleControl"}, {"type": "null"}]}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "actorId", "samples"], "properties": {"kind": {"const": "followTrajectory"}, "actorId": {"$ref": "#/$defs/actorId"}, "samples": {"type": "array", "items": {"type": "array", "items": {"type": "number"}, "minItems": 5, "maxItems": 5}, "minItems": 1}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "signalId", "phase"], "properties": {"kind": {"const": "setSignalPhase"}, "signalId": {"type": "string", "minLength": 1}, "phase": {"anyOf": [{"$ref": "#/$defs/controlIndication"}, {"type": "null"}]}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "signalId", "phases", "loop"], "properties": {"kind": {"const": "setSignalPlan"}, "signalId": {"type": "string", "minLength": 1}, "phases": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["phase", "durationS"], "properties": {"phase": {"$ref": "#/$defs/controlIndication"}, "durationS": {"type": "number", "exclusiveMinimum": 0}}}, "minItems": 1}, "loop": {"type": "boolean"}, "startOffsetS": {"type": "number", "minimum": 0}}}
+      ],
+      "description": "One existing WorldCommand union, extended only by native live signal operations. A lifecycle batch is atomic; rejected commands do not consume actor IDs or mutate the world. Host authorization is separate from native semantic validation."
+    },
+    "worldActorState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "x", "z", "headingRad", "speedMps", "longitudinalSpeedMps", "present", "s", "laneRsl"],
+      "properties": {
+        "id": {"$ref": "#/$defs/actorId"},
+        "kind": {"$ref": "#/$defs/actorKind"},
+        "x": {"type": "number"},
+        "z": {"type": "number"},
+        "headingRad": {"type": "number"},
+        "speedMps": {"type": "number"},
+        "longitudinalSpeedMps": {"type": "number"},
+        "present": {"type": "boolean"},
+        "s": {"type": "number"},
+        "laneRsl": {"type": ["string", "null"]}
+      }
+    },
+    "worldOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ok"],
+      "properties": {
+        "ok": {"type": "boolean"},
+        "actorIds": {"type": "array", "items": {"$ref": "#/$defs/actorId"}},
+        "error": {"type": "string"}
+      },
+      "allOf": [
+        {"if": {"properties": {"ok": {"const": false}}}, "then": {"required": ["error"], "properties": {"error": {"type": "string", "minLength": 1}}}}
+      ]
+    },
+    "worldCreateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "clientId", "reconnectToken", "host", "tick", "dtSec", "pacing", "mapId", "mapDigest", "journalPath"],
+      "properties": {
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "clientId": {"$ref": "#/$defs/clientId"},
+        "reconnectToken": {"$ref": "#/$defs/reconnectToken"},
+        "host": {"const": true},
+        "tick": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "dtSec": {"const": 0.02},
+        "pacing": {"$ref": "#/$defs/worldPacing"},
+        "mapId": {"type": "string", "minLength": 1},
+        "mapDigest": {"$ref": "#/$defs/digest"},
+        "mapReleaseDigest": {"$ref": "#/$defs/digest"},
+        "journalPath": {"type": "string", "minLength": 1},
+        "nextSeq": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615}
+      },
+      "description": "mapDigest is source XODR/engine graph SHA, not a release digest; mapReleaseDigest is included only from a verified receipt. Durable journal defaults to user state storage, never auto-removed on disconnect/close."
+    },
+    "worldJoinResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["clientId", "reconnectToken", "host", "tick", "dtSec"],
+      "properties": {
+        "clientId": {"$ref": "#/$defs/clientId"},
+        "reconnectToken": {"$ref": "#/$defs/reconnectToken"},
+        "host": {"type": "boolean"},
+        "tick": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "dtSec": {"const": 0.02},
+        "nextSeq": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615}
+      }
+    },
+    "worldClaimResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actorId", "owner"],
+      "properties": {
+        "actorId": {"$ref": "#/$defs/actorId"},
+        "owner": {"anyOf": [{"$ref": "#/$defs/clientId"}, {"type": "null"}]}
+      }
+    },
+    "worldCommandResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seq", "tick", "timeSec", "outcome"],
+      "properties": {
+        "seq": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "tick": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "timeSec": {"type": "number"},
+        "outcome": {"$ref": "#/$defs/worldOutcome"}
+      },
+      "description": "Acknowledgement is the committed command boundary. timeSec is native simulation time, not wall time; first ensuing tick carries the effect. Host-generated disconnect braking is logged through the same authority."
+    },
+    "worldSubscribeResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subscriptionId", "dtSec", "rateHz", "capacity", "channels"],
+      "properties": {
+        "subscriptionId": {"$ref": "#/$defs/subscriptionId"},
+        "dtSec": {"const": 0.02},
+        "rateHz": {"type": "integer", "minimum": 1, "maximum": 50},
+        "capacity": {"type": "integer", "minimum": 1},
+        "channels": {"type": "array", "prefixItems": [{"const": "actors"}, {"const": "signals"}, {"const": "telemetry"}], "minItems": 3, "maxItems": 3}
+      }
+    },
+    "worldPollResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subscriptionId", "framesBase64", "queued", "dropped"],
+      "properties": {
+        "subscriptionId": {"$ref": "#/$defs/subscriptionId"},
+        "framesBase64": {"$ref": "#/$defs/base64"},
+        "queued": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+        "dropped": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615}
+      },
+      "description": "Decoded bytes are concatenated [u32 little-endian length][named MsgPack TruthFrame] packets, unchanged from native truth-stream-wire. Empty string means no frames. Native tick/time/scene/signals/telemetry are never JSON-reencoded or renumbered."
+    },
+    "worldUnsubscribeResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subscriptionId", "closed"],
+      "properties": {
+        "subscriptionId": {"$ref": "#/$defs/subscriptionId"},
+        "closed": {"const": true}
+      }
+    },
+    "worldSnapshotResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tS", "tick", "done", "actors", "signals", "pacing", "lagTicks", "overloadCount", "droppedSimTicks", "haltedReason"],
+      "properties": {
+        "tS": {"type": "number"},
+        "tick": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "done": {"type": "boolean"},
+        "actors": {"type": "array", "items": {"$ref": "#/$defs/worldActorState"}},
+        "signals": {"type": "array", "items": {"type": "object"}},
+        "pacing": {"$ref": "#/$defs/worldPacing"},
+        "lagTicks": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "overloadCount": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "droppedSimTicks": {"const": 0},
+        "haltedReason": {"type": ["string", "null"]}
+      },
+      "description": "Existing unwrapped WorldSnapshot plus host clock diagnostics and native SignalSnapshot rows. One tick-consistent snapshot; browser drawing does not advance physics."
+    },
+    "worldCheckpointResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkpointBase64", "tick", "digest", "baseInputHash"],
+      "properties": {
+        "checkpointBase64": {"$ref": "#/$defs/base64"},
+        "tick": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "digest": {"$ref": "#/$defs/digest"},
+        "baseInputHash": {"$ref": "#/$defs/digest"}
+      },
+      "description": "Opaque native MsgPack continuation state plus versioned host population configuration/scheduling continuation, not an alternate physics DTO. No graph/admin/reconnect secrets. Runtime checks build/map/base-input identity before restore."
+    },
+    "worldRestoreResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tick", "pacing"],
+      "properties": {
+        "tick": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "pacing": {"const": "paused"}
+      }
+    },
+    "worldDiagnostics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logEntries", "actorSlots", "population"],
+      "properties": {
+        "logEntries": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "actorSlots": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "population": {"$ref": "#/$defs/worldPopulation"}
+      }
+    },
+    "worldTimeResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tick", "timeSec", "pacing", "lagTicks", "peakLagTicks", "overloadCount", "droppedSimTicks", "haltedReason", "journalPath"],
+      "properties": {
+        "tick": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "timeSec": {"type": "number"},
+        "pacing": {"$ref": "#/$defs/worldPacing"},
+        "lagTicks": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "peakLagTicks": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "overloadCount": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "droppedSimTicks": {"const": 0},
+        "haltedReason": {"type": ["string", "null"]},
+        "journalPath": {"type": "string", "minLength": 1},
+        "diagnostics": {"$ref": "#/$defs/worldDiagnostics"}
+      },
+      "description": "Realtime wall-clock pacing may lag under overload; it retains lag and reports it, never skips simulated ticks. Fast mode is unpaced; rendered sensor/display FPS is separately qualified."
+    },
+    "worldRecordResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recordingPath", "chunks", "active", "manifestPath", "manifestSha256"],
+      "properties": {
+        "recordingPath": {"type": ["string", "null"]},
+        "chunks": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+        "active": {"type": "boolean"},
+        "bufferedTicks": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+        "manifestPath": {"type": ["string", "null"]},
+        "manifestSha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+      },
+      "description": "Published root manifest indexes durable recording/v1 gzip chunks and unchanged native truth sidecars with real hashes. Never-recorded status has null paths/hash and chunks 0; stop finalizes the actual files."
+    },
+    "worldCloseResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["closed"],
+      "properties": {
+        "closed": {"const": true}
+      }
+    },
+    "worldTruthNotification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "op", "worldId", "subscriptionId", "sequence", "framesBase64", "queued", "dropped"],
+      "properties": {
+        "schema": {"$ref": "#/$defs/schemaName"},
+        "op": {"const": "world.truth"},
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "subscriptionId": {"$ref": "#/$defs/subscriptionId"},
+        "sequence": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "framesBase64": {"$ref": "#/$defs/base64"},
+        "queued": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+        "dropped": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615}
+      },
+      "description": "Unsolicited only after world.subscribe. No request id/ok. Per-subscription sequence and monotonic dropped counter account for bounded delivery. Truth bytes use the same framing as world.poll; physics never waits for consumer IO."
+    },
+    "worldSubscriptionClosed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "op", "worldId", "subscriptionId", "reason"],
+      "properties": {
+        "schema": {"$ref": "#/$defs/schemaName"},
+        "op": {"const": "world.subscriptionClosed"},
+        "worldId": {"$ref": "#/$defs/worldId"},
+        "subscriptionId": {"$ref": "#/$defs/subscriptionId"},
+        "reason": {"enum": ["restored", "world_closed", "unsubscribed"]}
+      }
+    },
+    "notification": {
+      "oneOf": [
+        {"$ref": "#/$defs/worldTruthNotification"},
+        {"$ref": "#/$defs/worldSubscriptionClosed"}
+      ]
+    },
+    "batchId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "batchMask": {
+      "type": "array",
+      "items": {"type": "boolean"},
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "batchCreateParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv", "count"],
+      "properties": {
+        "argv": {"$ref": "#/$defs/argv"},
+        "cwd": {"$ref": "#/$defs/cwd"},
+        "count": {"type": "integer", "minimum": 1, "maximum": 64},
+        "shards": {"type": "integer", "minimum": 1, "maximum": 64}
+      },
+      "description": "State-only native CPU shards; shards <= count is runtime-validated. Env serve argv omits socket; no-sensors is implied. Rig/sensors are refused as batch_sensors_unsupported, never silently replaced. Handles are connection-owned and cannot alias expired handles."
+    },
+    "batchResetParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId"],
+      "properties": {
+        "batchId": {"$ref": "#/$defs/batchId"},
+        "seeds": {"type": "array", "items": {"$ref": "#/$defs/seed"}, "minItems": 1, "maxItems": 64},
+        "mask": {"$ref": "#/$defs/batchMask"}
+      },
+      "description": "When present seeds/mask lengths must equal count. Validate all rows before touching any world; false-mask worlds are unchanged. No implicit autoreset."
+    },
+    "batchStepParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId", "actions"],
+      "properties": {
+        "batchId": {"$ref": "#/$defs/batchId"},
+        "actions": {"type": "array", "items": {"type": ["array", "null"], "items": {"type": ["number", "null"]}}, "minItems": 1, "maxItems": 64},
+        "mask": {"$ref": "#/$defs/batchMask"}
+      },
+      "description": "Actions/mask lengths must equal count; native action width/applicability checked per row. Request-level invalid data dispatches no world. Engine failures are explicit per-world outcomes; other active worlds can advance."
+    },
+    "batchObserveParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId"],
+      "properties": {
+        "batchId": {"$ref": "#/$defs/batchId"},
+        "mask": {"$ref": "#/$defs/batchMask"}
+      }
+    },
+    "batchHandleParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId"],
+      "properties": {
+        "batchId": {"$ref": "#/$defs/batchId"}
+      }
+    },
+    "batchCreateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId", "count", "shards", "shardOf", "observation", "hello"],
+      "properties": {
+        "batchId": {"$ref": "#/$defs/batchId"},
+        "count": {"type": "integer", "minimum": 1, "maximum": 64},
+        "shards": {"type": "integer", "minimum": 1, "maximum": 64},
+        "shardOf": {"type": "array", "items": {"type": "integer", "minimum": 0, "maximum": 63}, "minItems": 1, "maxItems": 64},
+        "observation": {"const": "state"},
+        "hello": {"$ref": "#/$defs/envHeader"}
+      }
+    },
+    "nativeEnvErrorHeader": {
+      "type": "object",
+      "required": ["ok", "code", "reason"],
+      "properties": {
+        "ok": {"const": false},
+        "code": {"type": "string", "pattern": "^[a-z][a-z0-9_.]*$"},
+        "reason": {"type": "string", "minLength": 1},
+        "detail": {}
+      }
+    },
+    "batchEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["envIndex", "ok", "header", "tailBase64"],
+      "properties": {
+        "envIndex": {"type": "integer", "minimum": 0, "maximum": 63},
+        "ok": {"type": "boolean"},
+        "header": {"type": "object"},
+        "tailBase64": {"$ref": "#/$defs/base64"}
+      },
+      "description": "Native header/tail, unchanged float64/float32/uint8 bytes; header i is requestId:envIndex. Entry failure is never represented by fake zero observations.",
+      "allOf": [
+        {"if": {"properties": {"ok": {"const": true}}}, "then": {"properties": {"header": {"$ref": "#/$defs/envHeader"}}}},
+        {"if": {"properties": {"ok": {"const": false}}}, "then": {"properties": {"header": {"$ref": "#/$defs/nativeEnvErrorHeader"}, "tailBase64": {"const": ""}}}}
+      ]
+    },
+    "batchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId", "results", "failed"],
+      "properties": {
+        "batchId": {"$ref": "#/$defs/batchId"},
+        "results": {"type": "array", "items": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/batchEntry"}]}, "minItems": 1, "maxItems": 64},
+        "failed": {"type": "array", "items": {"type": "integer", "minimum": 0, "maximum": 63}, "uniqueItems": true}
+      },
+      "description": "Results ordered by envIndex, fixed count; masked entries null. failed lists exactly the failing non-null entries. Per-env engine errors do not roll back other worlds. Same seeds/inputs give identical native payloads across shard counts; envelope metadata/ids are not a byte-identity promise."
+    },
+    "batchCloseResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId", "closed"],
+      "properties": {
+        "batchId": {"$ref": "#/$defs/batchId"},
+        "closed": {"const": true}
+      }
+    },
+    "mode": { "enum": ["2d", "schematic", "3d"] },
+    "argv": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[^\u0000]*$" },
+      "description": "Literal argument vector, never a shell command. help/command includes the root verb; typed execution omits the root verb, and env.create omits env serve. The runtime's help catalogue defines argument schemas and refusal codes; this contract does not duplicate that catalogue. compile uses the existing instantiate materializer. Transport flags (--cloud/--json/cost/credentials) are not runtime arguments. World create omits world serve; batch create omits env serve."
+    },
+    "cwd": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?:/|[A-Za-z]:[\\/])[^\u0000]*$",
+      "description": "Absolute operation base directory; omitted means runtime launch directory. Resolve relative inputs against it without changing process-global cwd. Cloud workers constrain all paths to the authorized materialized job directory."
+    },
+    "handshakeParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protocol"],
+      "properties": { "protocol": { "const": 1 } }
+    },
+    "executionParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv"],
+      "properties": {
+        "argv": { "$ref": "#/$defs/argv" },
+        "cwd": { "$ref": "#/$defs/cwd" }
+      }
+    },
+    "renderParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv", "mode"],
+      "properties": {
+        "argv": { "$ref": "#/$defs/argv" },
+        "cwd": { "$ref": "#/$defs/cwd" },
+        "mode": { "$ref": "#/$defs/mode" }
+      },
+      "description": "Mode is authoritative: 2d selects the CPU top-down path; schematic selects Helios schematic; 3d selects Helios training/showcase. Conflicting argv engine/preset/mode flags are rejected, not silently rewritten. Preview argv starts with frame or clip."
+    },
+    "envId": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "seed": { "type": ["number", "string", "null"] },
+    "base64": {
+      "type": "string",
+      "contentEncoding": "base64",
+      "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+    },
+    "envResetParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["envId"],
+      "properties": {
+        "envId": { "$ref": "#/$defs/envId" },
+        "seed": { "$ref": "#/$defs/seed" },
+        "scenario": {
+          "type": "object",
+          "description": "Existing native compiled scenario input, not an arbitrary scenario document. Validated by the authoritative native session; same-map and renderer compatibility checks remain mandatory."
+        }
+      }
+    },
+    "envStepParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["envId", "action"],
+      "properties": {
+        "envId": { "$ref": "#/$defs/envId" },
+        "action": {
+          "type": ["array", "null"],
+          "items": { "type": ["number", "null"] },
+          "description": "Native action row with width/fields declared by env.create hello. Null elements mean unset (native NaN); a null row delegates to authored control. Width, applicability and finite numeric values are runtime-validated. No reset/autoreset is implicit."
+        }
+      }
+    },
+    "envHandleParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["envId"],
+      "properties": { "envId": { "$ref": "#/$defs/envId" } }
+    },
+    "envRestoreParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["envId", "checkpointBase64"],
+      "properties": {
+        "envId": { "$ref": "#/$defs/envId" },
+        "checkpointBase64": { "$ref": "#/$defs/base64" }
+      },
+      "description": "Exact opaque native checkpoint bytes returned by env.checkpoint, decoded from the header's checkpoint range in tailBase64. The runtime validates build/input compatibility."
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "id", "op", "params"],
+      "properties": {
+        "schema": { "$ref": "#/$defs/schemaName" },
+        "id": { "$ref": "#/$defs/id" },
+        "op": { "$ref": "#/$defs/operation" },
+        "params": { "type": "object" }
+      },
+      "oneOf": [
+        { "properties": { "op": { "const": "handshake" }, "params": { "$ref": "#/$defs/handshakeParams" } } },
+        { "properties": { "op": { "enum": ["help", "command", "compile", "simulate", "transfer", "evaluate", "env.create"] }, "params": { "$ref": "#/$defs/executionParams" } } },
+        { "properties": { "op": { "enum": ["render", "preview"] }, "params": { "$ref": "#/$defs/renderParams" } } },
+        { "properties": { "op": { "const": "env.reset" }, "params": { "$ref": "#/$defs/envResetParams" } } },
+        { "properties": { "op": { "const": "env.step" }, "params": { "$ref": "#/$defs/envStepParams" } } },
+        { "properties": { "op": { "enum": ["env.observe", "env.checkpoint", "env.close"] }, "params": { "$ref": "#/$defs/envHandleParams" } } },
+        { "properties": { "op": { "const": "env.restore" }, "params": { "$ref": "#/$defs/envRestoreParams" } } },
+        {"properties": {"op": {"const": "world.create"}, "params": {"$ref": "#/$defs/worldCreateParams"}}},
+        {"properties": {"op": {"const": "world.join"}, "params": {"$ref": "#/$defs/worldJoinParams"}}},
+        {"properties": {"op": {"const": "world.claim"}, "params": {"$ref": "#/$defs/worldClaimParams"}}},
+        {"properties": {"op": {"const": "world.command"}, "params": {"$ref": "#/$defs/worldCommandParams"}}},
+        {"properties": {"op": {"const": "world.subscribe"}, "params": {"$ref": "#/$defs/worldSubscribeParams"}}},
+        {"properties": {"op": {"const": "world.poll"}, "params": {"$ref": "#/$defs/worldPollParams"}}},
+        {"properties": {"op": {"const": "world.unsubscribe"}, "params": {"$ref": "#/$defs/worldSubscriptionParams"}}},
+        {"properties": {"op": {"const": "world.snapshot"}, "params": {"$ref": "#/$defs/worldHandleParams"}}},
+        {"properties": {"op": {"const": "world.checkpoint"}, "params": {"$ref": "#/$defs/worldHandleParams"}}},
+        {"properties": {"op": {"const": "world.restore"}, "params": {"$ref": "#/$defs/worldRestoreParams"}}},
+        {"properties": {"op": {"const": "world.time"}, "params": {"$ref": "#/$defs/worldTimeParams"}}},
+        {"properties": {"op": {"const": "world.record"}, "params": {"$ref": "#/$defs/worldRecordParams"}}},
+        {"properties": {"op": {"const": "world.close"}, "params": {"$ref": "#/$defs/worldHandleParams"}}},
+        {"properties": {"op": {"const": "env.batch.create"}, "params": {"$ref": "#/$defs/batchCreateParams"}}},
+        {"properties": {"op": {"const": "env.batch.reset"}, "params": {"$ref": "#/$defs/batchResetParams"}}},
+        {"properties": {"op": {"const": "env.batch.step"}, "params": {"$ref": "#/$defs/batchStepParams"}}},
+        {"properties": {"op": {"const": "env.batch.observe"}, "params": {"$ref": "#/$defs/batchObserveParams"}}},
+        {"properties": {"op": {"const": "env.batch.close"}, "params": {"$ref": "#/$defs/batchHandleParams"}}}
+      ]
+    },
+    "handshakeResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtimeProtocol", "rendererProtocol", "runtimeVersion", "engineSemver", "operations", "contractSha256"],
+      "properties": {
+        "runtimeProtocol": { "const": 1 },
+        "rendererProtocol": { "const": 5 },
+        "runtimeVersion": { "type": "string", "minLength": 1 },
+        "engineSemver": { "type": "string", "minLength": 1 },
+        "operations": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/operation" },
+          "contains": { "const": "handshake" }
+        },
+        "contractSha256": { "$ref": "#/$defs/digest" },
+        "commit": { "type": "string", "minLength": 1 },
+        "capabilities": { "type": "object" }
+      },
+      "description": "contractSha256 hashes the exact raw runtime-protocol.v1.json bytes. Engine determinism uses engineSemver and pinned inputs/seed; protocol/schema identity alone does not establish equivalent physics or cross-GPU pixel equality. Clients must check operations before use."
+    },
+    "commandResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "exitCode"],
+      "properties": {
+        "value": {},
+        "exitCode": { "enum": [0, 2] }
+      },
+      "description": "The existing operation result document unchanged. Exit 2 is completed-with-findings, including a negative evaluation verdict, not transport failure. Artifact identities stay in the native result manifest; a cloud worker exposes bytes by authenticated artifact API, never worker filesystem paths."
+    },
+    "envHeader": {
+      "type": "object",
+      "required": ["ok"],
+      "properties": { "ok": { "const": true } },
+      "description": "Exact successful simforge.env-serve/v1 header. create returns hello (protocol/action/space/engine identities); reset/step/observe/restore return observations/reward/terminated/truncated/info and optional sensors. checkpoint returns an opaque payload reference. Native header errors are promoted to the outer error envelope."
+    },
+    "envResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["envId", "header", "tailBase64"],
+      "properties": {
+        "envId": { "$ref": "#/$defs/envId" },
+        "header": { "$ref": "#/$defs/envHeader" },
+        "tailBase64": { "$ref": "#/$defs/base64" }
+      },
+      "description": "Native binary tail unchanged, base64-encoded (empty string when absent). Descriptor offsets/length/dtype/shape retain exact little-endian float64/float32/uint8 bytes. Validate every range, shape product and decoded byte length before use. Local binary sockets avoid base64 overhead. env.close releases only this handle. Handles are connection-owned, invalid after close/disconnect, and step/observe require reset."
+    },
+    "arrayDescriptor": {
+      "type": "object",
+      "required": ["offset", "length", "dtype", "shape"],
+      "properties": {
+        "offset": { "type": "integer", "minimum": 0, "multipleOf": 8 },
+        "length": { "type": "integer", "minimum": 0 },
+        "dtype": { "enum": ["<f8", "<f4", "|u1"] },
+        "shape": { "type": "array", "items": { "type": "integer", "minimum": 0 } }
+      }
+    },
+    "success": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "id", "op", "ok", "result"],
+      "properties": {
+        "schema": { "$ref": "#/$defs/schemaName" },
+        "id": { "$ref": "#/$defs/id" },
+        "op": { "$ref": "#/$defs/operation" },
+        "ok": { "const": true },
+        "result": { "type": "object" }
+      },
+      "oneOf": [
+        { "properties": { "op": { "const": "handshake" }, "result": { "$ref": "#/$defs/handshakeResult" } } },
+        { "properties": { "op": { "enum": ["help", "command", "compile", "simulate", "render", "preview", "transfer", "evaluate"] }, "result": { "$ref": "#/$defs/commandResult" } } },
+        { "properties": { "op": { "$ref": "#/$defs/envOperation" }, "result": { "$ref": "#/$defs/envResult" } } },
+        {"properties": {"op": {"const": "world.create"}, "result": {"$ref": "#/$defs/worldCreateResult"}}},
+        {"properties": {"op": {"const": "world.join"}, "result": {"$ref": "#/$defs/worldJoinResult"}}},
+        {"properties": {"op": {"const": "world.claim"}, "result": {"$ref": "#/$defs/worldClaimResult"}}},
+        {"properties": {"op": {"const": "world.command"}, "result": {"$ref": "#/$defs/worldCommandResult"}}},
+        {"properties": {"op": {"const": "world.subscribe"}, "result": {"$ref": "#/$defs/worldSubscribeResult"}}},
+        {"properties": {"op": {"const": "world.poll"}, "result": {"$ref": "#/$defs/worldPollResult"}}},
+        {"properties": {"op": {"const": "world.unsubscribe"}, "result": {"$ref": "#/$defs/worldUnsubscribeResult"}}},
+        {"properties": {"op": {"const": "world.snapshot"}, "result": {"$ref": "#/$defs/worldSnapshotResult"}}},
+        {"properties": {"op": {"const": "world.checkpoint"}, "result": {"$ref": "#/$defs/worldCheckpointResult"}}},
+        {"properties": {"op": {"const": "world.restore"}, "result": {"$ref": "#/$defs/worldRestoreResult"}}},
+        {"properties": {"op": {"const": "world.time"}, "result": {"$ref": "#/$defs/worldTimeResult"}}},
+        {"properties": {"op": {"const": "world.record"}, "result": {"$ref": "#/$defs/worldRecordResult"}}},
+        {"properties": {"op": {"const": "world.close"}, "result": {"$ref": "#/$defs/worldCloseResult"}}},
+        {"properties": {"op": {"const": "env.batch.create"}, "result": {"$ref": "#/$defs/batchCreateResult"}}},
+        {"properties": {"op": {"const": "env.batch.reset"}, "result": {"$ref": "#/$defs/batchResult"}}},
+        {"properties": {"op": {"const": "env.batch.step"}, "result": {"$ref": "#/$defs/batchResult"}}},
+        {"properties": {"op": {"const": "env.batch.observe"}, "result": {"$ref": "#/$defs/batchResult"}}},
+        {"properties": {"op": {"const": "env.batch.close"}, "result": {"$ref": "#/$defs/batchCloseResult"}}}
+      ]
+    },
+    "protocolErrorCode": {
+      "enum": [
+        "bad_message", "protocol_mismatch", "handshake_required", "unknown_op", "operation_unavailable",
+        "runtime_not_installed", "runtime_digest_mismatch", "env_not_found", "episode_not_reset",
+        "message_too_large", "invalid_payload", "internal_error",
+        "world_not_found", "world_client_required", "world_permission_denied", "world_actor_claimed", "world_actor_not_owned", "world_sequence_conflict", "world_subscription_not_found", "world_clock_conflict", "world_checkpoint_mismatch", "world_recording_active", "world_recording_inactive", "world_halted", "batch_sensors_unsupported"
+      ]
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "reason", "exitCode"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.]*$",
+          "description": "Stable protocol codes are listed in protocolErrorCode. Existing native operation/authoring refusal codes pass through unchanged and are enumerated by help and authoring-operations.v1.json. Human reason text is not a programmatic key."
+        },
+        "reason": { "type": "string", "minLength": 1 },
+        "path": { "type": "string" },
+        "detail": {},
+        "exitCode": { "enum": [1, 2] }
+      }
+    },
+    "failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "id", "op", "ok", "error"],
+      "properties": {
+        "schema": { "$ref": "#/$defs/schemaName" },
+        "id": { "type": ["string", "null"], "maxLength": 128 },
+        "op": { "type": "string" },
+        "ok": { "const": false },
+        "error": { "$ref": "#/$defs/error" }
+      },
+      "description": "Echo a valid request id/op. For malformed input use id=null and the parsed op, or an empty string if unavailable. Refuse unsupported versions/operations and malformed payloads without mutating state. A fatal framing violation closes the connection after a bounded error when possible. EOF/shutdown releases all owned env handles. Disconnect releases scalar/batch env handles, subscriptions and client actor claims, but not persistent worlds; host-generated safety braking is logged. World close is host-authorized."
+    }
+  }
+}

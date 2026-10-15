@@ -1,0 +1,44 @@
+[workspace]
+resolver = "2"
+members = ["native/crates/simforge-cli", "native/crates/simforge-glb"]
+
+[workspace.package]
+"version" = "0.1.0"
+"edition" = "2021"
+"rust-version" = "1.85"
+"license" = "Apache-2.0"
+"license-file" = "LICENSE"
+
+[workspace.dependencies]
+"serde" = { "version" = "1", "features" = ["derive"] }
+"serde_json" = { "version" = "1", "features" = ["float_roundtrip"] }
+"thiserror" = "2"
+"sha2" = "0.10"
+"flate2" = { "version" = "1", "default-features" = false, "features" = ["rust_backend"] }
+"rmp-serde" = "1"
+
+[profile."dev"]
+"opt-level" = 1
+"debug" = false
+
+[profile."dev".package."*"]
+"opt-level" = 3
+
+[profile."release"]
+"codegen-units" = 1
+
+[profile."ci"]
+"inherits" = "release"
+"lto" = false
+"codegen-units" = 16
+"debug" = 0
+"split-debuginfo" = "off"
+
+[profile."wheel"]
+"inherits" = "release"
+"lto" = "fat"
+
+[profile."profiling"]
+"inherits" = "release"
+"codegen-units" = 16
+"debug" = "line-tables-only"

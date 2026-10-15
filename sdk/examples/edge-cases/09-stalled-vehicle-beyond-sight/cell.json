@@ -1,0 +1,152 @@
+{
+  "schema": "simforge.scenario-cell/v1",
+  "mapId": "el-camino-road",
+  "siteId": "studio:el-camino-road",
+  "drawIndex": 0,
+  "manifest": {
+    "kind": "scenario-instance-manifest",
+    "manifestVersion": 1,
+    "replayKey": {
+      "templateId": "ec-09-09-stalled-vehicle-beyond-sight-v2",
+      "templateVersion": 2,
+      "templateDigest": "a071b7d58f5cab1b",
+      "mapId": "el-camino-road",
+      "matcherIndexDigest": "986a9135415f3b045a7fb5d8f552bea3a1e7bdc9f35aba33e70092ee1dbd91d0",
+      "engineGraphDigest": "00293fb5a40e6665257770f20eddbd0cbd711b301cce17496544c0e1fa15900a",
+      "siteId": "studio:el-camino-road",
+      "matcherVersion": "1.0.0",
+      "solverVersion": "0.2.6",
+      "paramSeed": "ec-09-09-stalled-vehicle-beyond-sight-v2",
+      "drawIndex": 0
+    },
+    "instanceId": "ec-09-09-stalled-vehicle-beyond-sight-v2#0",
+    "archetype": "gallery.09-stalled-vehicle-beyond-sight",
+    "negativeControl": false,
+    "metricSubject": "focus-vehicle",
+    "operationalVariant": null,
+    "site": {
+      "siteId": "studio:el-camino-road",
+      "score": 1,
+      "verdict": "exact",
+      "originFeatureId": "map:el-camino-road",
+      "entryLaneRsl": "71:0:3",
+      "egoTurn": null,
+      "degradationSummary": "exact map-bound Studio placement",
+      "matchedReasons": [
+        "anchor.pin.mapId",
+        "scene_absolute"
+      ]
+    },
+    "params": {
+      "values": {
+        "egoSpeedKph": 35,
+        "cartSpeedKph": 9
+      },
+      "categorical": {},
+      "rejectedConstraints": []
+    },
+    "actors": [
+      {
+        "id": "focus-vehicle",
+        "actorKind": "car",
+        "roleKind": "focus",
+        "laneRsl": "71:0:3",
+        "spawnS": 9.920763285649912,
+        "initialSpeedMps": 9.722222222222223,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "oncoming-glare",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": "685:0:-1",
+        "spawnS": 40.769997743948764,
+        "initialSpeedMps": 8.88888888888889,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "shopper",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": "7:0:-2",
+        "spawnS": 8.247138914322363,
+        "initialSpeedMps": 1.1111111111111112,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "stalled-vehicle",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": "7:0:-2",
+        "spawnS": 13.247138914322363,
+        "initialSpeedMps": 0,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "umbrella-pedestrian",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": "7:0:-2",
+        "spawnS": 27.247138914322363,
+        "initialSpeedMps": 0,
+        "bindingStatus": "bound"
+      }
+    ],
+    "props": [],
+    "arrival": [],
+    "inputHash": "494bf0d4e0015d70bb8877dee2e839c6dec8b60e08ac36c1a40bb188a1ad87d2",
+    "feasible": true,
+    "issues": [],
+    "notes": [
+      {
+        "path": "roles.shopper.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.shopper.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.cart.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.cart.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.shopper.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.focus-vehicle.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.cart.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.cart.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.cart.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      },
+      {
+        "path": "roles.cart.extensions.placementFeature",
+        "reason": "placementFeature \"access\" is not bound at this site; using frame origin"
+      }
+    ],
+    "contractMigration": {
+      "schema": "simforge.native-input-contract-reseal/v1",
+      "sourceSha256": "caaac1ee7fff0ad3774fbdd38c435f75ba0d0b331b455db5ab7058e203359685",
+      "sourceInputHash": "f38564b35983fb73ba48b5aae8bb87d53950087dcd696cd3d8d537a0dcfa933c",
+      "targetAbi": 2,
+      "removedMasterFlags": 5,
+      "foldedFalseMasterFlags": 1,
+      "scope": "Rule-contract reseal only; authored poses, actors, actions, thresholds and signals unchanged. Replay metadata retains its historical materialization provenance."
+    }
+  }
+}

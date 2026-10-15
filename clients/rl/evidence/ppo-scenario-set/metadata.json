@@ -1,0 +1,496 @@
+{
+  "config": {
+    "epochs": 10,
+    "eval_every": 10,
+    "eval_limit": null,
+    "eval_seeds": "1001,1002",
+    "export_map": null,
+    "gamma": 0.99,
+    "lr": 0.0003,
+    "max_open": null,
+    "minibatch": 256,
+    "num_envs": 32,
+    "rollout": 128,
+    "seed": 0,
+    "server_replicas": 1,
+    "split": "train",
+    "tasks": "richmond-field-station",
+    "threads": 1,
+    "total_timesteps": 1228800,
+    "vectorization": "async"
+  },
+  "environment": {
+    "cpuCount": 24,
+    "gymnasium": "1.4.0",
+    "hostClass": "CPU",
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "python": "3.12.14",
+    "simforgeRl": "0.1.1",
+    "torch": "2.14.1+cpu"
+  },
+  "evalTasks": [
+    {
+      "scenario": "adult-midblock-crossing@158aa402",
+      "seed": 1001
+    },
+    {
+      "scenario": "adult-midblock-crossing@158aa402",
+      "seed": 1002
+    },
+    {
+      "scenario": "adult-midblock-crossing@27d53507",
+      "seed": 1001
+    },
+    {
+      "scenario": "adult-midblock-crossing@27d53507",
+      "seed": 1002
+    },
+    {
+      "scenario": "backing-out-vehicle@02931707",
+      "seed": 1001
+    },
+    {
+      "scenario": "backing-out-vehicle@02931707",
+      "seed": 1002
+    },
+    {
+      "scenario": "backing-out-vehicle@2622e37c",
+      "seed": 1001
+    },
+    {
+      "scenario": "backing-out-vehicle@2622e37c",
+      "seed": 1002
+    },
+    {
+      "scenario": "cpnco-parked-row@c7794a7c",
+      "seed": 1001
+    },
+    {
+      "scenario": "cpnco-parked-row@c7794a7c",
+      "seed": 1002
+    },
+    {
+      "scenario": "cpnco-parked-row@de9c337a",
+      "seed": 1001
+    },
+    {
+      "scenario": "cpnco-parked-row@de9c337a",
+      "seed": 1002
+    },
+    {
+      "scenario": "cyclist-crossing-path@0e7787e6",
+      "seed": 1001
+    },
+    {
+      "scenario": "cyclist-crossing-path@0e7787e6",
+      "seed": 1002
+    },
+    {
+      "scenario": "cyclist-crossing-path@16d03889",
+      "seed": 1001
+    },
+    {
+      "scenario": "cyclist-crossing-path@16d03889",
+      "seed": 1002
+    },
+    {
+      "scenario": "disabled-vehicle@69939930",
+      "seed": 1001
+    },
+    {
+      "scenario": "disabled-vehicle@69939930",
+      "seed": 1002
+    },
+    {
+      "scenario": "disabled-vehicle@894df17b",
+      "seed": 1001
+    },
+    {
+      "scenario": "disabled-vehicle@894df17b",
+      "seed": 1002
+    },
+    {
+      "scenario": "lead-hard-brake@1e29b9bd",
+      "seed": 1001
+    },
+    {
+      "scenario": "lead-hard-brake@1e29b9bd",
+      "seed": 1002
+    },
+    {
+      "scenario": "lead-hard-brake@391af02d",
+      "seed": 1001
+    },
+    {
+      "scenario": "lead-hard-brake@391af02d",
+      "seed": 1002
+    },
+    {
+      "scenario": "light-corridor@1c0e6bed",
+      "seed": 1001
+    },
+    {
+      "scenario": "light-corridor@1c0e6bed",
+      "seed": 1002
+    },
+    {
+      "scenario": "ltap-opposing@9fc1b2c2",
+      "seed": 1001
+    },
+    {
+      "scenario": "ltap-opposing@9fc1b2c2",
+      "seed": 1002
+    },
+    {
+      "scenario": "oncoming-overtake@b1ed39e5",
+      "seed": 1001
+    },
+    {
+      "scenario": "oncoming-overtake@b1ed39e5",
+      "seed": 1002
+    },
+    {
+      "scenario": "oncoming-overtake@ddc37703",
+      "seed": 1001
+    },
+    {
+      "scenario": "oncoming-overtake@ddc37703",
+      "seed": 1002
+    },
+    {
+      "scenario": "opposing-turn-encroachment@23afb358",
+      "seed": 1001
+    },
+    {
+      "scenario": "opposing-turn-encroachment@23afb358",
+      "seed": 1002
+    },
+    {
+      "scenario": "queue-tail@e2e894a1",
+      "seed": 1001
+    },
+    {
+      "scenario": "queue-tail@e2e894a1",
+      "seed": 1002
+    },
+    {
+      "scenario": "queue-tail@1ae48fb3",
+      "seed": 1001
+    },
+    {
+      "scenario": "queue-tail@1ae48fb3",
+      "seed": 1002
+    },
+    {
+      "scenario": "red-light-late-entry@027da72d",
+      "seed": 1001
+    },
+    {
+      "scenario": "red-light-late-entry@027da72d",
+      "seed": 1002
+    },
+    {
+      "scenario": "right-turn-crosswalk@109e9d91",
+      "seed": 1001
+    },
+    {
+      "scenario": "right-turn-crosswalk@109e9d91",
+      "seed": 1002
+    },
+    {
+      "scenario": "urban-mixed@42144495",
+      "seed": 1001
+    },
+    {
+      "scenario": "urban-mixed@42144495",
+      "seed": 1002
+    },
+    {
+      "scenario": "vehicle-pulls-out@85b4ac66",
+      "seed": 1001
+    },
+    {
+      "scenario": "vehicle-pulls-out@85b4ac66",
+      "seed": 1002
+    },
+    {
+      "scenario": "vehicle-pulls-out@6fcaaefa",
+      "seed": 1001
+    },
+    {
+      "scenario": "vehicle-pulls-out@6fcaaefa",
+      "seed": 1002
+    }
+  ],
+  "map": {
+    "name": "richmond-field-station",
+    "version": "v9",
+    "xodrSha256": "531c1bd6f568c56a41fd868ffe1cec0e92bc7dcda9c794c67a8f80a450186b18"
+  },
+  "result": {
+    "authoredControlByScenario": {
+      "adult-midblock-crossing@158aa402": 4.9431415202800535,
+      "adult-midblock-crossing@27d53507": 3.204504784921766,
+      "backing-out-vehicle@02931707": -0.003914823163330749,
+      "backing-out-vehicle@2622e37c": -0.24618809937899871,
+      "cpnco-parked-row@c7794a7c": 2.3836523225092963,
+      "cpnco-parked-row@de9c337a": 2.4011145910900695,
+      "cyclist-crossing-path@0e7787e6": -8.595592358515095,
+      "cyclist-crossing-path@16d03889": -8.169545468275631,
+      "disabled-vehicle@69939930": 0.5480509713496103,
+      "disabled-vehicle@894df17b": 1.2240163163721312,
+      "lead-hard-brake@1e29b9bd": 1.8806914955207172,
+      "lead-hard-brake@391af02d": 1.8806873224896916,
+      "light-corridor@1c0e6bed": 1.9938003270500873,
+      "ltap-opposing@9fc1b2c2": 2.890020371363621,
+      "oncoming-overtake@b1ed39e5": -8.917444237398422,
+      "oncoming-overtake@ddc37703": 5.305721802931422,
+      "opposing-turn-encroachment@23afb358": 1.2047559820083718,
+      "queue-tail@1ae48fb3": 1.5456349210235274,
+      "queue-tail@e2e894a1": 1.5456501651806747,
+      "red-light-late-entry@027da72d": 5.015723768003635,
+      "right-turn-crosswalk@109e9d91": 1.2622059405748547,
+      "urban-mixed@42144495": -0.8892267491183168,
+      "vehicle-pulls-out@6fcaaefa": 2.3840742218218085,
+      "vehicle-pulls-out@85b4ac66": 2.292268805742192
+    },
+    "authoredControlReturn": 0.7118251622659889,
+    "curveSha256": "ec1430c27270902eb7f68b2194a5292cde85f2dd86bf8ff9a6a367a07ea00bfc",
+    "envSteps": 1228800,
+    "episodes": 10832,
+    "finalEvalByScenario": {
+      "adult-midblock-crossing@158aa402": 8.458698936157875,
+      "adult-midblock-crossing@27d53507": 0.6721258099719806,
+      "backing-out-vehicle@02931707": 5.540480079143126,
+      "backing-out-vehicle@2622e37c": -0.2415923324061866,
+      "cpnco-parked-row@c7794a7c": 0.21763448554812703,
+      "cpnco-parked-row@de9c337a": -7.084317186841634,
+      "cyclist-crossing-path@0e7787e6": 5.237483191096473,
+      "cyclist-crossing-path@16d03889": 20.25047984323608,
+      "disabled-vehicle@69939930": -8.177772389828855,
+      "disabled-vehicle@894df17b": -8.281513574045762,
+      "lead-hard-brake@1e29b9bd": -7.727746775815866,
+      "lead-hard-brake@391af02d": 0.9961013334349611,
+      "light-corridor@1c0e6bed": 9.493440019681934,
+      "ltap-opposing@9fc1b2c2": 10.950632466765754,
+      "oncoming-overtake@b1ed39e5": -8.53963336879078,
+      "oncoming-overtake@ddc37703": 15.412134317670176,
+      "opposing-turn-encroachment@23afb358": 9.680428647100282,
+      "queue-tail@1ae48fb3": 0.20032123651206155,
+      "queue-tail@e2e894a1": 0.35376344037695706,
+      "red-light-late-entry@027da72d": 4.836895132339063,
+      "right-turn-crosswalk@109e9d91": 5.052714339467223,
+      "urban-mixed@42144495": -0.9840520683998931,
+      "vehicle-pulls-out@6fcaaefa": 0.15060595391859125,
+      "vehicle-pulls-out@85b4ac66": 9.289149249487853
+    },
+    "finalEvalReturn": 2.7398525327408145,
+    "initialEvalReturn": 0.7880841568753073
+  },
+  "runtime": {
+    "decisionHz": 10,
+    "engineHz": 50,
+    "engineVersion": "0.31.0",
+    "mapXodrSha256": "531c1bd6f568c56a41fd868ffe1cec0e92bc7dcda9c794c67a8f80a450186b18",
+    "protocol": "simforge.env-serve/v1",
+    "version": "0.2.0-rc.4"
+  },
+  "scenarios": [
+    {
+      "inputDigest": null,
+      "name": "adult-midblock-crossing@158aa402",
+      "seeds": [],
+      "site": "158aa4020f77d2be",
+      "templateSha256": "f73fe12411a46c7acc3127c2847a133e7888ed83a10a45bf670ac39fd45c9ac1",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "adult-midblock-crossing@27d53507",
+      "seeds": [],
+      "site": "27d535076d02d7ae",
+      "templateSha256": "f73fe12411a46c7acc3127c2847a133e7888ed83a10a45bf670ac39fd45c9ac1",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "backing-out-vehicle@02931707",
+      "seeds": [],
+      "site": "0293170780e964e5",
+      "templateSha256": "7a7f63ed31af54079ebc0c17ef178fa19b5d41d87dec4bc51574d7f638094dc1",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "backing-out-vehicle@2622e37c",
+      "seeds": [],
+      "site": "2622e37cf1792d94",
+      "templateSha256": "7a7f63ed31af54079ebc0c17ef178fa19b5d41d87dec4bc51574d7f638094dc1",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "cpnco-parked-row@c7794a7c",
+      "seeds": [],
+      "site": "c7794a7ce907531d",
+      "templateSha256": "718ae1a41d0985609e6313265901bb50532a387bc3323f005f83a7dd01c77e69",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "cpnco-parked-row@de9c337a",
+      "seeds": [],
+      "site": "de9c337ab2ecc7de",
+      "templateSha256": "718ae1a41d0985609e6313265901bb50532a387bc3323f005f83a7dd01c77e69",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "cyclist-crossing-path@0e7787e6",
+      "seeds": [],
+      "site": "0e7787e6e1586b97",
+      "templateSha256": "df31a8be430293b5c18e966fa5905ff8b208f0441c75075c487f043aaed8cbd4",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "cyclist-crossing-path@16d03889",
+      "seeds": [],
+      "site": "16d03889d83c1e23",
+      "templateSha256": "df31a8be430293b5c18e966fa5905ff8b208f0441c75075c487f043aaed8cbd4",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "disabled-vehicle@69939930",
+      "seeds": [],
+      "site": "69939930958ba2e6",
+      "templateSha256": "dd83a3918cf367c8b000e950610be5e7e8ca190d6c7d69ada3c43ddef280e4ac",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "disabled-vehicle@894df17b",
+      "seeds": [],
+      "site": "894df17b293d2c12",
+      "templateSha256": "dd83a3918cf367c8b000e950610be5e7e8ca190d6c7d69ada3c43ddef280e4ac",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "lead-hard-brake@1e29b9bd",
+      "seeds": [],
+      "site": "1e29b9bd216ae5f3",
+      "templateSha256": "62cbf3e056069576c8e147c0ab5c5f4fc743b95380fd9d1296b2e90df7b68931",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "lead-hard-brake@391af02d",
+      "seeds": [],
+      "site": "391af02dd90d4247",
+      "templateSha256": "62cbf3e056069576c8e147c0ab5c5f4fc743b95380fd9d1296b2e90df7b68931",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "light-corridor@1c0e6bed",
+      "seeds": [],
+      "site": "1c0e6bed326e8d09",
+      "templateSha256": "e5acd67a1a7d44573e8aef453a4b5fa4d31a37fd29944d2043122e7ecff2e270",
+      "weight": 1.0
+    },
+    {
+      "inputDigest": null,
+      "name": "ltap-opposing@9fc1b2c2",
+      "seeds": [],
+      "site": "9fc1b2c2d3a811de",
+      "templateSha256": "6fa0a94da6d928f7b55172d687f3b3eadc071f1320318c08f93a6b21bc484e0e",
+      "weight": 1.0
+    },
+    {
+      "inputDigest": null,
+      "name": "oncoming-overtake@b1ed39e5",
+      "seeds": [],
+      "site": "b1ed39e590f6cacc",
+      "templateSha256": "c9659f67a9ea9d6a5233f0fe7ef0db683916a003ab75b9e388112890f540a8db",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "oncoming-overtake@ddc37703",
+      "seeds": [],
+      "site": "ddc37703075db048",
+      "templateSha256": "c9659f67a9ea9d6a5233f0fe7ef0db683916a003ab75b9e388112890f540a8db",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "opposing-turn-encroachment@23afb358",
+      "seeds": [],
+      "site": "23afb3580150d467",
+      "templateSha256": "ef61aab2495344a82cb22f88e3a973120ea3141fd73dfe71d086c2ab0da76243",
+      "weight": 1.0
+    },
+    {
+      "inputDigest": null,
+      "name": "queue-tail@e2e894a1",
+      "seeds": [],
+      "site": "e2e894a13515938a",
+      "templateSha256": "92b6850cd8a22f6fda0f90b6ad7aa1c3e0c34c28f1f32c632f8fd54b48a5e416",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "queue-tail@1ae48fb3",
+      "seeds": [],
+      "site": "1ae48fb34d2e28b2",
+      "templateSha256": "92b6850cd8a22f6fda0f90b6ad7aa1c3e0c34c28f1f32c632f8fd54b48a5e416",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "red-light-late-entry@027da72d",
+      "seeds": [],
+      "site": "027da72d636aba90",
+      "templateSha256": "094834e9069a599065a1b40e4276d667257865ebd1a7087bd5e22f085412af44",
+      "weight": 1.0
+    },
+    {
+      "inputDigest": null,
+      "name": "right-turn-crosswalk@109e9d91",
+      "seeds": [],
+      "site": "109e9d91d5b86efc",
+      "templateSha256": "7bbe4a1384cc472c4b198662e27b3787ae358807012017b2162705015f8e06aa",
+      "weight": 1.0
+    },
+    {
+      "inputDigest": null,
+      "name": "urban-mixed@42144495",
+      "seeds": [],
+      "site": "421444951aeedcdf",
+      "templateSha256": "a2d20f73b8196fda8a350d986dea18aabb29a4079614034497e9fb83129e1039",
+      "weight": 1.0
+    },
+    {
+      "inputDigest": null,
+      "name": "vehicle-pulls-out@85b4ac66",
+      "seeds": [],
+      "site": "85b4ac661d5835bb",
+      "templateSha256": "b4040f8ce4d6b2dd81bbdbc2f00135d68ae822706bbceaacaf3b71611a5f1e12",
+      "weight": 0.5
+    },
+    {
+      "inputDigest": null,
+      "name": "vehicle-pulls-out@6fcaaefa",
+      "seeds": [],
+      "site": "6fcaaefa2786b6d7",
+      "templateSha256": "b4040f8ce4d6b2dd81bbdbc2f00135d68ae822706bbceaacaf3b71611a5f1e12",
+      "weight": 0.5
+    }
+  ],
+  "schema": "simforge-rl.ppo-run/v1",
+  "transport": "runtime-stdio",
+  "wallSeconds": 2252.1
+}

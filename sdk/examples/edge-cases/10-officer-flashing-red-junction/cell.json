@@ -1,0 +1,74 @@
+{
+  "schema": "simforge.scenario-cell/v1",
+  "mapId": "yale-street",
+  "manifest": {
+    "instanceId": "ec-10-10-officer-flashing-red-junction-v2#0",
+    "inputHash": "736d9b4bbfc10d470fcd31dd8ff5ca47f0ffb3895c2d78a41669bf228b26eedd",
+    "replayKey": {
+      "mapId": "yale-street",
+      "matcherIndexDigest": "33eb942298b3492266d0582782f020ef121cc1d8da08bcb3080c9b71ea01f95e",
+      "engineGraphDigest": "fbebbdccd6a6b5dfa18a321d74009dede3851f18b673a9b807e6f1b5ea3b17d5",
+      "templateId": "ec-10-10-officer-flashing-red-junction-v2",
+      "paramSeed": "ec-10-10-officer-flashing-red-junction-v2",
+      "drawIndex": 0
+    },
+    "actors": [
+      {
+        "id": "cross-suv",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "focus-vehicle",
+        "actorKind": "car",
+        "roleKind": "focus",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "officer",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "pedestrian-group",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "turning-bus",
+        "actorKind": "bus",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      }
+    ],
+    "archetype": "gallery.10-officer-flashing-red-junction",
+    "metricSubject": "focus-vehicle",
+    "contractMigration": {
+      "schema": "simforge.native-input-contract-reseal/v1",
+      "sourceSha256": "55c518f8989d5ab607325b0a7e672104497e49530c6f6f4efbea78eadbc4da9a",
+      "sourceInputHash": "9d73ca49b7c69c3e3f43d06bac070442dd763501124f48bc56e196243a7dbaff",
+      "targetAbi": 2,
+      "removedMasterFlags": 5,
+      "foldedFalseMasterFlags": 0,
+      "scope": "Rule-contract reseal only; authored poses, actors, actions, thresholds and signals unchanged. Replay metadata retains its historical materialization provenance."
+    }
+  }
+}

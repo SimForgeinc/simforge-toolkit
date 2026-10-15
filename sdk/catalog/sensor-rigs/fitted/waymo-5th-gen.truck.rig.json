@@ -1,0 +1,252 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-front",
+      "sensorLabel": "Front",
+      "outputName": "waymo-front",
+      "transform": {
+        "position": {
+          "x": 3.85,
+          "y": 4,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 50,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-front-left",
+      "sensorLabel": "Front Left",
+      "outputName": "waymo-front-left",
+      "transform": {
+        "position": {
+          "x": 3.55,
+          "y": 4,
+          "z": 1.1
+        },
+        "rotation": {
+          "yawRad": 0.7853981633974483,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 70,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-front-right",
+      "sensorLabel": "Front Right",
+      "outputName": "waymo-front-right",
+      "transform": {
+        "position": {
+          "x": 3.55,
+          "y": 4,
+          "z": -1.1
+        },
+        "rotation": {
+          "yawRad": -0.7853981633974483,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 70,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-left",
+      "sensorLabel": "Left",
+      "outputName": "waymo-left",
+      "transform": {
+        "position": {
+          "x": 0,
+          "y": 4,
+          "z": 1.3
+        },
+        "rotation": {
+          "yawRad": 1.5707963267948966,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 70,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-right",
+      "sensorLabel": "Right",
+      "outputName": "waymo-right",
+      "transform": {
+        "position": {
+          "x": 0,
+          "y": 4,
+          "z": -1.3
+        },
+        "rotation": {
+          "yawRad": -1.5707963267948966,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 70,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-lidar-top",
+      "sensorLabel": "Top LiDAR",
+      "outputName": "waymo-lidar-top",
+      "transform": {
+        "position": {
+          "x": 0,
+          "y": 4.5,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 75,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 20,
+        "lowerFovDeg": -20,
+        "horizontalFovDeg": 360
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-lidar-front",
+      "sensorLabel": "Front LiDAR",
+      "outputName": "waymo-lidar-front",
+      "transform": {
+        "position": {
+          "x": 4.35,
+          "y": 0.8,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 50,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 20,
+        "lowerFovDeg": -20,
+        "horizontalFovDeg": 360
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-lidar-left",
+      "sensorLabel": "Left LiDAR",
+      "outputName": "waymo-lidar-left",
+      "transform": {
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 1.3
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 50,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 20,
+        "lowerFovDeg": -20,
+        "horizontalFovDeg": 360
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "waymo-lidar-right",
+      "sensorLabel": "Right LiDAR",
+      "outputName": "waymo-lidar-right",
+      "transform": {
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": -1.3
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 50,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 20,
+        "lowerFovDeg": -20,
+        "horizontalFovDeg": 360
+      }
+    }
+  ]
+}

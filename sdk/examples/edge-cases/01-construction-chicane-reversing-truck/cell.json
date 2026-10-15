@@ -1,0 +1,330 @@
+{
+  "schema": "simforge.scenario-cell/v1",
+  "mapId": "belmont-research-center",
+  "siteId": "0a4650e5055bf351",
+  "drawIndex": 0,
+  "manifest": {
+    "kind": "scenario-instance-manifest",
+    "manifestVersion": 1,
+    "replayKey": {
+      "templateId": "ec-01-01-construction-chicane-reversing-truck-v2",
+      "templateVersion": 2,
+      "templateDigest": "e19adfb773196dc3",
+      "mapId": "belmont-research-center",
+      "matcherIndexDigest": "f7a0c32a33a8f97daca1d0c24aee8022dc2d6d5221c63ccbdf3e6ae6e7e1518f",
+      "engineGraphDigest": "35cf2b16a1d308c6436089a0edf66f20c87a79da12e79472a03a2f568ba28f63",
+      "siteId": "0a4650e5055bf351",
+      "matcherVersion": "1.0.0",
+      "solverVersion": "0.2.5",
+      "paramSeed": "ec-01-01-construction-chicane-reversing-truck-v2",
+      "drawIndex": 0
+    },
+    "instanceId": "ec-01-01-construction-chicane-reversing-truck-v2#0",
+    "archetype": "gallery.01-construction-chicane-reversing-truck",
+    "negativeControl": false,
+    "metricSubject": "focus-vehicle",
+    "operationalVariant": null,
+    "site": {
+      "siteId": "0a4650e5055bf351",
+      "score": 0.5335,
+      "verdict": "degraded",
+      "originFeatureId": "seg_9f72bc3e7b10c33b",
+      "entryLaneRsl": "93:0:-1",
+      "egoTurn": null,
+      "degradationSummary": "Degraded match (score 0.53). speeds clamped to the site limit 64 kph (arrival invariants re-solved over the speed parameter). corridor.speedLimitKph worst value 64 at s=-180 m, wanted [25, 55]. Presentation was relaxed; the scenario still tests what it was written to test.",
+      "matchedReasons": [
+        "corridor.curvatureDegPer10m holds over the whole interval (worst 0.3)",
+        "231.03 m of runway available, 180 m needed",
+        "180 m of runway available, 180 m needed",
+        "corridor.throughLanesOpposing holds over the whole interval (worst 1)",
+        "corridor.throughLanesSameDir holds over the whole interval (worst 1)"
+      ]
+    },
+    "params": {
+      "values": {
+        "chicaneSpeedKph": 14,
+        "workerSpeedKph": 5.2
+      },
+      "categorical": {},
+      "rejectedConstraints": []
+    },
+    "actors": [
+      {
+        "id": "focus-vehicle",
+        "actorKind": "car",
+        "roleKind": "focus",
+        "laneRsl": "119:0:1",
+        "spawnS": 49.595410426467964,
+        "initialSpeedMps": 7.777777777777779,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "reversing-truck",
+        "actorKind": "truck",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 1.5,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "worker",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": "402:0:1",
+        "spawnS": 6.389371289480245,
+        "initialSpeedMps": 0,
+        "bindingStatus": "bound"
+      }
+    ],
+    "props": [
+      {
+        "id": "excavator",
+        "catalogId": "construction.excavator",
+        "pose": {
+          "x": -139.5196074222747,
+          "z": -43.15030205640363,
+          "headingRad": -0.9460018243362232
+        },
+        "dims": {
+          "l": 5.15,
+          "w": 2.24,
+          "h": 2.71
+        },
+        "scale": 0.3,
+        "collidable": true,
+        "essentiality": "required",
+        "occludes": {
+          "observer": "focus-vehicle",
+          "target": "worker"
+        },
+        "targetRevealToConflictS": 1.2
+      },
+      {
+        "id": "far-portable-signal",
+        "catalogId": "construction.portable_signal",
+        "pose": {
+          "x": -82.1457538007079,
+          "z": -17.00654863158384,
+          "headingRad": 5.607693653952516
+        },
+        "dims": {
+          "l": 1.45,
+          "w": 1.2,
+          "h": 3.25
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "left-barrier-run-0",
+        "groupId": "left-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -114.78220188322571,
+          "z": -39.72414137541257,
+          "headingRad": -0.008793205442471641
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "left-barrier-run-1",
+        "groupId": "left-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -107.78164511706701,
+          "z": -39.6248845466767,
+          "headingRad": -0.009137761799782977
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "left-barrier-run-2",
+        "groupId": "left-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -100.77848826850473,
+          "z": -39.52021028769721,
+          "headingRad": -0.01028672200841169
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "left-barrier-run-3",
+        "groupId": "left-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -93.77687046691273,
+          "z": -39.406255180110456,
+          "headingRad": -0.011023003514342433
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "near-portable-signal",
+        "catalogId": "construction.portable_signal",
+        "pose": {
+          "x": -147.4279888606256,
+          "z": -104.72861804908584,
+          "headingRad": -1.5781514716113687
+        },
+        "dims": {
+          "l": 1.45,
+          "w": 1.2,
+          "h": 3.25
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-barrier-run-0",
+        "groupId": "right-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -147.67273256354204,
+          "z": -74.72942235739416,
+          "headingRad": -1.5780945517411453
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-barrier-run-1",
+        "groupId": "right-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -147.72908934957238,
+          "z": -67.72937922607464,
+          "headingRad": -1.5780119476658205
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-barrier-run-2",
+        "groupId": "right-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -147.78477949557802,
+          "z": -60.72924685246429,
+          "headingRad": -1.5779036457718814
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-barrier-run-3",
+        "groupId": "right-barrier-run",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": -147.83962026699317,
+          "z": -53.729023585144844,
+          "headingRad": -1.577769646056443
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 0.7,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "worker-pipe",
+        "catalogId": "construction.long_pipe",
+        "pose": {
+          "x": -144.12498939349356,
+          "z": -116.70464814855733,
+          "headingRad": -1.578038198275027
+        },
+        "attachment": {
+          "actorId": "worker",
+          "longitudinalM": 0,
+          "lateralM": -4,
+          "heightM": 1.1,
+          "headingOffsetRad": 0
+        },
+        "dims": {
+          "l": 8,
+          "w": 0.62,
+          "h": 0.62
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      }
+    ],
+    "arrival": [],
+    "inputHash": "bf22deedc23420b49b66d0a795a65ee9815c78c369589bb1a1e19da01c10415d",
+    "feasible": true,
+    "issues": [],
+    "notes": [
+      {
+        "path": "roles.reversing-truck.route",
+        "reason": "lane chain extended upstream by 2 lane(s) to reach the site-evaluated spawn at frame s=95.0 m"
+      },
+      {
+        "path": "props.excavator",
+        "reason": "occlusion declared between focus-vehicle and worker; reveal-to-conflict is reported by the engine, not solved for"
+      }
+    ],
+    "contractMigration": {
+      "schema": "simforge.native-input-contract-reseal/v1",
+      "sourceSha256": "8b69ea18c0a4b4bde77f5f7ef85d0fa5147fff21370724b0855eda29006d12a5",
+      "sourceInputHash": "c81054d5d3ce0cc6c20df10459b932d4cca38898a42fdd1b487490c1505df9a5",
+      "targetAbi": 2,
+      "removedMasterFlags": 3,
+      "foldedFalseMasterFlags": 0,
+      "scope": "Rule-contract reseal only; authored poses, actors, actions, thresholds and signals unchanged. Replay metadata retains its historical materialization provenance."
+    }
+  }
+}

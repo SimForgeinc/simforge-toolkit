@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" font-family="sans-serif" font-size="12">
+<rect width="720" height="420" fill="white"/>
+<line x1="56" y1="364" x2="664" y2="364" stroke="black"/>
+<line x1="56" y1="56" x2="56" y2="364" stroke="black"/>
+<text x="360.0" y="406" text-anchor="middle">environment steps (max 1228800)</text>
+<text x="14" y="210.0" transform="rotate(-90 14 210.0)" text-anchor="middle">mean episode return</text>
+<text x="50" y="368.0" text-anchor="end">-3.0</text>
+<text x="50" y="60.0" text-anchor="end">4.3</text>
+<line x1="56" y1="207.3" x2="664" y2="207.3" stroke="#888" stroke-dasharray="4 4"/>
+<polyline fill="none" stroke="#1f77b4" stroke-width="2" points="56.0,204.1 76.3,290.2 96.5,330.3 116.8,295.0 137.1,286.0 157.3,240.9 177.6,201.6 197.9,237.6 218.1,219.3 238.4,207.8 258.7,209.9 278.9,202.7 299.2,179.4 319.5,166.2 339.7,183.2 360.0,200.7 380.3,166.6 400.5,164.4 420.8,194.5 441.1,138.1 461.3,169.7 481.6,158.2 501.9,132.5 522.1,154.2 542.4,168.7 562.7,166.0 582.9,139.7 603.2,123.4 623.5,116.8 643.7,122.8 664.0,122.7"/>
+<text x="514" y="56" fill="#1f77b4">eval_return</text>
+<polyline fill="none" stroke="#ff7f0e" stroke-width="2" points="76.3,294.9 96.5,350.0 116.8,287.1 137.1,250.3 157.3,239.2 177.6,234.3 197.9,202.7 218.1,201.6 238.4,182.5 258.7,158.6 278.9,202.1 299.2,149.0 319.5,158.8 339.7,128.9 360.0,160.4 380.3,162.1 400.5,163.7 420.8,121.7 441.1,93.3 461.3,156.6 481.6,70.0 501.9,132.5 522.1,151.3 542.4,79.9 562.7,84.6 582.9,87.3 603.2,105.9 623.5,153.7 643.7,117.6 664.0,91.0"/>
+<text x="514" y="72" fill="#ff7f0e">train_return</text>
+<text x="514" y="88" fill="#888">authored control</text></svg>

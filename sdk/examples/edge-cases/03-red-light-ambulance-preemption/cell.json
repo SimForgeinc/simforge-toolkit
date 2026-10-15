@@ -1,0 +1,74 @@
+{
+  "schema": "simforge.scenario-cell/v1",
+  "mapId": "yale-street",
+  "manifest": {
+    "instanceId": "ec-03-03-red-light-ambulance-preemption-v2#0",
+    "inputHash": "d8db1063aeb298a06059e75e76dd2240d189c909193a4710b3a6351bea6162e7",
+    "replayKey": {
+      "mapId": "yale-street",
+      "matcherIndexDigest": "33eb942298b3492266d0582782f020ef121cc1d8da08bcb3080c9b71ea01f95e",
+      "engineGraphDigest": "fbebbdccd6a6b5dfa18a321d74009dede3851f18b673a9b807e6f1b5ea3b17d5",
+      "templateId": "ec-03-03-red-light-ambulance-preemption-v2",
+      "paramSeed": "ec-03-03-red-light-ambulance-preemption-v2",
+      "drawIndex": 0
+    },
+    "actors": [
+      {
+        "id": "ambulance",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": "93:0:1",
+        "spawnS": 13.734383391386212,
+        "initialSpeedMps": 0,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "cross-traffic",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": "57:0:1",
+        "spawnS": 13.340423459139696,
+        "initialSpeedMps": 9.444444,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "downstream-queue",
+        "actorKind": "truck",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "focus-vehicle",
+        "actorKind": "car",
+        "roleKind": "focus",
+        "laneRsl": "93:0:1",
+        "spawnS": 6.451895932736173,
+        "initialSpeedMps": 0,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "pedestrian",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      }
+    ],
+    "archetype": "gallery.03-red-light-ambulance-preemption",
+    "metricSubject": "focus-vehicle",
+    "contractMigration": {
+      "schema": "simforge.native-input-contract-reseal/v1",
+      "sourceSha256": "f8c78efd84c93f27eec69bf6ba224578c9e6d9f868ecfd348db00396f788aacc",
+      "sourceInputHash": "5c82d66208b3af13f9bb4216f42536aa841713b03bd7ed241ecd10c143fe0b6e",
+      "targetAbi": 2,
+      "removedMasterFlags": 5,
+      "foldedFalseMasterFlags": 0,
+      "scope": "Rule-contract reseal only; authored poses, actors, actions, thresholds and signals unchanged. Replay metadata retains its historical materialization provenance."
+    }
+  }
+}

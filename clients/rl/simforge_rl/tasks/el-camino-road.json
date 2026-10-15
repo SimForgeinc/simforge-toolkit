@@ -1,0 +1,178 @@
+{
+  "schema": "simforge-rl.scenario-set/v1",
+  "scenarios": [
+    {
+      "name": "adult-midblock-crossing@2b17655e",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "2b17655eabd01f4c"
+    },
+    {
+      "name": "adult-midblock-crossing@6922dcf3",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "6922dcf3b73e3d0c"
+    },
+    {
+      "name": "backing-out-vehicle@0c11d849",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "0c11d8492a2be29c"
+    },
+    {
+      "name": "backing-out-vehicle@198e298c",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "198e298c7c522738"
+    },
+    {
+      "name": "cut-in-brake@113178b7",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "113178b7f015f09e"
+    },
+    {
+      "name": "cut-in-brake@483a7c56",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "483a7c565c107c3c"
+    },
+    {
+      "name": "cutout-reveals-stopped@2c6b09bb",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "2c6b09bb069156d3"
+    },
+    {
+      "name": "cutout-reveals-stopped@326a23f1",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "326a23f1c1e37ef7"
+    },
+    {
+      "name": "cyclist-crossing-path@2a660f9c",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "2a660f9c8caf2341"
+    },
+    {
+      "name": "cyclist-crossing-path@568cc924",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "568cc9249278271b"
+    },
+    {
+      "name": "disabled-vehicle@0e4c24c2",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "0e4c24c2ea6df259"
+    },
+    {
+      "name": "disabled-vehicle@13e67d8d",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "13e67d8d8a401557"
+    },
+    {
+      "name": "lead-hard-brake@05d16470",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "05d16470bc3344e6"
+    },
+    {
+      "name": "lead-hard-brake@0ce19aaf",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "0ce19aaf5b0147b5"
+    },
+    {
+      "name": "left-turn-crosswalk@31c14cf0",
+      "weight": 1.0,
+      "template": "templates/left-turn-crosswalk.template.json",
+      "site": "31c14cf0ff668681"
+    },
+    {
+      "name": "light-corridor@c5f336b1",
+      "weight": 1.0,
+      "template": "templates/light-corridor.template.json",
+      "site": "c5f336b136426e7b"
+    },
+    {
+      "name": "ltap-opposing@7d22d40e",
+      "weight": 1.0,
+      "template": "templates/ltap-opposing.template.json",
+      "site": "7d22d40e074be26c"
+    },
+    {
+      "name": "opposing-turn-encroachment@2055f901",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "2055f90189c76a3f"
+    },
+    {
+      "name": "opposing-turn-encroachment@7f95c0f4",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "7f95c0f4363040e2"
+    },
+    {
+      "name": "queue-tail@3d9e272f",
+      "weight": 0.5,
+      "template": "templates/queue-tail.template.json",
+      "site": "3d9e272f2a6ae8e4"
+    },
+    {
+      "name": "queue-tail@09330004",
+      "weight": 0.5,
+      "template": "templates/queue-tail.template.json",
+      "site": "093300044b0820e5"
+    },
+    {
+      "name": "red-light-late-entry@0b26b591",
+      "weight": 1.0,
+      "template": "templates/red-light-late-entry.template.json",
+      "site": "0b26b591ed115ca1"
+    },
+    {
+      "name": "right-turn-crosswalk@265ccc3c",
+      "weight": 1.0,
+      "template": "templates/right-turn-crosswalk.template.json",
+      "site": "265ccc3c1e49d3e9"
+    },
+    {
+      "name": "sideswipe@09999d31",
+      "weight": 0.5,
+      "template": "templates/sideswipe.template.json",
+      "site": "09999d3136073cd3"
+    },
+    {
+      "name": "sideswipe@4205dc9d",
+      "weight": 0.5,
+      "template": "templates/sideswipe.template.json",
+      "site": "4205dc9d8fc91f75"
+    },
+    {
+      "name": "urban-mixed@c5f336b1",
+      "weight": 1.0,
+      "template": "templates/urban-mixed.template.json",
+      "site": "c5f336b136426e7b"
+    },
+    {
+      "name": "vehicle-pulls-out@02102776",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "02102776d24c3809"
+    },
+    {
+      "name": "vehicle-pulls-out@033b0769",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "033b0769022de3d6"
+    }
+  ],
+  "map": {
+    "name": "el-camino-road",
+    "version": "v10",
+    "xodrSha256": "71da62ce5f49eadf291fd6deba9b3865c7864cc50c56cf7b0ba6c907ea021a78"
+  }
+}

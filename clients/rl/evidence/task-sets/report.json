@@ -1,0 +1,2950 @@
+{
+ "maps": [
+  {
+   "mapSource": "dev distribution pack (planar members streamed from the archive)",
+   "name": "belmont-research-center",
+   "rows": [
+    {
+     "episodes": [
+      {
+       "return": 6.055,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 6.055,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "4940e3ec6efa21ecdb6e6166562fcc42178d5afa68c3e87855bcc37d3d5c8151",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "06273638046cbcfd",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.7821,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 1.7821,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "68c5c4c718ab916ce7520cc4d1f51ff496a929a2276ad20c17eb5a8124789b7d",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "2ce8488b39eb7b9e",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.377,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": -0.377,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "a6bde1bcf6bff6d346c5d150dd1d8998347f9a9cb81d72651ffc90f012d5ea4c",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "04796a491a237624",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.3192,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": -0.3192,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "3fb6f14fca43ff1ae2bf250227f5dbef93259d2c6c215c18ed36372d142dfa78",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "0616396fb98f9972",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.3478,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 1.3478,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "27db595b2a256e991aff357eb8ab37285549c9f8477ee910ec09d2f7b3c02592",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "303f196bea18f91e",
+     "template": "cpnco-parked-row.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.578,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 3.578,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5b07059e5b6dc9daa302d4a6ca7d43d9ee028c1f7ecda2c07af336c5956e6877",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "6322f2c3fb2bde45",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.5377,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 3.5377,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "d5a3669108a171d9bf6b786b5698729c39179bbfd83cf4bac3eb0d06115bbd3a",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "64da1c6fc293bd69",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.5657,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 1.5657,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "d35ab0a082ea37b7c7133d12b2f2a3fb25783f784ffaeddebc457a186f29fd70",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "38df6763cf969154",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.5657,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 1.5657,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "dab82ca3059bc0aae5db2c90d6ca722544c3960977050b3bbef92aceb95ebe71",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "39e5d67aa4a15d38",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.401,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.401,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "6d0cc63c05ca0126fb4ce5607c8bb281cccb5165f6b016365d45f413e0dd935d",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "056780a646a05fc3",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.3685,
+       "seed": 1001,
+       "steps": 45,
+       "terminated": true
+      },
+      {
+       "return": -7.3685,
+       "seed": 1002,
+       "steps": 45,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "9b88fa7a83ded8906c6076cebeb1c71400f3d5dab0501095d440cab210d04a7b",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "103c44293bf33d3b",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.0646,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 2.0646,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "8ea6b9f11363195e7d351fbe3addf4551e8dbac46c3d1d674b9f9e4d26c4c017",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "0574ada71f24567a",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.5252,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 0.5252,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "0f13f1446f04ae7a5ed389bbd92663d91212eef33bd503c98ccccb93d61fdbe2",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "0a92c5a7b2935be1",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.689,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.689,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "aae669c0539a849d389d1b5eaba32574d00b9ab11bb100576652e13155285ebb",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "1be4bc76dd4ce794",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.6398,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.6398,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "90dc7bf0948cc02463a9ff9c0d8424beba3d47d352af6c95b7bb78b81fdb26cd",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "21c90265e6701655",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.8097,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 3.8097,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "3b5279f6a7cb88bd948c2b8a614a08278cd5a7ea1b34bab2ac107ce0ffd6b47d",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "1c2b8ef678453f12",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 8.1039,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 8.1039,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5b74354e2f03042c6b840163e888bb8727de8b720be418a64c9f8e0c9d84b0dd",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "1ee51849955a6f72",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "code": "role_semantic_projection_failed",
+     "map": "belmont-research-center",
+     "ok": false,
+     "reason": "constrained role \"slow-vehicle\" cannot reach its matcher-selected local lane within 12.00 m",
+     "site": "797405fb279da01a",
+     "template": "oncoming-overtake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.6588,
+       "seed": 1001,
+       "steps": 73,
+       "terminated": true
+      },
+      {
+       "return": -7.6588,
+       "seed": 1002,
+       "steps": 73,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "1af19ca9248e649c2219de28415e8d3aeb14eef99d9a864f03f36c5837dd2aa8",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "08f2ea7340d567fb",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.471,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 2.471,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "0970025a3098820ffc7ae59bf0bdeb700a5a2fb2a52fc292ce9a0e22043ff08c",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "0a67cc3323997b12",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.7043,
+       "seed": 1001,
+       "steps": 52,
+       "terminated": true
+      },
+      {
+       "return": -7.7043,
+       "seed": 1002,
+       "steps": 52,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "51698c894b91c6f98ebe7a906f97a79815293c5941323b57bfd7e8efc94da88c",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "222059c26f12e929",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.6426,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 3.6426,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "4899f070fb6e9acb4bd2a1242d2486f51756c1e699005ecfa31888aaf93e29c0",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "2ad61f41c16e8235",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.174,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.174,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "634ad7b545e1d50b8adfb47c54467d5c0730b4fe45cc5649b1ffeb85778b497d",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "1c2b8ef678453f12",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.9862,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 3.9862,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "a7166fb3b8c230e1ddd416010c1e111148bb09e662d73624848867db5723bfad",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "1ee51849955a6f72",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.5249,
+       "seed": 1001,
+       "steps": 54,
+       "terminated": true
+      },
+      {
+       "return": -8.5249,
+       "seed": 1002,
+       "steps": 54,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "9d1e5a5860d0853e6eb588be6f84037cb791f281deb9d7dd0d2a3f7d869aae1a",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "799a0c9d2b4414fb",
+     "template": "vehicle-pulls-out.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.3115,
+       "seed": 1001,
+       "steps": 63,
+       "terminated": true
+      },
+      {
+       "return": -8.3115,
+       "seed": 1002,
+       "steps": 63,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "123523222846270e4785fb3965b0fabf69990588d6b22b8ce1c688ab32ad3c85",
+     "map": "belmont-research-center",
+     "ok": true,
+     "site": "80aa8320c07a01ab",
+     "template": "vehicle-pulls-out.template.json"
+    }
+   ],
+   "scenarios": 25,
+   "templates": 13,
+   "version": "v9",
+   "xodrSha256": "234c9ffd76dff2d61c9d4324ada21e185cfd3cfb66a762727a87f89e007a9d50"
+  },
+  {
+   "mapSource": "dev distribution pack, installed with simforge maps pull",
+   "name": "easterbrook-discovery-school",
+   "rows": [
+    {
+     "episodes": [
+      {
+       "return": 7.3169,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 7.3169,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "7cc646c019300fe8aacf50576820a68817888d53c1fc1d2c28d2033376a3b0ac",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "0874ff0db90fefba",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.4682,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.4682,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "b1163d08b1b7bdfec6f161c7c5e0b36f58f18149f7578bfff3e4f6c4f5c08cda",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "4d4f30027a929657",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.3326,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 0.3326,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5fbda6ac3aedc73d62895e8bbf0b85a9743a73d2f94b0e334f5431421d8c7f63",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "283ff319f0276e71",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.3379,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 0.3379,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "b709c521ffd31660660804899bccbc0b846a59402fa1774ce27055f3512a7c00",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "2c7e218f7cb99815",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.1672,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.1672,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "f900ce0b716fb7fb810d8dc40d2de93224c8b1e34e144e9a8b4f5b2873511639",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "068efc780da81ac6",
+     "template": "cpnco-parked-row.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.3097,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.3097,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "cdfc375a60501254f1d07784505b3d5d586868637a6ee877c929cc950f5e63d7",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "42849edf74154e8f",
+     "template": "cpnco-parked-row.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.1782,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 4.1782,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "19e329b288f988a954524dc1eb7e87faabd05149500942d7e014f2b838d7a288",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "0b7564ef69f7ada8",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.1995,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 0.1995,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "140d4534591df4cf245ce3fac10b862849cebdf8f92f989081cd83bdc5b8d5d2",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "904d453fbc5cb583",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.8685,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 1.8685,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "c85151581d8c8fe4be1747a9b129b70eab7f72399d4070b72460f578832d1203",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "21519ea43e4b7f31",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.8685,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 1.8685,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "095a986f55b2953c6ef25e1a240843c41100c7c044439a062ac07e9851ac74bb",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "82d3da772adb7fad",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.1608,
+       "seed": 1001,
+       "steps": 45,
+       "terminated": true
+      },
+      {
+       "return": -7.1608,
+       "seed": 1002,
+       "steps": 45,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "be682b6723a42ffa22a7b1e9cde1dcfcbc0c5eda3c8bc969bcca8984ecf46ee1",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "056c45c93387d74a",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.1668,
+       "seed": 1001,
+       "steps": 45,
+       "terminated": true
+      },
+      {
+       "return": -7.1668,
+       "seed": 1002,
+       "steps": 45,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "39e123ab653585134f4adcc4dba38b5ae070c4ef55e9efc733b8f286e2d586f3",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "0ab77fc5fe94b471",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.4794,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 2.4794,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "1593856c73db74b1e7507c5ac9e60ab4c2a8eafc5ee5a32b669cffa5e26d5ff7",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "1344ca060022f637",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.4769,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 2.4769,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "fd2e4971e4f2dfe15bc1b4d08ed0589aecd7bab213e351b4cd706d05cc8d67ba",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "22d9e352101628c9",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.0525,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 3.0525,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "e2866a996bc8a623f1a7c7bf0de7c97686594f0e4a3453adc4a6d9b2fcb85e09",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "0f057c1979b43867",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.7554,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.7554,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "d5a8df4db7bd72cd348050415e080b6798050f0ab27f058abcbe84febcbf3311",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "11ab01cec68db050",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.1457,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.1457,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "81452f9406aeaad6b69303bfe41c17e6a1df33a1f943df44e3e74dc2b1276104",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "0dcb5c1cbdfbb9fc",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "easterbrook-discovery-school",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap\n  [spawn_overlap] actors.oncoming-1.initial: spawn footprint overlaps oncoming-2",
+     "site": "2d19f6a41be4649c",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.4433,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 5.4433,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "a1988133303e8751fb3d6aab2d28b2c647dfeec796cc85223f1fef269a4dbdf6",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "6a1979fa81f0f4a8",
+     "template": "oncoming-overtake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.3987,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 5.3987,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "46492a71de99e14ff8d56262994a0a145eb0b759df9a2788f41ca4b11b931ca3",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "988fbaf7446a6cde",
+     "template": "oncoming-overtake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.3765,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 5.3765,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "1182cb187e6afe7211d5c58dd07ea105b6bca456b57b9310215fb413330ae4f7",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "66179a673899fd1b",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.3676,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 5.3676,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "76a60def0df408414948513503d5e76c12155b63aca82b086a336a8655323790",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "79f3de719263eac9",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.7628,
+       "seed": 1001,
+       "steps": 130,
+       "terminated": false
+      },
+      {
+       "return": 1.7628,
+       "seed": 1002,
+       "steps": 130,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "29c2748eda0a425dabd1c03221473c1668d6c22815020d84e35f20664256a64e",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "3f2e9f34c1375338",
+     "template": "queue-tail.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.7669,
+       "seed": 1001,
+       "steps": 130,
+       "terminated": false
+      },
+      {
+       "return": 1.7669,
+       "seed": 1002,
+       "steps": 130,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "c33c0ee1b7e74f86ccb69cf824867d567b98e0411795d9c2c9b2bd959c531c44",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "1d8353dd4889b973",
+     "template": "queue-tail.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.0324,
+       "seed": 1001,
+       "steps": 79,
+       "terminated": true
+      },
+      {
+       "return": -7.0324,
+       "seed": 1002,
+       "steps": 79,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "d8fd8dc8be57564e87ddacb9c67a70129aec32889024565c03cdfe9f66210da9",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "1684bf5c361964cd",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -9.9276,
+       "seed": 1001,
+       "steps": 17,
+       "terminated": true
+      },
+      {
+       "return": -9.9276,
+       "seed": 1002,
+       "steps": 17,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "90bd030199036585c93bdaf6462ddadbde7aed0cd6d82b0ac624b9ee982ac33b",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "2200abc5964fc788",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "easterbrook-discovery-school",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, s",
+     "site": "2d19f6a41be4649c",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "easterbrook-discovery-school",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, s",
+     "site": "6dfc3946b60e5fcb",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.3787,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 5.3787,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5b276089aa7cfaa19d4ef3249d490a1b6833e14753b9757da265bf02e401e163",
+     "map": "easterbrook-discovery-school",
+     "ok": true,
+     "site": "256e07fd7c436a04",
+     "template": "vehicle-pulls-out.template.json"
+    }
+   ],
+   "scenarios": 25,
+   "templates": 14,
+   "version": "v9",
+   "xodrSha256": "1a21e0b1813a80a68481f21e9ca44e5907c4e611824852fd1843642c18dde9fc"
+  },
+  {
+   "mapSource": "dev distribution pack (planar members streamed from the archive)",
+   "name": "el-camino-road",
+   "rows": [
+    {
+     "episodes": [
+      {
+       "return": 6.8789,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 6.8789,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "82de896d848aab456d1e64bff56be2f5599c115a1f66efe3a2e0ace4635e485f",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "2b17655eabd01f4c",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 6.5627,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 6.5627,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "1c9e6574230742897af7a101086af90798cac8398f470323707ac861b2836b43",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "6922dcf3b73e3d0c",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.2236,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": -0.2236,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5524342fb7eeeb4b8066d4b073fed970e919316cb100219f4b029762b130655f",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "0c11d8492a2be29c",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.3143,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": -0.3143,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "3679b1ea27ebb421192db2eaccff13caee8183235205919482f0217212ec4dfe",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "198e298c7c522738",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.4149,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 2.4149,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "6cd7ba2bf82511f350c2ef7b8904a94c713bd114aecbfc6cafdc0d0504c69bb1",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "113178b7f015f09e",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.5379,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 3.5379,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "9b255e6884265e869efc43a0ae7fe5f0dbf3b6cd0933781da2c9469f9808bc73",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "483a7c565c107c3c",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.4602,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 1.4602,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "2141f4c3b7b361559dd85dc1c4b2c655b1a7287b94678591e510b1f8fcdf9953",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "2c6b09bb069156d3",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.8685,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 1.8685,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "375448574d277b8bdf45668c23ff4b78945434d443ec159db388c286757670dc",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "326a23f1c1e37ef7",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.3697,
+       "seed": 1001,
+       "steps": 45,
+       "terminated": true
+      },
+      {
+       "return": -7.3697,
+       "seed": 1002,
+       "steps": 45,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "916bb2ed678f5f30a243e100d4b0ecbd50935a938d375945e8f6706a266ba5f0",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "2a660f9c8caf2341",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.368,
+       "seed": 1001,
+       "steps": 45,
+       "terminated": true
+      },
+      {
+       "return": -7.368,
+       "seed": 1002,
+       "steps": 45,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "6ef463352decd7cb4f708f8c2327c7a79176a9dd6ad71caebdc9b751ce289332",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "568cc9249278271b",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -2.5393,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": -2.5393,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "3ffddde680a4cb2be1715fa5802d5b3c67c1fb876c374515b39c8540dd146ea6",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "0e4c24c2ea6df259",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.8895,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 1.8895,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "3eecf2eaefe7db4b2b9984c5190945331eeb3721abce1f29228ac0f936ab3ca5",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "13e67d8d8a401557",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.3626,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.3626,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "e4915ecbb285b1bb6e3bffda0c5a38a432e3dcb10a7b716eae0804654eeb21f1",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "05d16470bc3344e6",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.6884,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.6884,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "7833bf1a7862634cc60c933a53a16112d83981610f04256b9299cb5c0ee0edd8",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "0ce19aaf5b0147b5",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.3658,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.3658,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "2d16dbeb06c67e7f895d2cd652f363a4e55b6e841b804bc261d90183d983cc09",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "31c14cf0ff668681",
+     "template": "left-turn-crosswalk.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "el-camino-road",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap\n  [spawn_overlap] actors.oncoming-1.initial: spawn footprint overlaps oncoming-2",
+     "site": "2539e4acd52546e1",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.475,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 3.475,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "b2b0cf302bfbca1d41ba664df1a5738ac882ebf007f9ecefa755c44166d19d52",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "c5f336b136426e7b",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 8.1998,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 8.1998,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "18c9e5e1586458f8e5875801676daac697325b6f435b007e61697ce4fc7f52ea",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "7d22d40e074be26c",
+     "template": "ltap-opposing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.3073,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 1.3073,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "2ab757efd52e3a4f37bfb05ee9b8b838e63a9b8b1a2b5b9183a23b8c16012f71",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "2055f90189c76a3f",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.8472,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 0.8472,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "121780c68d256d483f6a36e73b55bed04a93bbbd47733ca7c5ca3dc8b6a03d26",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "7f95c0f4363040e2",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.5761,
+       "seed": 1001,
+       "steps": 130,
+       "terminated": false
+      },
+      {
+       "return": 1.5761,
+       "seed": 1002,
+       "steps": 130,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "2bce23ca76fb540e6783f05c4910b0063b2aa0564d2eed54daf2ceb10f17dc08",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "3d9e272f2a6ae8e4",
+     "template": "queue-tail.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.6726,
+       "seed": 1001,
+       "steps": 130,
+       "terminated": false
+      },
+      {
+       "return": 1.6726,
+       "seed": 1002,
+       "steps": 130,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "87eea8cdf3f97e8146b4b7b15377a94c3c2396a8f845ff77d0c03f8ecbdc825d",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "093300044b0820e5",
+     "template": "queue-tail.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 7.6043,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 7.6043,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "c15b3ee83632062d2c814837835265223942a12c2a23f1cb3f52b1865772c80f",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "0b26b591ed115ca1",
+     "template": "red-light-late-entry.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.487,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 3.487,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "23d3ed55a1faac076858a9e3e1c1e9caa920fb1a0a65377da5f1d8ee174969ca",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "265ccc3c1e49d3e9",
+     "template": "right-turn-crosswalk.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.9353,
+       "seed": 1001,
+       "steps": 40,
+       "terminated": true
+      },
+      {
+       "return": -8.9353,
+       "seed": 1002,
+       "steps": 40,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "1d83a0e3f46fcc95611c63ccd5e5a2f979591768cec2659591d8c2a983f9e741",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "09999d3136073cd3",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.6063,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 3.6063,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "9c6e969a0f60f6aa80a0f4139d50a06aa10968b7d66ff5cd23d621cce50617bd",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "4205dc9d8fc91f75",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.2034,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.2034,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "d86b2091afe99563211bd8ad29fe79630c8d94a641e12837dd2d69916a59f1aa",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "c5f336b136426e7b",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.6868,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 2.6868,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "7aff5fc9a82ccee18b23834a3366b24218fbdcc1380fb9914b509932da4a702f",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "02102776d24c3809",
+     "template": "vehicle-pulls-out.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.4118,
+       "seed": 1001,
+       "steps": 68,
+       "terminated": true
+      },
+      {
+       "return": -8.4118,
+       "seed": 1002,
+       "steps": 68,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "42eda1c7ed4c87ad40e2762b7cc68e524d24d3fdf68dd1c60f5a415f551ad5f6",
+     "map": "el-camino-road",
+     "ok": true,
+     "site": "033b0769022de3d6",
+     "template": "vehicle-pulls-out.template.json"
+    }
+   ],
+   "scenarios": 28,
+   "templates": 17,
+   "version": "v10",
+   "xodrSha256": "71da62ce5f49eadf291fd6deba9b3865c7864cc50c56cf7b0ba6c907ea021a78"
+  },
+  {
+   "mapSource": "dev distribution pack (planar members streamed from the archive)",
+   "name": "richmond-field-station",
+   "rows": [
+    {
+     "episodes": [
+      {
+       "return": 4.9431,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.9431,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "de92062141b02e3b05e7e72ef9bd46a21b8adfc77cc7fbebe90688492b7ad1ed",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "158aa4020f77d2be",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.2045,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 3.2045,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5e82012d8b19298722a07d75ac66cb3b226a7423a0cb410a2c4e9ceab838d0f3",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "27d535076d02d7ae",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.0039,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": -0.0039,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "9af18190fe4eb57b87b16017071632bebfbfb65ff1a8b222f704df2e47fdf9fd",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "0293170780e964e5",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.2462,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": -0.2462,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "bd98466e5cd3aa9db92eb4f29c77e622f728bcad4b7a75cc07c3b0f35abf808b",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "2622e37cf1792d94",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.3837,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 2.3837,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "0fc1a54b0fa02e06b84be52cc628950caab9ca71fac806ac10f6ded58451a030",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "c7794a7ce907531d",
+     "template": "cpnco-parked-row.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.4011,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 2.4011,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "2e4848790544b8529d28244f34fc3a87573b51cdee38352618d2412b191cd7e2",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "de9c337ab2ecc7de",
+     "template": "cpnco-parked-row.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.5956,
+       "seed": 1001,
+       "steps": 44,
+       "terminated": true
+      },
+      {
+       "return": -8.5956,
+       "seed": 1002,
+       "steps": 44,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "86e9cc9d0c46ee9a6b4f0412e297f2236a22d8491276fc58ed6a1d2fe0640542",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "0e7787e6e1586b97",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.1695,
+       "seed": 1001,
+       "steps": 44,
+       "terminated": true
+      },
+      {
+       "return": -8.1695,
+       "seed": 1002,
+       "steps": 44,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "77338c3a61434ff26d4899073dcc371cfa7e031b3748eeaa9bfd364ac811e960",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "16d03889d83c1e23",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.5481,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 0.5481,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "6962e26563ca2eb439fac9e7395d048a91ab9461fd16e6f93b9e3ec86dc50cf0",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "69939930958ba2e6",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.224,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 1.224,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "80c0b42f3caa9c6f616230d7d335198d34683330ecf313e1e56c83db58e11a65",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "894df17b293d2c12",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.8807,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.8807,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "527b23c54675aed6c0d0451743685fb4745126662cd387e1471ddaba5eb11615",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "1e29b9bd216ae5f3",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.8807,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.8807,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "b1b4d267ee106b5a157859e839eb5267edb8c1c95914e00b91e1fe4b52e2a050",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "391af02dd90d4247",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "code": "arrival_unconverged",
+     "map": "richmond-field-station",
+     "ok": false,
+     "reason": "required arrival interaction \"pedestrian-arrival\" cannot be resolved",
+     "site": "a0a853fc32007042",
+     "template": "left-turn-crosswalk.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "richmond-field-station",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap\n  [spawn_overlap] actors.oncoming-1.initial: spawn footprint overlaps oncoming-2",
+     "site": "0299bc88b6327d14",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.9938,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.9938,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "b5e0c65621d8564bcde1e56d60e0bfe2093ec903eca4b4089476b6088c422bd5",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "1c0e6bed326e8d09",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.89,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 2.89,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "7c0f5b543cb9bca8c5aa4d952339717e80a1ad395871e3322edb0bdc25a3639e",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "9fc1b2c2d3a811de",
+     "template": "ltap-opposing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.9174,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": true
+      },
+      {
+       "return": -8.9174,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "0336743f6fcfb0462bbfe881a5aecac88f43ade9c5edd2e091baea1e7cc11099",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "b1ed39e590f6cacc",
+     "template": "oncoming-overtake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.3057,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 5.3057,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "a6f6e312be8e38e00826c20dd69b9529421258bc1248a186341d3356679ccf88",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "ddc37703075db048",
+     "template": "oncoming-overtake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.2048,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 1.2048,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5eaa497671234e0c61614c157b4ae65640308524443cc5a7f14d427cf50b62ea",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "23afb3580150d467",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "code": "arrival_unconverged",
+     "map": "richmond-field-station",
+     "ok": false,
+     "reason": "required arrival for \"encroaching-turner\" cannot be achieved on the bound approach",
+     "site": "29cdc567927eed2c",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.5457,
+       "seed": 1001,
+       "steps": 130,
+       "terminated": false
+      },
+      {
+       "return": 1.5457,
+       "seed": 1002,
+       "steps": 130,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "c47065c2f30bca06f21d67cdc466ef116ebded342715a46ae4a6598165d6c099",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "e2e894a13515938a",
+     "template": "queue-tail.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.5456,
+       "seed": 1001,
+       "steps": 130,
+       "terminated": false
+      },
+      {
+       "return": 1.5456,
+       "seed": 1002,
+       "steps": 130,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "3c0f63d2450b1061b0c1d2d6403403e3a57af3b8e662db3435d2040f0c0bfb98",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "1ae48fb34d2e28b2",
+     "template": "queue-tail.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.0157,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 5.0157,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "91568c1dca076972edb8387c8dd69b6a230c653cf219df233765d0cae132cba0",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "027da72d636aba90",
+     "template": "red-light-late-entry.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.2622,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.2622,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "06d6111c2dad5bc0d78c56f461646ddae9d3086d08a5836c8f8c41cae54fd21c",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "109e9d91d5b86efc",
+     "template": "right-turn-crosswalk.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "richmond-field-station",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, s",
+     "site": "0299bc88b6327d14",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.8892,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": -0.8892,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "590a7f965d36b60b17b1f21ba414c3706384169c1c745f9937f8518c608785bd",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "421444951aeedcdf",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.2923,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 2.2923,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "bc5a0983d23a9088e417e2190c7b0eef4127a2586b866d06b2b7a4508c401a65",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "85b4ac661d5835bb",
+     "template": "vehicle-pulls-out.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.3841,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 2.3841,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "76d6456aacfdd469f95d20922df0844fef3e51c23d736e2529919c568af21a0a",
+     "map": "richmond-field-station",
+     "ok": true,
+     "site": "6fcaaefa2786b6d7",
+     "template": "vehicle-pulls-out.template.json"
+    }
+   ],
+   "scenarios": 24,
+   "templates": 15,
+   "version": "v9",
+   "xodrSha256": "531c1bd6f568c56a41fd868ffe1cec0e92bc7dcda9c794c67a8f80a450186b18"
+  },
+  {
+   "mapSource": "dev distribution pack (planar members streamed from the archive)",
+   "name": "yale-street",
+   "rows": [
+    {
+     "episodes": [
+      {
+       "return": 4.6834,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.6834,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "2abfd450b068d6a80a9b8f116d5284e3121df4364843bd464edb6246a32ed4d7",
+     "map": "yale-street",
+     "ok": true,
+     "site": "01adde4fa40377bd",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.2004,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.2004,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "4c683d11c9bc4ba50c5943d1b804c6eb85da39356c746613c816f7b5fcb48307",
+     "map": "yale-street",
+     "ok": true,
+     "site": "09f6ace00ed2f5da",
+     "template": "adult-midblock-crossing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.2023,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 0.2023,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "e163ee929436bc13225da4dd6d4c3c121962102374c1f536b0bd39948e57a6e4",
+     "map": "yale-street",
+     "ok": true,
+     "site": "ed875272a9bea4d9",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.2023,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 0.2023,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "09e05e896ad45edcabb2f27817b11c610b5357824e93eb50bc2d2e84f46b6125",
+     "map": "yale-street",
+     "ok": true,
+     "site": "f0bbae2be09e0166",
+     "template": "backing-out-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.8969,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 2.8969,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "35a758716eb497775ce1627804c62cf3a9bc26785b59f342769fb46fc21cb79a",
+     "map": "yale-street",
+     "ok": true,
+     "site": "04651f2dd32f1d6e",
+     "template": "cpnco-parked-row.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.8734,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 3.8734,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "4fb13125bf1f38ea093c3e5f859d3444161abb3766ccec38e2936472f64134f9",
+     "map": "yale-street",
+     "ok": true,
+     "site": "243a6cf6f182674d",
+     "template": "cpnco-parked-row.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.2072,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 2.2072,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "384f8313446f41ee3fa706248a22e94bc5cb608bde6b1c864cf45c8f0554900b",
+     "map": "yale-street",
+     "ok": true,
+     "site": "01be7725484dcf69",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.2288,
+       "seed": 1001,
+       "steps": 80,
+       "terminated": false
+      },
+      {
+       "return": 4.2288,
+       "seed": 1002,
+       "steps": 80,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "6b084f768debbd218fe9d9ffe232f65b726b3e3419503457a76e4ed4d16e83a9",
+     "map": "yale-street",
+     "ok": true,
+     "site": "0b68bfffa0edc38b",
+     "template": "cut-in-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.8543,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 1.8543,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "6230fbd8df237ec8ee9ea63fb4c68c2d86a1243612d89f14dbbd0e55351c7a76",
+     "map": "yale-street",
+     "ok": true,
+     "site": "2f02a299484b37fa",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 0.4029,
+       "seed": 1001,
+       "steps": 62,
+       "terminated": false
+      },
+      {
+       "return": 0.4029,
+       "seed": 1002,
+       "steps": 62,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "014cbb437e3c24c1e24242926bc1b7699dfb17bf466925f4e662aa91a5d485fe",
+     "map": "yale-street",
+     "ok": true,
+     "site": "777da895322cebf2",
+     "template": "cutout-reveals-stopped.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.1958,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.1958,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "5538edc0be8609b0ecfabca0062766b131c74bd2fa23c0d1bcebf216516c3763",
+     "map": "yale-street",
+     "ok": true,
+     "site": "144d081082eef961",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.7279,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.7279,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "aefba367100edbbde85e49b8d23a5efeb2f8109a00adee6805766db8ef2b50a1",
+     "map": "yale-street",
+     "ok": true,
+     "site": "22296b315da464db",
+     "template": "cyclist-crossing-path.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.5045,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": 1.5045,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "8222e3181305ca3d2365fa1c0a6db2f500e490aad8d3b763491afc8c0cbb8b7c",
+     "map": "yale-street",
+     "ok": true,
+     "site": "10db520ce80b45ea",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -0.1207,
+       "seed": 1001,
+       "steps": 60,
+       "terminated": false
+      },
+      {
+       "return": -0.1207,
+       "seed": 1002,
+       "steps": 60,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "bd4a30248f68b156e1fa12a0d12bf72fe65bbfd8868db37a18d1c78787f14b18",
+     "map": "yale-street",
+     "ok": true,
+     "site": "1b0a39ef9f33a76a",
+     "template": "disabled-vehicle.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -9.2875,
+       "seed": 1001,
+       "steps": 25,
+       "terminated": true
+      },
+      {
+       "return": -9.2875,
+       "seed": 1002,
+       "steps": 25,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "863c13d80a9e258bd2b7f31c594adb82eb40e583fae3c7b1a79b23f7f96c2bc1",
+     "map": "yale-street",
+     "ok": true,
+     "site": "0d93d2c6ff7b1f8a",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 1.7237,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 1.7237,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "d828af2c3a21ad5d223371cb633c02c10f0a11ab5c051beaaebacd086833dc46",
+     "map": "yale-street",
+     "ok": true,
+     "site": "0ed07bcfdf14a014",
+     "template": "lead-hard-brake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.952,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 3.952,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "81d45541e88536f5f785cd586b742a413e4b3073e0fcddb017907d407a36f34b",
+     "map": "yale-street",
+     "ok": true,
+     "site": "1f172d1a0702e875",
+     "template": "left-turn-crosswalk.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 4.2207,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 4.2207,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "b92d7bbabbdd09ed4973a3397e5f01e70b931eae3c3afb9f47e479bc0600f5e4",
+     "map": "yale-street",
+     "ok": true,
+     "site": "4753a33eafca994d",
+     "template": "left-turn-crosswalk.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.1959,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.1959,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "1119af3e7a0bf5a1da953bfd3d3e59151d2a471cb1d539f604ba940fa2a68633",
+     "map": "yale-street",
+     "ok": true,
+     "site": "0e3e568d0709283d",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "yale-street",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap\n  [spawn_overlap] actors.oncoming-1.initial: spawn footprint overlaps oncoming-2",
+     "site": "2969205d5ecc7c51",
+     "template": "light-corridor.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.1426,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 3.1426,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "e7e7fa3838271a673b10ef3510fd11e48fb05dbd67fbe1bb0f3ba7abed7ea6b1",
+     "map": "yale-street",
+     "ok": true,
+     "site": "ef0ec815d4835180",
+     "template": "ltap-opposing.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.2056,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 3.2056,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "18ded94dffc42d8a74fa35e64e69798ea2807128e5bf387e7a25949eab51089d",
+     "map": "yale-street",
+     "ok": true,
+     "site": "c5a9f4e34a03d6a1",
+     "template": "oncoming-overtake.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -8.996,
+       "seed": 1001,
+       "steps": 85,
+       "terminated": true
+      },
+      {
+       "return": -8.996,
+       "seed": 1002,
+       "steps": 85,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "29e9e3bfc97efd77ce776007d86e16c25715e0586f92912f8aa5c7812db92012",
+     "map": "yale-street",
+     "ok": true,
+     "site": "1044904d32cc5499",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.1429,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 2.1429,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "c46ef77d48bd9ca087afe5ad57c33525d3c745095c66bc2269b416bdab183c32",
+     "map": "yale-street",
+     "ok": true,
+     "site": "31acfd3cfc16e845",
+     "template": "opposing-turn-encroachment.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.4361,
+       "seed": 1001,
+       "steps": 160,
+       "terminated": false
+      },
+      {
+       "return": 5.4361,
+       "seed": 1002,
+       "steps": 160,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "dd4a651be178d549cef56a40f8bee375d147bdb9b4016d7337fff410b0ca2026",
+     "map": "yale-street",
+     "ok": true,
+     "site": "135a53aa0d9b2324",
+     "template": "red-light-late-entry.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.6043,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 2.6043,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "b3279655f350c3e226cbf08ca0a8fdf8fbe641ceb07d180d8b685641f5aee1c8",
+     "map": "yale-street",
+     "ok": true,
+     "site": "19931a99d2bae825",
+     "template": "right-turn-crosswalk.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.4059,
+       "seed": 1001,
+       "steps": 120,
+       "terminated": false
+      },
+      {
+       "return": 3.4059,
+       "seed": 1002,
+       "steps": 120,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "d5c1870fcc48e992f369740177c530d694f9e31b537c8a8993ab3fe876fe0693",
+     "map": "yale-street",
+     "ok": true,
+     "site": "77c31d175b83d0db",
+     "template": "right-turn-crosswalk.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 2.0768,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 2.0768,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "36387b951da49748404befc1c509b07f6e72727f511a589474b32768f3ec6b95",
+     "map": "yale-street",
+     "ok": true,
+     "site": "1eee5f61c1da7f3b",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 3.5546,
+       "seed": 1001,
+       "steps": 100,
+       "terminated": false
+      },
+      {
+       "return": 3.5546,
+       "seed": 1002,
+       "steps": 100,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "6ec25dc1c5cbb7c7fc5d443f8cd70e5b36db433b0ad1822e8f3d1d8d738dd814",
+     "map": "yale-street",
+     "ok": true,
+     "site": "402844b6ee49b50b",
+     "template": "sideswipe.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "yale-street",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap, spawn_overlap\n  [spawn_overlap] actors.ambulance.initial: spawn footprint overlaps oncoming-1\n  [spawn_overlap] actors.ambulance.initial: spawn footprint overlaps oncoming-2\n  [spawn_overlap] actors.ambulance.initial: spawn footprint overlaps police\n  [spa",
+     "site": "2969205d5ecc7c51",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "code": "episode_error",
+     "map": "yale-street",
+     "ok": false,
+     "reason": "scenario is infeasible: spawn_overlap, spawn_overlap\n  [spawn_overlap] actors.ambulance.initial: spawn footprint overlaps cyclist-2\n  [spawn_overlap] actors.semi.initial: spawn footprint overlaps truck",
+     "site": "33aad8c7011405df",
+     "template": "urban-mixed.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": 5.0655,
+       "seed": 1001,
+       "steps": 140,
+       "terminated": false
+      },
+      {
+       "return": 5.0655,
+       "seed": 1002,
+       "steps": 140,
+       "terminated": false
+      }
+     ],
+     "inputDigest": "285b5b1e91e544a23e84f99f463920edf09214f3f724c8929a5403352ef9f1a3",
+     "map": "yale-street",
+     "ok": true,
+     "site": "6aff53d2ba42183b",
+     "template": "vehicle-pulls-out.template.json"
+    },
+    {
+     "episodes": [
+      {
+       "return": -7.3088,
+       "seed": 1001,
+       "steps": 101,
+       "terminated": true
+      },
+      {
+       "return": -7.3088,
+       "seed": 1002,
+       "steps": 101,
+       "terminated": true
+      }
+     ],
+     "inputDigest": "7bc9cadd7ee7f90725b54918b8a840a2930b7c15a4cfc89d828417af1ef60803",
+     "map": "yale-street",
+     "ok": true,
+     "site": "a162a4921b8324a3",
+     "template": "vehicle-pulls-out.template.json"
+    }
+   ],
+   "scenarios": 29,
+   "templates": 17,
+   "version": "v10",
+   "xodrSha256": "b5070242a04a857d4714b47e86c2b513a22a762c6027a4b9bb11283c6343f2fd"
+  }
+ ],
+ "minSteps": 30,
+ "runtime": "simforge-runtime 0.1.0+c9e184cc1b0b6292 (engine 0.31.0) through simforge-local 0.2.0-rc.4+518ebba2f06d",
+ "schema": "simforge-rl.task-set-build/v1",
+ "seeds": [
+  1001,
+  1002
+ ]
+}

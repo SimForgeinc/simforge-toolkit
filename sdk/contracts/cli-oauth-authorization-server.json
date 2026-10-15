@@ -1,0 +1,51 @@
+{
+  "issuer": "https://metadata.example.test",
+  "resource": "https://metadata.example.test/api/v1",
+  "authorization_servers": [
+    "https://metadata.example.test"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "authorization_endpoint": "https://metadata.example.test/cli/authorize",
+  "token_endpoint": "https://metadata.example.test/api/cli/token",
+  "device_authorization_endpoint": "https://metadata.example.test/api/cli/device/code",
+  "revocation_endpoint": "https://metadata.example.test/api/cli/revoke",
+  "userinfo_endpoint": "https://metadata.example.test/api/cli/userinfo",
+  "scopes_supported": [
+    "maps:read",
+    "bench:write",
+    "scenarios:read",
+    "scenarios:write",
+    "datasets:read",
+    "runs:read",
+    "runs:write",
+    "artifacts:read",
+    "usage:read",
+    "keys:admin",
+    "runtime:read"
+  ],
+  "response_types_supported": ["code"],
+  "grant_types_supported": [
+    "authorization_code",
+    "refresh_token",
+    "urn:ietf:params:oauth:grant-type:device_code",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "urn:workos:agent-auth:grant-type:claim"
+  ],
+  "code_challenge_methods_supported": ["S256"],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "revocation_endpoint_auth_methods_supported": ["none"],
+  "simforge_bench_results": "https://metadata.example.test/api/cli/bench/results",
+  "simforge_bench_packs": "https://metadata.example.test/api/cli/bench/packs",
+  "simforge_scenario_documents": "https://metadata.example.test/api/cli/scenarios",
+  "simforge_cli_sessions_page": "https://metadata.example.test/dashboard/account#cli-sessions",
+  "agent_auth": {
+    "skill": "https://metadata.example.test/auth.md",
+    "identity_endpoint": "https://metadata.example.test/agent/identity",
+    "claim_endpoint": "https://metadata.example.test/agent/identity/claim",
+    "identity_types_supported": [
+      "service_auth"
+    ]
+  }
+}

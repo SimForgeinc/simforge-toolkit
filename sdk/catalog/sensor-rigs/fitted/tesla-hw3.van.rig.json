@@ -1,0 +1,246 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-front-narrow",
+      "sensorLabel": "Front Narrow",
+      "outputName": "tesla-front-narrow",
+      "transform": {
+        "position": {
+          "x": 1.95,
+          "y": 2.4,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 35,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-front-main",
+      "sensorLabel": "Front Main",
+      "outputName": "tesla-front-main",
+      "transform": {
+        "position": {
+          "x": 1.95,
+          "y": 2.4,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 50,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-front-wide",
+      "sensorLabel": "Front Wide",
+      "outputName": "tesla-front-wide",
+      "transform": {
+        "position": {
+          "x": 1.95,
+          "y": 2.4,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-left-fwd",
+      "sensorLabel": "Left Forward",
+      "outputName": "tesla-left-fwd",
+      "transform": {
+        "position": {
+          "x": 1.25,
+          "y": 2,
+          "z": 1.05
+        },
+        "rotation": {
+          "yawRad": 1.0471975511965976,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 80,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-left-rear",
+      "sensorLabel": "Left Rear",
+      "outputName": "tesla-left-rear",
+      "transform": {
+        "position": {
+          "x": -0.85,
+          "y": 2,
+          "z": 1.05
+        },
+        "rotation": {
+          "yawRad": 2.0943951023931953,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 80,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-right-fwd",
+      "sensorLabel": "Right Forward",
+      "outputName": "tesla-right-fwd",
+      "transform": {
+        "position": {
+          "x": 1.25,
+          "y": 2,
+          "z": -1.05
+        },
+        "rotation": {
+          "yawRad": -1.0471975511965976,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 80,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-right-rear",
+      "sensorLabel": "Right Rear",
+      "outputName": "tesla-right-rear",
+      "transform": {
+        "position": {
+          "x": -0.85,
+          "y": 2,
+          "z": -1.05
+        },
+        "rotation": {
+          "yawRad": -2.0943951023931953,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 80,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-rear",
+      "sensorLabel": "Rear",
+      "outputName": "tesla-rear",
+      "transform": {
+        "position": {
+          "x": -2.35,
+          "y": 2.2,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 3.141592653589793,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 50,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "tesla-radar-fwd",
+      "sensorLabel": "Forward Radar",
+      "outputName": "tesla-radar-fwd",
+      "transform": {
+        "position": {
+          "x": 2.35,
+          "y": 0.5,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "radar",
+      "attributes": {
+        "horizontalFovDeg": 30,
+        "verticalFovDeg": 30,
+        "rangeM": 100,
+        "pointsPerSecond": 1500
+      }
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "camera_front_center",
+      "sensorLabel": "Front Center",
+      "outputName": "camera_front_center",
+      "transform": {
+        "position": {
+          "x": 4.45,
+          "y": 3.45,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_front_left",
+      "sensorLabel": "Front Left",
+      "outputName": "camera_front_left",
+      "transform": {
+        "position": {
+          "x": 4.35,
+          "y": 3.43,
+          "z": 0.72
+        },
+        "rotation": {
+          "yawRad": 0.8726646259971648,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_front_right",
+      "sensorLabel": "Front Right",
+      "outputName": "camera_front_right",
+      "transform": {
+        "position": {
+          "x": 4.35,
+          "y": 3.43,
+          "z": -0.72
+        },
+        "rotation": {
+          "yawRad": -0.8726646259971648,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_left_side",
+      "sensorLabel": "Left Side",
+      "outputName": "camera_left_side",
+      "transform": {
+        "position": {
+          "x": 0.2,
+          "y": 3.35,
+          "z": 1.25
+        },
+        "rotation": {
+          "yawRad": 1.5707963267948966,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_right_side",
+      "sensorLabel": "Right Side",
+      "outputName": "camera_right_side",
+      "transform": {
+        "position": {
+          "x": 0.2,
+          "y": 3.35,
+          "z": -1.25
+        },
+        "rotation": {
+          "yawRad": -1.5707963267948966,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_rear_left",
+      "sensorLabel": "Rear Left",
+      "outputName": "camera_rear_left",
+      "transform": {
+        "position": {
+          "x": -3.35,
+          "y": 3.33,
+          "z": 0.68
+        },
+        "rotation": {
+          "yawRad": 2.443460952792061,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_rear_right",
+      "sensorLabel": "Rear Right",
+      "outputName": "camera_rear_right",
+      "transform": {
+        "position": {
+          "x": -3.35,
+          "y": 3.33,
+          "z": -0.68
+        },
+        "rotation": {
+          "yawRad": -2.443460952792061,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "lidar_roof_center",
+      "sensorLabel": "Roof Center LiDAR",
+      "outputName": "lidar_roof_center",
+      "transform": {
+        "position": {
+          "x": 0.15,
+          "y": 3.85,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "lidar",
+      "attributes": {
+        "channels": 64,
+        "rangeM": 250,
+        "pointsPerSecond": 1200000,
+        "rotationFrequencyHz": 10,
+        "upperFovDeg": 20,
+        "lowerFovDeg": -20,
+        "horizontalFovDeg": 360
+      }
+    }
+  ]
+}

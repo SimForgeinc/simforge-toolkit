@@ -1,0 +1,184 @@
+{
+  "schema": "simforge-rl.scenario-set/v1",
+  "scenarios": [
+    {
+      "name": "adult-midblock-crossing@01adde4f",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "01adde4fa40377bd"
+    },
+    {
+      "name": "adult-midblock-crossing@09f6ace0",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "09f6ace00ed2f5da"
+    },
+    {
+      "name": "backing-out-vehicle@ed875272",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "ed875272a9bea4d9"
+    },
+    {
+      "name": "backing-out-vehicle@f0bbae2b",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "f0bbae2be09e0166"
+    },
+    {
+      "name": "cpnco-parked-row@04651f2d",
+      "weight": 0.5,
+      "template": "templates/cpnco-parked-row.template.json",
+      "site": "04651f2dd32f1d6e"
+    },
+    {
+      "name": "cpnco-parked-row@243a6cf6",
+      "weight": 0.5,
+      "template": "templates/cpnco-parked-row.template.json",
+      "site": "243a6cf6f182674d"
+    },
+    {
+      "name": "cut-in-brake@01be7725",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "01be7725484dcf69"
+    },
+    {
+      "name": "cut-in-brake@0b68bfff",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "0b68bfffa0edc38b"
+    },
+    {
+      "name": "cutout-reveals-stopped@2f02a299",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "2f02a299484b37fa"
+    },
+    {
+      "name": "cutout-reveals-stopped@777da895",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "777da895322cebf2"
+    },
+    {
+      "name": "cyclist-crossing-path@144d0810",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "144d081082eef961"
+    },
+    {
+      "name": "cyclist-crossing-path@22296b31",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "22296b315da464db"
+    },
+    {
+      "name": "disabled-vehicle@10db520c",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "10db520ce80b45ea"
+    },
+    {
+      "name": "disabled-vehicle@1b0a39ef",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "1b0a39ef9f33a76a"
+    },
+    {
+      "name": "lead-hard-brake@0ed07bcf",
+      "weight": 1.0,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "0ed07bcfdf14a014"
+    },
+    {
+      "name": "left-turn-crosswalk@1f172d1a",
+      "weight": 0.5,
+      "template": "templates/left-turn-crosswalk.template.json",
+      "site": "1f172d1a0702e875"
+    },
+    {
+      "name": "left-turn-crosswalk@4753a33e",
+      "weight": 0.5,
+      "template": "templates/left-turn-crosswalk.template.json",
+      "site": "4753a33eafca994d"
+    },
+    {
+      "name": "light-corridor@0e3e568d",
+      "weight": 1.0,
+      "template": "templates/light-corridor.template.json",
+      "site": "0e3e568d0709283d"
+    },
+    {
+      "name": "ltap-opposing@ef0ec815",
+      "weight": 1.0,
+      "template": "templates/ltap-opposing.template.json",
+      "site": "ef0ec815d4835180"
+    },
+    {
+      "name": "oncoming-overtake@c5a9f4e3",
+      "weight": 1.0,
+      "template": "templates/oncoming-overtake.template.json",
+      "site": "c5a9f4e34a03d6a1"
+    },
+    {
+      "name": "opposing-turn-encroachment@1044904d",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "1044904d32cc5499"
+    },
+    {
+      "name": "opposing-turn-encroachment@31acfd3c",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "31acfd3cfc16e845"
+    },
+    {
+      "name": "red-light-late-entry@135a53aa",
+      "weight": 1.0,
+      "template": "templates/red-light-late-entry.template.json",
+      "site": "135a53aa0d9b2324"
+    },
+    {
+      "name": "right-turn-crosswalk@19931a99",
+      "weight": 0.5,
+      "template": "templates/right-turn-crosswalk.template.json",
+      "site": "19931a99d2bae825"
+    },
+    {
+      "name": "right-turn-crosswalk@77c31d17",
+      "weight": 0.5,
+      "template": "templates/right-turn-crosswalk.template.json",
+      "site": "77c31d175b83d0db"
+    },
+    {
+      "name": "sideswipe@1eee5f61",
+      "weight": 0.5,
+      "template": "templates/sideswipe.template.json",
+      "site": "1eee5f61c1da7f3b"
+    },
+    {
+      "name": "sideswipe@402844b6",
+      "weight": 0.5,
+      "template": "templates/sideswipe.template.json",
+      "site": "402844b6ee49b50b"
+    },
+    {
+      "name": "vehicle-pulls-out@6aff53d2",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "6aff53d2ba42183b"
+    },
+    {
+      "name": "vehicle-pulls-out@a162a492",
+      "weight": 0.5,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "a162a4921b8324a3"
+    }
+  ],
+  "map": {
+    "name": "yale-street",
+    "version": "v10",
+    "xodrSha256": "b5070242a04a857d4714b47e86c2b513a22a762c6027a4b9bb11283c6343f2fd"
+  }
+}

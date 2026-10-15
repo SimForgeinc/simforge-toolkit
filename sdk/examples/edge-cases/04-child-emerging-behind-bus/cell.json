@@ -1,0 +1,122 @@
+{
+  "schema": "simforge.scenario-cell/v1",
+  "mapId": "yale-street",
+  "siteId": "91291881afa2f862",
+  "drawIndex": 0,
+  "manifest": {
+    "kind": "scenario-instance-manifest",
+    "manifestVersion": 1,
+    "replayKey": {
+      "templateId": "ec-04-04-child-emerging-behind-bus-v2",
+      "templateVersion": 2,
+      "templateDigest": "3ec4b837e6e2dc78",
+      "mapId": "yale-street",
+      "matcherIndexDigest": "33eb942298b3492266d0582782f020ef121cc1d8da08bcb3080c9b71ea01f95e",
+      "engineGraphDigest": "fbebbdccd6a6b5dfa18a321d74009dede3851f18b673a9b807e6f1b5ea3b17d5",
+      "siteId": "91291881afa2f862",
+      "matcherVersion": "1.0.0",
+      "solverVersion": "0.2.5",
+      "paramSeed": "ec-04-04-child-emerging-behind-bus-v2",
+      "drawIndex": 0
+    },
+    "instanceId": "ec-04-04-child-emerging-behind-bus-v2#0",
+    "archetype": "gallery.04-child-emerging-behind-bus",
+    "negativeControl": false,
+    "metricSubject": "focus-vehicle",
+    "operationalVariant": null,
+    "site": {
+      "siteId": "91291881afa2f862",
+      "score": 0.582,
+      "verdict": "degraded",
+      "originFeatureId": "junction:345",
+      "entryLaneRsl": "102:0:1",
+      "egoTurn": "straight",
+      "degradationSummary": "Degraded match (score 0.58). speeds clamped to the site limit 64 kph (arrival invariants re-solved over the speed parameter). corridor.speedLimitKph worst value 64 at s=-65 m, wanted [25, 60]. Presentation was relaxed; the scenario still tests what it was written to test.",
+      "matchedReasons": [
+        "49 m of runway available, 45 m needed",
+        "111.02 m of runway available, 65 m needed",
+        "corridor.throughLanesSameDir holds over the whole interval (worst 2)",
+        "origin feature sits at s = 0 by construction",
+        "4-arm junction",
+        "signalized junction as requested",
+        "reference path turns straight",
+        "junction has a marked crossing",
+        "crossing loc_3daebce96284ea275ecf169e at s=6.19 m (projected 1.84 m from feature point)",
+        "child: walks the crossing loc_3daebce96284ea275ecf169e right_to_left",
+        "adult: walks the crossing loc_3daebce96284ea275ecf169e right_to_left"
+      ]
+    },
+    "params": {
+      "values": {},
+      "categorical": {},
+      "rejectedConstraints": []
+    },
+    "actors": [
+      {
+        "id": "adult",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "bus",
+        "actorKind": "bus",
+        "roleKind": "supporting",
+        "laneRsl": "102:0:2",
+        "spawnS": 2.995433357382268,
+        "initialSpeedMps": 0,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "child",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "focus-vehicle",
+        "actorKind": "car",
+        "roleKind": "focus",
+        "laneRsl": "104:0:1",
+        "spawnS": 10.095219434121681,
+        "initialSpeedMps": 8.88888888888889,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "trailing-taxi",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": "104:0:1",
+        "spawnS": 32.09522780772518,
+        "initialSpeedMps": 8.88888888888889,
+        "bindingStatus": "bound"
+      }
+    ],
+    "props": [],
+    "arrival": [],
+    "inputHash": "987e89a116b3a6d4c5f4b5ff32319af07033b8d0f1cdffc15ff55b53a2f00b56",
+    "feasible": true,
+    "issues": [],
+    "notes": [
+      {
+        "path": "signalPrograms",
+        "reason": "18 physical map signal head(s) bound as 3 logical program(s) to junction 345 with authoritative OpenDRIVE controller-stage provenance; phase durations and t=0 state use the explicit synthetic-default cycle because authoritative timing/state data is absent"
+      }
+    ],
+    "contractMigration": {
+      "schema": "simforge.native-input-contract-reseal/v1",
+      "sourceSha256": "471316adaa5dbd0e2067b170d7bd5d1699932a8c785c41fdaf25697b0f8d49ef",
+      "sourceInputHash": "bf1cf85f116f8c16ba3bb9734fe5a60c1116699e0f5fa291ff69e88f33081032",
+      "targetAbi": 2,
+      "removedMasterFlags": 5,
+      "foldedFalseMasterFlags": 0,
+      "scope": "Rule-contract reseal only; authored poses, actors, actions, thresholds and signals unchanged. Replay metadata retains its historical materialization provenance."
+    }
+  }
+}

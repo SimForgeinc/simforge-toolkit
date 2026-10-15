@@ -1,0 +1,16 @@
+SimForge Toolkit
+Copyright 2026 SimForge, Inc.
+
+This product is licensed under the Apache License, Version 2.0 (LICENSE).
+
+This distribution contains only the explicitly allowlisted Apache toolkit
+source, contracts, skills, examples and sensor-rig metadata. The SimForge
+runtime (engine, compiler, authoring, map processing, native bindings and the
+Helios renderer) is proprietary and is not part of this product. SimForge
+source previously published under Apache-2.0 keeps that grant for those versions.
+
+Asset bytes (3D models, maps, textures, recordings) are not licensed by this
+file; each carries its own licence and attribution, recorded beside it.
+
+Third-party components keep their own licences and notices, which are kept
+beside them.

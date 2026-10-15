@@ -1,0 +1,121 @@
+{
+  "schema": "simforge.scenario-cell/v1",
+  "mapId": "yale-street",
+  "siteId": "studio:yale-street",
+  "drawIndex": 0,
+  "manifest": {
+    "kind": "scenario-instance-manifest",
+    "manifestVersion": 1,
+    "replayKey": {
+      "templateId": "ec-02-02-police-roadside-stop-v2",
+      "templateVersion": 2,
+      "templateDigest": "c1ec2518e53d731a",
+      "mapId": "yale-street",
+      "matcherIndexDigest": "33eb942298b3492266d0582782f020ef121cc1d8da08bcb3080c9b71ea01f95e",
+      "engineGraphDigest": "fbebbdccd6a6b5dfa18a321d74009dede3851f18b673a9b807e6f1b5ea3b17d5",
+      "siteId": "studio:yale-street",
+      "matcherVersion": "1.0.0",
+      "solverVersion": "0.2.6",
+      "paramSeed": "ec-02-02-police-roadside-stop-v2",
+      "drawIndex": 0
+    },
+    "instanceId": "ec-02-02-police-roadside-stop-v2#0",
+    "archetype": "gallery.02-police-roadside-stop",
+    "negativeControl": false,
+    "metricSubject": "focus-vehicle",
+    "operationalVariant": null,
+    "site": {
+      "siteId": "studio:yale-street",
+      "score": 1,
+      "verdict": "exact",
+      "originFeatureId": "map:yale-street",
+      "entryLaneRsl": "83:0:-2",
+      "egoTurn": null,
+      "degradationSummary": "exact map-bound Studio placement",
+      "matchedReasons": [
+        "anchor.pin.mapId",
+        "scene_absolute"
+      ]
+    },
+    "params": {
+      "values": {
+        "trafficSpeedKph": 25,
+        "cyclistSpeedKph": 23,
+        "tramSpeedKph": 22
+      },
+      "categorical": {},
+      "rejectedConstraints": []
+    },
+    "actors": [
+      {
+        "id": "focus-vehicle",
+        "actorKind": "car",
+        "roleKind": "focus",
+        "laneRsl": "83:0:-2",
+        "spawnS": 40,
+        "initialSpeedMps": 6.944444444444445,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "lead-cyclist",
+        "actorKind": "bicycle",
+        "roleKind": "supporting",
+        "laneRsl": "83:0:-2",
+        "spawnS": 58,
+        "initialSpeedMps": 6.388888888888889,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "police-cruiser",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": "757:0:-1",
+        "spawnS": 39.25359056236893,
+        "initialSpeedMps": 0,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "roadside-officer",
+        "actorKind": "pedestrian",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 0,
+        "bindingStatus": "scene-absolute"
+      },
+      {
+        "id": "trailing-cyclist",
+        "actorKind": "bicycle",
+        "roleKind": "supporting",
+        "laneRsl": "83:0:-2",
+        "spawnS": 22,
+        "initialSpeedMps": 6.111111111111112,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "tram",
+        "actorKind": "bus",
+        "roleKind": "supporting",
+        "laneRsl": "83:0:-3",
+        "spawnS": 5,
+        "initialSpeedMps": 6.111111111111112,
+        "bindingStatus": "bound"
+      }
+    ],
+    "props": [],
+    "arrival": [],
+    "inputHash": "5cb591ac6cfa2203ace3e53a50fdd99feeb6048a6b76fbeac30e8a35ba559d38",
+    "feasible": true,
+    "issues": [],
+    "notes": [],
+    "contractMigration": {
+      "schema": "simforge.native-input-contract-reseal/v1",
+      "sourceSha256": "d3aa68c09b66f7ac3a805f8cbacdc0d46b45b5c21dec2b33a7fa3df43c1c37c5",
+      "sourceInputHash": "89bd7162ba4e92a44951b4e49d466e3ebbee8b7d90f93844fee0126dabbdd4e0",
+      "targetAbi": 2,
+      "removedMasterFlags": 6,
+      "foldedFalseMasterFlags": 0,
+      "scope": "Rule-contract reseal only; authored poses, actors, actions, thresholds and signals unchanged. Replay metadata retains its historical materialization provenance."
+    }
+  }
+}

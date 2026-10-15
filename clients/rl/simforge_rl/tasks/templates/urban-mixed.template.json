@@ -1,0 +1,1391 @@
+{
+ "scenarioVersion": 2,
+ "meta": {
+  "name": "Bench urban",
+  "description": "Renderer benchmark: the corridor, dense: pedestrians who stop and start, cyclists, a bus, trucks, emergency vehicles with lamps flashing and roadside props. Every actor is in the public CARLA asset pack.",
+  "createdAt": "2026-09-27T00:00:00.000Z",
+  "modifiedAt": "2026-09-27T00:00:00.000Z",
+  "appVersion": "simforge/0.2.0",
+  "archetype": "bench.bench-urban",
+  "tags": [
+   "bench"
+  ],
+  "author": "SimForge renderer benchmark",
+  "negativeControl": false
+ },
+ "params": {
+  "declarations": [],
+  "constraints": []
+ },
+ "metricSubject": "ego",
+ "environment": {
+  "weather": "clear",
+  "timeOfDay": "noon"
+ },
+ "anchor": {
+  "id": "bench-two-way-corridor",
+  "corridor": {
+   "throughLanesSameDir": {
+    "value": [
+     1,
+     2
+    ],
+    "essentiality": "required"
+   },
+   "throughLanesOpposing": {
+    "value": [
+     1,
+     3
+    ],
+    "essentiality": "required"
+   },
+   "runwayUpstreamM": {
+    "value": [
+     15,
+     null
+    ],
+    "essentiality": "required"
+   },
+   "runwayDownstreamM": {
+    "value": [
+     200,
+     null
+    ],
+    "essentiality": "required"
+   }
+  },
+  "features": [],
+  "policy": {
+   "allowMirror": false,
+   "maxSitesPerMap": 12,
+   "diversity": "strict",
+   "minScore": 0.4
+  }
+ },
+ "roles": [
+  {
+   "id": "ego",
+   "kind": "on_reference",
+   "label": "ego at 50 km/h (the moving host)",
+   "actor": {
+    "class": "car",
+    "catalogId": "vehicle.sedan"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 10,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 50
+  },
+  {
+   "id": "lead",
+   "kind": "on_reference",
+   "label": "lead",
+   "actor": {
+    "class": "car",
+    "catalogId": "vehicle.hatchback"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 40,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 48
+  },
+  {
+   "id": "oncoming-1",
+   "kind": "opposing",
+   "label": "oncoming-1",
+   "actor": {
+    "class": "car",
+    "catalogId": "vehicle.suv"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 95,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 40,
+   "k": 0
+  },
+  {
+   "id": "oncoming-2",
+   "kind": "opposing",
+   "label": "oncoming-2",
+   "actor": {
+    "class": "van",
+    "catalogId": "vehicle.van"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 150,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 35,
+   "k": 0
+  },
+  {
+   "id": "watcher",
+   "kind": "on_reference",
+   "label": "a pedestrian standing at the kerb, facing down the road (the stationary host)",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 24,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "bus",
+   "kind": "opposing",
+   "label": "oncoming bus",
+   "actor": {
+    "class": "bus",
+    "catalogId": "vehicle.bus"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 60,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 20,
+   "k": 0
+  },
+  {
+   "id": "truck",
+   "kind": "on_reference",
+   "label": "box truck stopped in the lane far ahead",
+   "actor": {
+    "class": "truck",
+    "catalogId": "vehicle.box_truck",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 185,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "semi",
+   "kind": "opposing",
+   "label": "box truck",
+   "actor": {
+    "class": "truck",
+    "catalogId": "vehicle.box_truck"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 200,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 30,
+   "k": 0
+  },
+  {
+   "id": "shuttle",
+   "kind": "on_reference",
+   "label": "shuttle",
+   "actor": {
+    "class": "bus",
+    "catalogId": "vehicle.shuttle_bus"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 110,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 30
+  },
+  {
+   "id": "ambulance",
+   "kind": "opposing",
+   "label": "oncoming ambulance, lights flashing",
+   "actor": {
+    "class": "van",
+    "catalogId": "vehicle.ambulance"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 175,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 30,
+   "k": 0
+  },
+  {
+   "id": "police",
+   "kind": "opposing",
+   "label": "police car stopped in the oncoming lane, lights flashing (oncoming traffic queues behind it)",
+   "actor": {
+    "class": "car",
+    "catalogId": "vehicle.police_cruiser",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 122,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "fire-engine",
+   "kind": "on_reference",
+   "label": "fire engine stopped in the lane far ahead, lights flashing",
+   "actor": {
+    "class": "truck",
+    "catalogId": "vehicle.fire_engine",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 205,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "cyclist-1",
+   "kind": "on_reference",
+   "label": "cyclist-1",
+   "actor": {
+    "class": "bicycle",
+    "catalogId": "vehicle.bicycle"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 150,
+    "tFrac": -0.6,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 16
+  },
+  {
+   "id": "cyclist-2",
+   "kind": "on_reference",
+   "label": "cyclist-2",
+   "actor": {
+    "class": "bicycle",
+    "catalogId": "vehicle.bicycle"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 178,
+    "tFrac": -0.6,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 14
+  },
+  {
+   "id": "cyclist-3",
+   "kind": "opposing",
+   "label": "cyclist-3",
+   "actor": {
+    "class": "bicycle",
+    "catalogId": "vehicle.bicycle"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 118,
+    "tFrac": -0.6,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 15,
+   "k": 0
+  },
+  {
+   "id": "motorcycle",
+   "kind": "on_reference",
+   "label": "motorcycle",
+   "actor": {
+    "class": "motorcycle",
+    "catalogId": "vehicle.motorcycle"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": -5,
+    "tFrac": 0.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 45
+  },
+  {
+   "id": "trash-can",
+   "kind": "opposing",
+   "label": "trash can at the far kerb",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "carla.trashcan01",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 38,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "trash-bag",
+   "kind": "on_reference",
+   "label": "trash bag",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "carla.trashbag",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 78,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "cone-1",
+   "kind": "on_reference",
+   "label": "cone-1",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "construction.traffic_cone",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 47,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "cone-2",
+   "kind": "on_reference",
+   "label": "cone-2",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "construction.traffic_cone",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 50,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "sign",
+   "kind": "on_reference",
+   "label": "sign",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "carla.warningconstruction",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 44,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "warning-sign",
+   "kind": "on_reference",
+   "label": "warning-sign",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "carla.trafficwarning",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 73,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "barrier",
+   "kind": "opposing",
+   "label": "barrier",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "carla.streetbarrier",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 92,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "dumpster",
+   "kind": "opposing",
+   "label": "dumpster",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "carla.dumpster",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 128,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "kiosk",
+   "kind": "on_reference",
+   "label": "kiosk",
+   "actor": {
+    "class": "static_object",
+    "catalogId": "carla.kiosk_01",
+    "static": true
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 160,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0
+  },
+  {
+   "id": "ped-01",
+   "kind": "on_reference",
+   "label": "ped-01",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 17,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-02",
+   "kind": "opposing",
+   "label": "ped-02",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 22,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "ped-03",
+   "kind": "on_reference",
+   "label": "ped-03",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.child"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 34,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-04",
+   "kind": "opposing",
+   "label": "ped-04",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 47,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "ped-05",
+   "kind": "on_reference",
+   "label": "ped-05",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.traffic_marshal"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 56,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-06",
+   "kind": "opposing",
+   "label": "ped-06",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 67,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "ped-07",
+   "kind": "on_reference",
+   "label": "ped-07",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 84,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-08",
+   "kind": "opposing",
+   "label": "ped-08",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.child"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 80,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "ped-09",
+   "kind": "on_reference",
+   "label": "ped-09",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 100,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-10",
+   "kind": "opposing",
+   "label": "ped-10",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.traffic_marshal"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 104,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "ped-11",
+   "kind": "on_reference",
+   "label": "ped-11",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 120,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-12",
+   "kind": "opposing",
+   "label": "ped-12",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 140,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "ped-13",
+   "kind": "on_reference",
+   "label": "ped-13",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.child"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 142,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-14",
+   "kind": "opposing",
+   "label": "ped-14",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 160,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  },
+  {
+   "id": "ped-15",
+   "kind": "on_reference",
+   "label": "ped-15",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.traffic_marshal"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 188,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 4.5
+  },
+  {
+   "id": "ped-16",
+   "kind": "opposing",
+   "label": "ped-16",
+   "actor": {
+    "class": "pedestrian",
+    "catalogId": "pedestrian.adult"
+   },
+   "pose": {
+    "laneOffset": 0,
+    "s": 186,
+    "tFrac": -1.0,
+    "headingOffsetRad": 0
+   },
+   "initialSpeedKph": 0,
+   "k": 0
+  }
+ ],
+ "props": [],
+ "choreography": {
+  "clipSeconds": 12,
+  "warmupSeconds": 0,
+  "interactions": [
+   {
+    "id": "lead-brake-lamps",
+    "actor": "lead",
+    "verb": "set",
+    "trigger": {
+     "kind": "at",
+     "t": 6.0
+    },
+    "target": {
+     "key": "lights.brake",
+     "value": true
+    }
+   },
+   {
+    "id": "ped-01-stops",
+    "actor": "ped-01",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 3.0
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-01-walks-again",
+    "actor": "ped-01",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.2
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-02-walks",
+    "actor": "ped-02",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 3.4
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-02-waits",
+    "actor": "ped-02",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.8
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-03-stops",
+    "actor": "ped-03",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.0
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-03-walks-again",
+    "actor": "ped-03",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.2
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-04-walks",
+    "actor": "ped-04",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.4
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-04-waits",
+    "actor": "ped-04",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.800000000000001
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-05-stops",
+    "actor": "ped-05",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.0
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-05-walks-again",
+    "actor": "ped-05",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 6.2
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-06-walks",
+    "actor": "ped-06",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.2
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-06-waits",
+    "actor": "ped-06",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 6.6
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-07-stops",
+    "actor": "ped-07",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 3.8
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-07-walks-again",
+    "actor": "ped-07",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.0
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-08-walks",
+    "actor": "ped-08",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.8
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-08-waits",
+    "actor": "ped-08",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 6.199999999999999
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-09-stops",
+    "actor": "ped-09",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.6
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-09-walks-again",
+    "actor": "ped-09",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 6.8
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-10-walks",
+    "actor": "ped-10",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 3.2
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-10-waits",
+    "actor": "ped-10",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.6
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-11-stops",
+    "actor": "ped-11",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.2
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-11-walks-again",
+    "actor": "ped-11",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.4
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-12-walks",
+    "actor": "ped-12",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.4
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-12-waits",
+    "actor": "ped-12",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 6.800000000000001
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-13-stops",
+    "actor": "ped-13",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 6.0
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-13-walks-again",
+    "actor": "ped-13",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 7.2
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-14-walks",
+    "actor": "ped-14",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 3.6
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-14-waits",
+    "actor": "ped-14",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.0
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-15-stops",
+    "actor": "ped-15",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 4.6
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-15-walks-again",
+    "actor": "ped-15",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.8
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.5
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-16-walks",
+    "actor": "ped-16",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.8
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 4.8
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ped-16-waits",
+    "actor": "ped-16",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 7.199999999999999
+    },
+    "target": {
+     "mode": "stop"
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 0.6
+    }
+   },
+   {
+    "id": "ambulance-lights",
+    "actor": "ambulance",
+    "verb": "set",
+    "trigger": {
+     "kind": "at",
+     "t": 0.0
+    },
+    "target": {
+     "key": "lights.emergency",
+     "value": "flashing_siren"
+    }
+   },
+   {
+    "id": "police-lights",
+    "actor": "police",
+    "verb": "set",
+    "trigger": {
+     "kind": "at",
+     "t": 0.0
+    },
+    "target": {
+     "key": "lights.emergency",
+     "value": "flashing"
+    }
+   },
+   {
+    "id": "fire-lights",
+    "actor": "fire-engine",
+    "verb": "set",
+    "trigger": {
+     "kind": "at",
+     "t": 0.0
+    },
+    "target": {
+     "key": "lights.emergency",
+     "value": "flashing"
+    }
+   },
+   {
+    "id": "ego-slows",
+    "actor": "ego",
+    "verb": "speed",
+    "trigger": {
+     "kind": "at",
+     "t": 5.0
+    },
+    "target": {
+     "mode": "absolute",
+     "valueKph": 25
+    },
+    "dynamics": {
+     "shape": "linear",
+     "constraint": "time",
+     "value": 1.5
+    }
+   }
+  ]
+ }
+}

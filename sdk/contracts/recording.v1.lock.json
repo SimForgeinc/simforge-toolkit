@@ -1,0 +1,671 @@
+{
+  "format": "simforge.recording-contract-lock/v1",
+  "schema": "simforge.recording/v1",
+  "digestRule": "sha256 of simforge.canonical-json/v1 over the uncompressed document as written",
+  "vectors": "sdk/fixtures/recording/vectors.json",
+  "changelog": [
+    "v1 locked with ADR 0008: frameRef, the local observation frame, sync.clock, displayName.",
+    "Observations (map null) may drop out: contiguous presence (recording_lifecycle_gap) is a registered-recording rule. The compiler still refuses every unregistered recording as a replay source (recording_unregistered).",
+    "Lineage: optional derivedFrom {sha256, operation: transfer | register | trim, reportSha256?} (never the recording's own digest: recording_derived_from_self), and optional source.dataset, source.logId, source.label on root recordings.",
+    "Lineage: derivedFrom.operation nudge, the import's derivation that moves a track whose spawn footprint overlaps another by at most 0.25 m (the moves are in the import report).",
+    "Actor origin openscenario: a track an OpenSCENARIO import sampled from a FollowTrajectoryAction (source.kind openscenario).",
+    "Lineage: derivedFrom.operation rollout, a scenario of replay routes simulated on its own map into the recording a transfer warps, derived from the one recording those routes replay (so following derivedFrom from a transfer's warped recording reaches the log)."
+  ],
+  "jsonSchema": {
+    "additionalProperties": false,
+    "properties": {
+      "actors": {
+        "items": {
+          "additionalProperties": false,
+          "properties": {
+            "actorClass": {
+              "enum": [
+                "bicycle",
+                "bus",
+                "car",
+                "motorcycle",
+                "pedestrian",
+                "trailer",
+                "truck",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "catalogId": {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "color": {
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "type": "string"
+            },
+            "dims": {
+              "additionalProperties": false,
+              "properties": {
+                "h": {
+                  "exclusiveMinimum": 0,
+                  "type": "number"
+                },
+                "l": {
+                  "exclusiveMinimum": 0,
+                  "type": "number"
+                },
+                "w": {
+                  "exclusiveMinimum": 0,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "h",
+                "l",
+                "w"
+              ],
+              "type": "object"
+            },
+            "displayName": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string"
+            },
+            "id": {
+              "pattern": "^[a-z0-9-]+$",
+              "type": "string"
+            },
+            "lights": {
+              "additionalProperties": false,
+              "properties": {
+                "brake": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "brakeSource": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "tail": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "tailSource": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "origin": {
+              "enum": [
+                "ambient",
+                "log",
+                "manual",
+                "openscenario",
+                "refill",
+                "rollout"
+              ],
+              "type": "string"
+            },
+            "props": {
+              "additionalProperties": {},
+              "propertyNames": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "role": {
+              "enum": [
+                "ambient",
+                "background",
+                "ego",
+                "key"
+              ],
+              "type": "string"
+            },
+            "static": {
+              "type": "boolean"
+            },
+            "track": {
+              "additionalProperties": false,
+              "properties": {
+                "confidence": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "headingRad": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                },
+                "observed": {
+                  "items": {
+                    "type": "boolean"
+                  },
+                  "type": "array"
+                },
+                "present": {
+                  "items": {
+                    "type": "boolean"
+                  },
+                  "type": "array"
+                },
+                "speedMps": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                },
+                "x": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                },
+                "y": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                },
+                "z": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "headingRad",
+                "present",
+                "speedMps",
+                "x",
+                "y"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "actorClass",
+            "dims",
+            "id",
+            "origin",
+            "role",
+            "track"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "derivedFrom": {
+        "additionalProperties": false,
+        "properties": {
+          "operation": {
+            "enum": [
+              "nudge",
+              "register",
+              "rollout",
+              "transfer",
+              "trim"
+            ],
+            "type": "string"
+          },
+          "reportSha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "egoId": {
+        "pattern": "^[a-z0-9-]+$",
+        "type": "string"
+      },
+      "environment": {
+        "additionalProperties": false,
+        "properties": {
+          "dayOfYear": {
+            "maximum": 365,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "lighting": {
+            "additionalProperties": {},
+            "propertyNames": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "timeOfDay": {
+            "anyOf": [
+              {
+                "exclusiveMaximum": 24,
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "afternoon",
+                  "dawn",
+                  "dusk",
+                  "morning",
+                  "night",
+                  "night_lit",
+                  "noon"
+                ],
+                "type": "string"
+              }
+            ]
+          },
+          "weather": {
+            "enum": [
+              "clear",
+              "cloudy",
+              "fog_dense",
+              "fog_light",
+              "heavy_rain",
+              "light_rain",
+              "overcast",
+              "sleet",
+              "snow",
+              "wet_road"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "frame": {
+        "enum": [
+          "ecef",
+          "enu",
+          "local",
+          "wgs84",
+          "xodr-local"
+        ],
+        "type": "string"
+      },
+      "frameRef": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "h": {
+                "type": "number"
+              },
+              "lat": {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              "lon": {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              }
+            },
+            "required": [
+              "h",
+              "lat",
+              "lon"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "mapId": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "xodrSha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "mapId",
+              "xodrSha256"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "map": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "mapId": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "version": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "xodrSha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "mapId",
+              "xodrSha256"
+            ],
+            "type": "object"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "schema": {
+        "const": "simforge.recording/v1",
+        "type": "string"
+      },
+      "source": {
+        "additionalProperties": false,
+        "properties": {
+          "clipRef": {
+            "type": "string"
+          },
+          "dataset": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "log",
+              "manual-drive",
+              "openscenario",
+              "rollout"
+            ],
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "license": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "logId": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          },
+          "methods": {
+            "additionalProperties": false,
+            "properties": {
+              "perceive": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "params": {
+                    "additionalProperties": {},
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "version": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "version"
+                ],
+                "type": "object"
+              },
+              "register": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "params": {
+                    "additionalProperties": {},
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "version": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "version"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "producer": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "clipRef",
+          "kind",
+          "license",
+          "producer"
+        ],
+        "type": "object"
+      },
+      "sync": {
+        "additionalProperties": {},
+        "properties": {
+          "clock": {
+            "additionalProperties": false,
+            "properties": {
+              "base": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "t0Us": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "base",
+              "t0Us"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "time": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "dtS": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "tickCount": {
+                "maximum": 9007199254740991,
+                "minimum": 2,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "dtS",
+              "tickCount"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "tS": {
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "type": "array"
+              }
+            },
+            "required": [
+              "tS"
+            ],
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "required": [
+      "actors",
+      "egoId",
+      "frame",
+      "map",
+      "schema",
+      "source",
+      "time"
+    ],
+    "type": "object"
+  }
+}

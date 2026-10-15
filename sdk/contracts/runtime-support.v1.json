@@ -1,0 +1,160 @@
+{
+  "schema": "simforge.runtime-support/v1",
+  "comment": "What the SimForge runtime is qualified on. The open CLI refuses 3D/schematic renders and rendered-sensor environments on a GPU outside `gpu` (gpu_unsupported, gpu_memory_unsupported, gpu_driver_unsupported) and picks the local texture default from `defaults`; simforge.ai/docs/render (apps/studio/app/docs/_content/render.md) renders this table. `measured` is the peak GPU memory of the render's own processes (nvidia-smi, 0.2 s samples) for one 3-second local render with four vehicles, on an RTX 5080 with driver 595.84, runtime 0.1.0, 2026-10-11, on the map releases installed on the measuring host (easterbrook-discovery-school: the distributed v9 pack); an RTX 3080 was not measured (every free one serves prod renders).",
+  "platform": {
+    "os": "linux",
+    "arch": "x86_64",
+    "minGlibc": "2.28",
+    "qualifiedOn": [
+      "Ubuntu 24.04 (glibc 2.39)"
+    ],
+    "cliMinGlibc": "2.39",
+    "comment": "minGlibc is the runtime's floor (built on manylinux 2.28); cliMinGlibc is the published CLI's floor (built on the Ubuntu 24.04 build runners), so the installer refuses older systems by name."
+  },
+  "gpu": {
+    "vendor": "NVIDIA",
+    "api": "Vulkan 1.3",
+    "minVramGiB": 8,
+    "minDriverMajor": 570,
+    "qualifiedOn": [
+      {
+        "gpu": "NVIDIA GeForce RTX 5080",
+        "vramGiB": 16,
+        "driver": "595.84"
+      },
+      {
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "vramGiB": 10,
+        "driver": "595.91.07"
+      }
+    ]
+  },
+  "cpuOnly": [
+    "render --mode 2d",
+    "simulate",
+    "env serve --no-sensors",
+    "scenario authoring",
+    "maps pull"
+  ],
+  "unsupported": [
+    "macOS",
+    "Windows",
+    "AMD and Intel GPUs",
+    "NVIDIA GPUs with less than 8 GiB",
+    "NVIDIA drivers older than 570",
+    "CPU Vulkan adapters, except an explicit --allow-software-adapter (slow, unqualified pixels)"
+  ],
+  "tiers": [
+    {
+      "vramGiB": 8,
+      "textures": "bc7-512",
+      "fits": "every public map, up to six 1920x1080 cameras",
+      "largestMeasuredGiB": 4.5
+    },
+    {
+      "vramGiB": 12,
+      "textures": "bc7-512 by default; uastc-full fits every public map except san-ramon-phase-1 with one 1280x720 camera",
+      "fits": "full textures need up to 8.1 GiB outside san-ramon-phase-1",
+      "largestMeasuredGiB": 8.1
+    },
+    {
+      "vramGiB": 16,
+      "textures": "uastc-full",
+      "fits": "every public map, up to six 1920x1080 cameras",
+      "largestMeasuredGiB": 11.9
+    }
+  ],
+  "defaults": {
+    "textures": {
+      "fullTexturesMinVramGiB": 16,
+      "below": "bc7-512",
+      "comment": "A local 3D render or preview that names no --textures gets full textures on a GPU with at least fullTexturesMinVramGiB, else the `below` tier; the CLI passes it explicitly and reports it as `localDefaults` in the result."
+    }
+  },
+  "measured": [
+    {
+      "map": "san-ramon-phase-1",
+      "camera": "1 x 1280x720",
+      "preset": "showcase",
+      "uastcFullGiB": 11.3,
+      "bc7_512GiB": 3.8
+    },
+    {
+      "map": "di-rosa-sf",
+      "camera": "1 x 1280x720",
+      "preset": "showcase",
+      "uastcFullGiB": 8.1,
+      "bc7_512GiB": 2.8
+    },
+    {
+      "map": "richmond-field-station",
+      "camera": "1 x 1280x720",
+      "preset": "showcase",
+      "uastcFullGiB": 7.3,
+      "bc7_512GiB": 2.1
+    },
+    {
+      "map": "belmont-research-center",
+      "camera": "1 x 1280x720",
+      "preset": "showcase",
+      "uastcFullGiB": 7.2,
+      "bc7_512GiB": 2.3
+    },
+    {
+      "map": "yale-street",
+      "camera": "1 x 1280x720",
+      "preset": "showcase",
+      "uastcFullGiB": 6.5,
+      "bc7_512GiB": 2.3
+    },
+    {
+      "map": "el-camino-road",
+      "camera": "1 x 1280x720",
+      "preset": "showcase",
+      "uastcFullGiB": 3.5,
+      "bc7_512GiB": 1.9
+    },
+    {
+      "map": "easterbrook-discovery-school",
+      "camera": "1 x 1280x720",
+      "preset": "showcase",
+      "uastcFullGiB": 2.0,
+      "bc7_512GiB": 1.8
+    },
+    {
+      "map": "san-ramon-phase-1",
+      "camera": "6 x 1920x1080 (alpamayo-6cam)",
+      "preset": "showcase",
+      "uastcFullGiB": 11.9,
+      "bc7_512GiB": 4.5
+    },
+    {
+      "map": "belmont-research-center",
+      "camera": "6 x 1920x1080 (alpamayo-6cam)",
+      "preset": "showcase",
+      "uastcFullGiB": 7.3,
+      "bc7_512GiB": null
+    },
+    {
+      "map": "easterbrook-discovery-school",
+      "camera": "6 x 1920x1080 (alpamayo-6cam)",
+      "preset": "showcase",
+      "uastcFullGiB": 2.7,
+      "bc7_512GiB": null
+    },
+    {
+      "map": "san-ramon-phase-1",
+      "camera": "1 x 1280x720",
+      "preset": "training",
+      "uastcFullGiB": 11.0,
+      "bc7_512GiB": 3.5
+    },
+    {
+      "map": "easterbrook-discovery-school",
+      "camera": "schematic, 1 x 512x384",
+      "preset": "schematic",
+      "uastcFullGiB": 0.2,
+      "bc7_512GiB": null
+    }
+  ]
+}

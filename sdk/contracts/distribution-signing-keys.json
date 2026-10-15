@@ -1,0 +1,26 @@
+{
+  "schema": "simforge.distribution-signing-keys/v1",
+  "comment": "Public ed25519 keys that sign distribution artifacts (runtime, CLI, map packs). Each key is bound to one channel and the hosts that serve it: the CLI accepts a download only when its signature verifies under a key bound to the host it came from, and the publish tool refuses a preview or public artifact whose signature does not verify. Message format and key handling: docs/cloud-api.md, Distribution signing. Private keys live only in SSM /simforge-release/<channel>/distribution-signing-key.",
+  "keys": [
+    {
+      "keyId": "942014990cca2d63",
+      "channel": "dev",
+      "hosts": [
+        "dev.simforge.ai"
+      ],
+      "algorithm": "ed25519",
+      "publicKey": "xsYHhQSAu5IjSP1AiRSCk68OGv+SzQPA55XLSp3r6gY=",
+      "createdAt": "2026-10-11"
+    },
+    {
+      "keyId": "aa0902de1cf7dc66",
+      "channel": "prod",
+      "hosts": [
+        "simforge.ai"
+      ],
+      "algorithm": "ed25519",
+      "publicKey": "t3AbVMdxBUCQAlBJS2TtoiLYKqALFkTxBER5tI0Cf6w=",
+      "createdAt": "2026-10-11"
+    }
+  ]
+}

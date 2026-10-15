@@ -1,0 +1,3292 @@
+{
+  "schema": "simforge.sensor-rig-presets/v1",
+  "defaultRig": "basic-dash-camera",
+  "captures": {
+    "training": {
+      "width": 512,
+      "height": 384,
+      "fps": 20
+    },
+    "showcase": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24
+    },
+    "schematic": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30
+    }
+  },
+  "droneCaptures": {
+    "training": {
+      "width": 512,
+      "height": 384,
+      "fps": 24
+    },
+    "showcase": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24
+    },
+    "schematic": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30
+    }
+  },
+  "actorDims": {
+    "car": {
+      "length": 4.8,
+      "width": 1.9,
+      "height": 1.5
+    },
+    "truck": {
+      "length": 9.5,
+      "width": 2.5,
+      "height": 3.5
+    },
+    "bus": {
+      "length": 12,
+      "width": 2.55,
+      "height": 3.2
+    },
+    "van": {
+      "length": 5.5,
+      "width": 2,
+      "height": 2.2
+    },
+    "motorcycle": {
+      "length": 2.2,
+      "width": 0.8,
+      "height": 1.5
+    },
+    "bicycle": {
+      "length": 1.8,
+      "width": 0.6,
+      "height": 1.7
+    },
+    "pedestrian": {
+      "length": 0.6,
+      "width": 0.6,
+      "height": 1.75
+    },
+    "scooter": {
+      "length": 1.2,
+      "width": 0.6,
+      "height": 1.7
+    },
+    "sidewalk_robot": {
+      "length": 0.85,
+      "width": 0.6,
+      "height": 0.85
+    },
+    "drone": {
+      "length": 1,
+      "width": 1,
+      "height": 0.45
+    },
+    "animal": {
+      "length": 1.2,
+      "width": 0.5,
+      "height": 1
+    },
+    "static_object": {
+      "length": 1,
+      "width": 1,
+      "height": 1
+    }
+  },
+  "sourceDefaults": {
+    "lidar": {
+      "channels": 64,
+      "pointsPerSecond": 1200000,
+      "rotationFrequencyHz": 10
+    },
+    "radar": {
+      "pointsPerSecond": 1500
+    }
+  },
+  "presets": [
+    {
+      "id": "basic-dash-camera",
+      "name": "Basic Dash Camera",
+      "sensors": [
+        {
+          "id": "dashcam-front",
+          "type": "dash_camera",
+          "label": "Front Camera",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 90,
+            "verticalFovDeg": 58.67727591739711,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.8,
+              "y": 0.2,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tesla-hw3",
+      "name": "Tesla Autopilot HW3",
+      "sensors": [
+        {
+          "id": "tesla-front-narrow",
+          "type": "dash_camera",
+          "label": "Front Narrow",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 35,
+            "verticalFovDeg": 20.098911381278967,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.8,
+              "y": 0.2,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-front-main",
+          "type": "dash_camera",
+          "label": "Front Main",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 50,
+            "verticalFovDeg": 29.373003089683724,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.8,
+              "y": 0.2,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-front-wide",
+          "type": "dash_camera",
+          "label": "Front Wide",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 88.46242627533364,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.8,
+              "y": 0.2,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-left-fwd",
+          "type": "dash_camera",
+          "label": "Left Forward",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 80,
+            "verticalFovDeg": 50.49948130226502,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": -1.5,
+              "y": -0.2,
+              "z": 0.05
+            },
+            "rotation": {
+              "yawRad": 1.0471975511965976,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-left-rear",
+          "type": "dash_camera",
+          "label": "Left Rear",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 80,
+            "verticalFovDeg": 50.49948130226502,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": 1.9,
+              "y": -0.2,
+              "z": 0.05
+            },
+            "rotation": {
+              "yawRad": 2.0943951023931953,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-right-fwd",
+          "type": "dash_camera",
+          "label": "Right Forward",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 80,
+            "verticalFovDeg": 50.49948130226502,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": -1.5,
+              "y": -0.2,
+              "z": -0.05
+            },
+            "rotation": {
+              "yawRad": -1.0471975511965976,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-right-rear",
+          "type": "dash_camera",
+          "label": "Right Rear",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 80,
+            "verticalFovDeg": 50.49948130226502,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": 1.9,
+              "y": -0.2,
+              "z": -0.05
+            },
+            "rotation": {
+              "yawRad": -2.0943951023931953,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-rear",
+          "type": "dash_camera",
+          "label": "Rear",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 50,
+            "verticalFovDeg": 29.373003089683724,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0.4,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 3.141592653589793,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "tesla-radar-fwd",
+          "type": "radar",
+          "label": "Forward Radar",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 30,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.02,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 0.05,
+              "illumination": 0,
+              "glare": 0
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "bottom",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.4,
+              "y": 0.5,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "waymo-5th-gen",
+      "name": "Waymo 5th Gen (Simplified)",
+      "sensors": [
+        {
+          "id": "waymo-front",
+          "type": "dash_camera",
+          "label": "Front",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 50,
+            "verticalFovDeg": 34.53798914089611,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.9,
+              "y": 0.5,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-front-left",
+          "type": "dash_camera",
+          "label": "Front Left",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 42.965156695659196,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": -1.2,
+              "y": 0.5,
+              "z": -0.15
+            },
+            "rotation": {
+              "yawRad": 0.7853981633974483,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-front-right",
+          "type": "dash_camera",
+          "label": "Front Right",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 42.965156695659196,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": -1.2,
+              "y": 0.5,
+              "z": 0.15
+            },
+            "rotation": {
+              "yawRad": -0.7853981633974483,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-left",
+          "type": "dash_camera",
+          "label": "Left",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 42.965156695659196,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0.5,
+              "z": 0.05
+            },
+            "rotation": {
+              "yawRad": 1.5707963267948966,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-right",
+          "type": "dash_camera",
+          "label": "Right",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 42.965156695659196,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0.5,
+              "z": -0.05
+            },
+            "rotation": {
+              "yawRad": -1.5707963267948966,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-lidar-top",
+          "type": "lidar",
+          "label": "Top LiDAR",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 360,
+            "verticalFovDeg": 40,
+            "nearM": 0.5,
+            "farM": 75
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0,
+              "y": 1,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-lidar-front",
+          "type": "lidar",
+          "label": "Front LiDAR",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 360,
+            "verticalFovDeg": 40,
+            "nearM": 0.5,
+            "farM": 50
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "bottom",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.4,
+              "y": 0.8,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-lidar-left",
+          "type": "lidar",
+          "label": "Left LiDAR",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 360,
+            "verticalFovDeg": 40,
+            "nearM": 0.5,
+            "farM": 50
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "bottom",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": 0,
+              "y": 1,
+              "z": 0.05
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "waymo-lidar-right",
+          "type": "lidar",
+          "label": "Right LiDAR",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 360,
+            "verticalFovDeg": 40,
+            "nearM": 0.5,
+            "farM": 50
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "bottom",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": 0,
+              "y": 1,
+              "z": -0.05
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "surround-7cam-1lidar",
+      "name": "7-Camera Surround, Roof Lidar",
+      "sensors": [
+        {
+          "id": "camera_front_center",
+          "type": "dash_camera",
+          "label": "Front Center",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.3,
+              "y": -0.05,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_left",
+          "type": "dash_camera",
+          "label": "Front Left",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": -0.4,
+              "y": -0.07,
+              "z": -0.53
+            },
+            "rotation": {
+              "yawRad": 0.8726646259971648,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_right",
+          "type": "dash_camera",
+          "label": "Front Right",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": -0.4,
+              "y": -0.07,
+              "z": 0.53
+            },
+            "rotation": {
+              "yawRad": -0.8726646259971648,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_left_side",
+          "type": "dash_camera",
+          "label": "Left Side",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": 0.2,
+              "y": -0.15,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 1.5707963267948966,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_right_side",
+          "type": "dash_camera",
+          "label": "Right Side",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": 0.2,
+              "y": -0.15,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": -1.5707963267948966,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_rear_left",
+          "type": "dash_camera",
+          "label": "Rear Left",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": 1.4,
+              "y": -0.17,
+              "z": -0.57
+            },
+            "rotation": {
+              "yawRad": 2.443460952792061,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_rear_right",
+          "type": "dash_camera",
+          "label": "Rear Right",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": 1.4,
+              "y": -0.17,
+              "z": 0.57
+            },
+            "rotation": {
+              "yawRad": -2.443460952792061,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "lidar_roof_center",
+          "type": "lidar",
+          "label": "Roof Center LiDAR",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 360,
+            "verticalFovDeg": 40,
+            "nearM": 0.5,
+            "farM": 250
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0.15,
+              "y": 0.35,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "roof-8cam-6lidar-4radar",
+      "name": "8-Camera, 6-Lidar, 4-Radar Roof Rig",
+      "sensors": [
+        {
+          "id": "cam0",
+          "type": "dash_camera",
+          "label": "CAM0",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 88.46242627533364,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.16685,
+              "y": 0.0517,
+              "z": 0.7958
+            },
+            "rotation": {
+              "yawRad": 2.129301687433082,
+              "pitchRad": -0.4363323129985824,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "cam1",
+          "type": "dash_camera",
+          "label": "CAM1",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 88.46242627533364,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.16695,
+              "y": 0.0517,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": -0.17453292519943295,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "cam2",
+          "type": "dash_camera",
+          "label": "CAM2",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 88.46242627533364,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -1.14255,
+              "y": 0.0517,
+              "z": 0.7958
+            },
+            "rotation": {
+              "yawRad": 1.0471975511965976,
+              "pitchRad": -0.4363323129985824,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "cam3",
+          "type": "dash_camera",
+          "label": "CAM3",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 17.129188767412984,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.26935,
+              "y": 0.0727,
+              "z": 0.5953
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "cam4",
+          "type": "dash_camera",
+          "label": "CAM4",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 88.46242627533364,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -1.14255,
+              "y": 0.0517,
+              "z": -0.7958
+            },
+            "rotation": {
+              "yawRad": -1.0471975511965976,
+              "pitchRad": -0.4363323129985824,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "cam5",
+          "type": "dash_camera",
+          "label": "CAM5",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 88.46242627533364,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -1.14255,
+              "y": 0.0517,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 3.141592653589793,
+              "pitchRad": -0.17453292519943295,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "cam6",
+          "type": "dash_camera",
+          "label": "CAM6",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 88.46242627533364,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.16695,
+              "y": 0.0517,
+              "z": -0.7985
+            },
+            "rotation": {
+              "yawRad": -2.129301687433082,
+              "pitchRad": -0.4363323129985824,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "cam7",
+          "type": "dash_camera",
+          "label": "CAM7",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 60,
+            "verticalFovDeg": 35.95711620371043,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7791666666666666
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.25615,
+              "y": 0.0727,
+              "z": -0.5927
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": -0.08726646259971647,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "lidar-front-left",
+          "type": "lidar",
+          "label": "Front left — Seyond Falcon",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 25,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.20185,
+              "y": 0.1278,
+              "z": 0.4772
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "lidar-front-left-wide",
+          "type": "lidar",
+          "label": "Front left wide — Seyond Robin W",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 70,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.18345,
+              "y": 0.0786,
+              "z": 0.7671
+            },
+            "rotation": {
+              "yawRad": 2.0943951023931953,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "lidar-front-right",
+          "type": "lidar",
+          "label": "Front right — Seyond Falcon",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 25,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.20185,
+              "y": 0.1278,
+              "z": -0.4798
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "lidar-front-right-wide",
+          "type": "lidar",
+          "label": "Front right wide — Seyond Robin W",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 70,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.18355,
+              "y": 0.0786,
+              "z": -0.7698
+            },
+            "rotation": {
+              "yawRad": -2.0943951023931953,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "lidar-rear-left",
+          "type": "lidar",
+          "label": "Rear left — Seyond Robin W",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 70,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -1.15915,
+              "y": 0.0786,
+              "z": 0.7671
+            },
+            "rotation": {
+              "yawRad": 1.0471975511965976,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "lidar-rear-right",
+          "type": "lidar",
+          "label": "Rear right — Seyond Robin W",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 70,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.002,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1.6,
+              "illumination": 0,
+              "glare": 0.15
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -1.15915,
+              "y": 0.0786,
+              "z": -0.7671
+            },
+            "rotation": {
+              "yawRad": -1.0471975511965976,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "rad-01",
+          "type": "radar",
+          "label": "RAD-01 — Altos V4",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 30,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.02,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 0.05,
+              "illumination": 0,
+              "glare": 0
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.25845,
+              "y": 0.0748,
+              "z": 0.4871
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "rad-02",
+          "type": "radar",
+          "label": "RAD-02 — Altos V4",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 30,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.02,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 0.05,
+              "illumination": 0,
+              "glare": 0
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.25845,
+              "y": 0.0748,
+              "z": -0.4699
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "rad-03",
+          "type": "radar",
+          "label": "RAD-03 — Altos RF6",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 30,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.02,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 0.05,
+              "illumination": 0,
+              "glare": 0
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -1.26935,
+              "y": 0.0315,
+              "z": 0.461
+            },
+            "rotation": {
+              "yawRad": 2.792526803190927,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "rad-04",
+          "type": "radar",
+          "label": "RAD-04 — Altos RF6",
+          "enabled": true,
+          "field": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 30,
+            "nearM": 0.5,
+            "farM": 100
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.02,
+            "minIlluminationFrac": 0.000001,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 0.05,
+              "illumination": 0,
+              "glare": 0
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -1.21965,
+              "y": 0.0315,
+              "z": -0.5142
+            },
+            "rotation": {
+              "yawRad": -2.792526803190927,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "front-4cam-wide-cross-tele",
+      "name": "4-Camera Front: Wide, Cross and Tele",
+      "sensors": [
+        {
+          "id": "camera_front_wide_120fov",
+          "type": "dash_camera",
+          "label": "Front Wide 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.35,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_cross_left_120fov",
+          "type": "dash_camera",
+          "label": "Cross Left 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": -0.53
+            },
+            "rotation": {
+              "yawRad": 0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_cross_right_120fov",
+          "type": "dash_camera",
+          "label": "Cross Right 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 94.91835216911936,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": 0.53
+            },
+            "rotation": {
+              "yawRad": -0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_tele_30fov",
+          "type": "dash_camera",
+          "label": "Front Tele 30 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 19.138427848926238,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.5894039735099337
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.32,
+              "y": 0.02,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "alpamayo-2cam",
+      "name": "Alpamayo 2-Camera (front wide + tele)",
+      "description": "Lean Alpamayo 1.5 input rig: camera indices [1, 6] at the model-native 512x384 render size. Recommended NF4 closed-loop profile.",
+      "sensors": [
+        {
+          "id": "camera_front_wide_120fov",
+          "type": "dash_camera",
+          "label": "Front Wide 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.35,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_tele_30fov",
+          "type": "dash_camera",
+          "label": "Front Tele 30 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 22.725830864491336,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.32,
+              "y": 0.02,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "alpamayo-4cam",
+      "name": "Alpamayo 4-Camera (dataset default)",
+      "description": "Alpamayo 1.5 dataset-default input rig: camera indices [0, 1, 2, 6] at the model-native 512x384 render size.",
+      "sensors": [
+        {
+          "id": "camera_cross_left_120fov",
+          "type": "dash_camera",
+          "label": "Cross Left 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": -0.53
+            },
+            "rotation": {
+              "yawRad": 0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_wide_120fov",
+          "type": "dash_camera",
+          "label": "Front Wide 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.35,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_cross_right_120fov",
+          "type": "dash_camera",
+          "label": "Cross Right 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": 0.53
+            },
+            "rotation": {
+              "yawRad": -0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_tele_30fov",
+          "type": "dash_camera",
+          "label": "Front Tele 30 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 22.725830864491336,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.32,
+              "y": 0.02,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "alpamayo-6cam",
+      "name": "Alpamayo 6-Camera (A2 Super driving)",
+      "description": "Alpamayo 2 Super trajectory/meta-action/auto-labeling input rig: camera indices [0, 1, 2, 3, 5, 6] at the model-native 512x384 render size. Requires an 80 GiB-class device; local execution is unqualified.",
+      "sensors": [
+        {
+          "id": "camera_cross_left_120fov",
+          "type": "dash_camera",
+          "label": "Cross Left 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": -0.53
+            },
+            "rotation": {
+              "yawRad": 0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_wide_120fov",
+          "type": "dash_camera",
+          "label": "Front Wide 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.35,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_cross_right_120fov",
+          "type": "dash_camera",
+          "label": "Cross Right 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": 0.53
+            },
+            "rotation": {
+              "yawRad": -0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_rear_left_70fov",
+          "type": "dash_camera",
+          "label": "Rear Left 70 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 55.412927352596554,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": 1.8,
+              "y": -0.06,
+              "z": -0.51
+            },
+            "rotation": {
+              "yawRad": 2.1816615649929116,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_rear_right_70fov",
+          "type": "dash_camera",
+          "label": "Rear Right 70 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 55.412927352596554,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": 1.8,
+              "y": -0.06,
+              "z": 0.51
+            },
+            "rotation": {
+              "yawRad": -2.1816615649929116,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_tele_30fov",
+          "type": "dash_camera",
+          "label": "Front Tele 30 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 22.725830864491336,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.32,
+              "y": 0.02,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "alpamayo-6cam-vqa",
+      "name": "Alpamayo 6-Camera (A2 Super VQA)",
+      "description": "Alpamayo 2 Super VQA/grounding input rig: camera indices [0, 1, 2, 3, 4, 5] at the model-native 512x384 render size.",
+      "sensors": [
+        {
+          "id": "camera_cross_left_120fov",
+          "type": "dash_camera",
+          "label": "Cross Left 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": -0.53
+            },
+            "rotation": {
+              "yawRad": 0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_front_wide_120fov",
+          "type": "dash_camera",
+          "label": "Front Wide 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": -0.35,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_cross_right_120fov",
+          "type": "dash_camera",
+          "label": "Cross Right 120 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 120,
+            "verticalFovDeg": 104.82182106205009,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": -0.5,
+              "y": -0.04,
+              "z": 0.53
+            },
+            "rotation": {
+              "yawRad": -0.9599310885968813,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_rear_left_70fov",
+          "type": "dash_camera",
+          "label": "Rear Left 70 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 55.412927352596554,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "left"
+            },
+            "offset": {
+              "x": 1.8,
+              "y": -0.06,
+              "z": -0.51
+            },
+            "rotation": {
+              "yawRad": 2.1816615649929116,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_rear_tele_30fov",
+          "type": "dash_camera",
+          "label": "Rear Tele 30 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 30,
+            "verticalFovDeg": 22.725830864491336,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 1.35,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 3.141592653589793,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "camera_rear_right_70fov",
+          "type": "dash_camera",
+          "label": "Rear Right 70 FOV",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 70,
+            "verticalFovDeg": 55.412927352596554,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "rear",
+              "vertical": "top",
+              "lateral": "right"
+            },
+            "offset": {
+              "x": 1.8,
+              "y": -0.06,
+              "z": 0.51
+            },
+            "rotation": {
+              "yawRad": -2.1816615649929116,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "drone-inspection-wide",
+      "name": "Drone Inspection: Wide Gimbal",
+      "description": "One stabilized wide RGB camera (75 deg HFOV) on the payload gimbal. Generic DJI-style modeled optics (declared horizontal FOV, zero distortion), not a calibrated device claim. Cameras record the profile capture; on a drone carrier Training and Showcase capture 24 fps.",
+      "carrier": "drone",
+      "sensors": [
+        {
+          "id": "drone-gimbal-wide",
+          "type": "dash_camera",
+          "label": "Gimbal Wide",
+          "enabled": true,
+          "mountFrame": "gimbal",
+          "camera": {
+            "horizontalFovDeg": 75,
+            "verticalFovDeg": 46.69212571046592,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7777777777777777
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "bottom",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0.12,
+              "y": -0.06,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "drone-inspection-wide-zoom",
+      "name": "Drone Inspection: Wide + Zoom Gimbal",
+      "description": "Stabilized wide (75 deg) and fixed optical zoom (13 deg) RGB cameras sharing the payload gimbal, 4 cm apart. Generic DJI-style modeled optics (declared horizontal FOV, zero distortion), not a calibrated device claim. Cameras record the profile capture; on a drone carrier Training and Showcase capture 24 fps.",
+      "carrier": "drone",
+      "sensors": [
+        {
+          "id": "drone-gimbal-wide",
+          "type": "dash_camera",
+          "label": "Gimbal Wide",
+          "enabled": true,
+          "mountFrame": "gimbal",
+          "camera": {
+            "horizontalFovDeg": 75,
+            "verticalFovDeg": 46.69212571046592,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7777777777777777
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "bottom",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0.12,
+              "y": -0.06,
+              "z": 0.02
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        },
+        {
+          "id": "drone-gimbal-zoom",
+          "type": "dash_camera",
+          "label": "Gimbal Zoom",
+          "enabled": true,
+          "mountFrame": "gimbal",
+          "camera": {
+            "horizontalFovDeg": 13,
+            "verticalFovDeg": 7.334002994173465,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7777777777777777
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "bottom",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0.12,
+              "y": -0.06,
+              "z": -0.02
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "drone-mapping-nadir",
+      "name": "Drone Mapping: Nadir RGB",
+      "description": "One stabilized mapping RGB camera (72 deg HFOV, 4:3) on the payload gimbal; nadir when the flight's gimbal is at its default -90 deg pitch. Perspective, not orthographic. Generic DJI-style modeled optics (declared horizontal FOV, zero distortion), not a calibrated device claim. Cameras record the profile capture; on a drone carrier Training and Showcase capture 24 fps.",
+      "carrier": "drone",
+      "sensors": [
+        {
+          "id": "drone-mapping-nadir",
+          "type": "dash_camera",
+          "label": "Mapping Nadir",
+          "enabled": true,
+          "mountFrame": "gimbal",
+          "camera": {
+            "horizontalFovDeg": 72,
+            "verticalFovDeg": 57.172542104785535,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.3333333333333333
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "center",
+              "vertical": "bottom",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0.12,
+              "y": -0.06,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "drone-fpv-forward",
+      "name": "Drone FPV: Forward Body Camera",
+      "description": "One body-fixed forward RGB camera (110 deg HFOV) at the nose, level with the body: it turns and tilts with the drone, never the gimbal. Generic DJI-style modeled optics (declared horizontal FOV, zero distortion), not a calibrated device claim. Cameras record the profile capture; on a drone carrier Training and Showcase capture 24 fps.",
+      "carrier": "drone",
+      "sensors": [
+        {
+          "id": "drone-fpv-forward",
+          "type": "dash_camera",
+          "label": "FPV Forward",
+          "enabled": true,
+          "camera": {
+            "horizontalFovDeg": 110,
+            "verticalFovDeg": 77.55214222201174,
+            "nearM": 0.05,
+            "farM": 1000,
+            "aspectRatio": 1.7777777777777777
+          },
+          "detection": {
+            "contrastThreshold": 0.02,
+            "minAngularSizeRad": 0.0045,
+            "minIlluminationFrac": 0.02,
+            "detectConfidence": 0.5,
+            "degradedConfidence": 0.2,
+            "sensitivity": {
+              "atmosphere": 1,
+              "illumination": 1,
+              "glare": 1
+            },
+            "latchS": 0
+          },
+          "mount": {
+            "anchor": {
+              "longitudinal": "front",
+              "vertical": "center",
+              "lateral": "center"
+            },
+            "offset": {
+              "x": 0.02,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "yawRad": 0,
+              "pitchRad": 0,
+              "rollRad": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

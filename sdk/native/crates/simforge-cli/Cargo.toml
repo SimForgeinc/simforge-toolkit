@@ -1,0 +1,46 @@
+[package]
+name = "simforge"
+description = "The SimForge command line: local runtime and cloud jobs, one agent-first surface."
+version = "0.2.0-rc.4"
+edition = "2021"
+license = "Apache-2.0"
+publish = false
+repository = "https://github.com/SimForgeinc/simforge-toolkit"
+homepage = "https://simforge.ai"
+rust-version = "1.85"
+
+[[bin]]
+name = "simforge"
+path = "src/main.rs"
+
+[lib]
+name = "simforge_cli"
+path = "src/lib.rs"
+
+[features]
+default = ["local", "cloud"]
+local = []
+cloud = []
+
+[dependencies]
+clap = { version = "4", features = ["derive", "env", "wrap_help"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+simforge-glb = { path = "../simforge-glb" }
+ryu-js = "1"
+ureq = { version = "3", default-features = false, features = ["rustls", "gzip"] }
+fs4 = { version = "1", default-features = false, features = ["sync"] }
+sha2 = "0.10"
+getrandom = "0.3"
+base64 = "0.22"
+keyring = { version = "3.6", features = ["apple-native", "windows-native", "async-secret-service", "crypto-rust", "async-io"] }
+include_dir = "0.7"
+flate2 = "1"
+tar = "0.4"
+ring = "0.17"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[dev-dependencies]
+tempfile = "3"

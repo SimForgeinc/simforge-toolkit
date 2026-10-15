@@ -1,0 +1,113 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "camera_front_wide_120fov",
+      "sensorLabel": "Front Wide 120 FOV",
+      "outputName": "camera_front_wide_120fov",
+      "transform": {
+        "position": {
+          "x": 4.4,
+          "y": 3.5,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_cross_left_120fov",
+      "sensorLabel": "Cross Left 120 FOV",
+      "outputName": "camera_cross_left_120fov",
+      "transform": {
+        "position": {
+          "x": 4.25,
+          "y": 3.46,
+          "z": 0.72
+        },
+        "rotation": {
+          "yawRad": 0.9599310885968813,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_cross_right_120fov",
+      "sensorLabel": "Cross Right 120 FOV",
+      "outputName": "camera_cross_right_120fov",
+      "transform": {
+        "position": {
+          "x": 4.25,
+          "y": 3.46,
+          "z": -0.72
+        },
+        "rotation": {
+          "yawRad": -0.9599310885968813,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_front_tele_30fov",
+      "sensorLabel": "Front Tele 30 FOV",
+      "outputName": "camera_front_tele_30fov",
+      "transform": {
+        "position": {
+          "x": 4.43,
+          "y": 3.52,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 30,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    }
+  ]
+}

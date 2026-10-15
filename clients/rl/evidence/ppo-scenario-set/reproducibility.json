@@ -1,0 +1,37 @@
+{
+  "schema": "simforge-rl.ppo-reproducibility/v1",
+  "clientCommit": "c703b22410",
+  "package": {
+    "wheel": "simforge_rl-0.1.1-py3-none-any.whl",
+    "sha256": "56acd63b0a03dd8cfaf174debfaa75c67e56fd643eb4aca824d3b3ebdc71f79b",
+    "built": "scripts/sdk/toolkit-release.py build --ref c703b22410 (two clean builds, byte-identical)"
+  },
+  "runtime": {
+    "release": "simforge-runtime 0.1.0+c9e184cc1b0b6292",
+    "archiveSha256": "4988568231f90d7738c0cc03965cca705d4cdbf85636744c62abedf47292f82a",
+    "binarySha256": "06d7592108bb61c92cc2f2e18bc056824c43bfd7c76c14aaef4e6104e25c3398",
+    "engineSemver": "0.31.0",
+    "commit": "46f57a8144d0c0bb6a56e6e88183a9b5fbc94b1a",
+    "installed": "simforge runtime install --accept-license (dev distribution)",
+    "transport": "runtime-stdio: one simforge-runtime serve --stdio per vector worker"
+  },
+  "map": {
+    "id": "richmond-field-station",
+    "version": "v9",
+    "xodrSha256": "531c1bd6f568c56a41fd868ffe1cec0e92bc7dcda9c794c67a8f80a450186b18",
+    "source": "planar members of the dev distribution pack richmond-field-station-v9.simforge-map.tar.gz"
+  },
+  "hostClass": "CPU",
+  "host": "24-core Intel Xeon E5-2670 v3, 20 cores (taskset), nice 19 + ionice idle (a CI host), no GPU",
+  "command": "python -m simforge_rl.examples.ppo --tasks richmond-field-station --runtime --num-envs 32 --total-timesteps 1228800 --eval-every 10 --seed 0 --out OUT --json",
+  "repeat": {
+    "command": "python -m simforge_rl.examples.ppo --tasks richmond-field-station --runtime --num-envs 32 --total-timesteps 409600 --eval-every 5 --seed 0 --out OUT --json",
+    "sharedCheckpoints": 11,
+    "identicalCheckpoints": 11,
+    "lastSharedEnvSteps": 409600,
+    "note": "An independent run with the same seed reproduced every evaluation and training return at the 11 environment-step counts both runs recorded, byte for byte in curve.csv."
+  },
+  "policySha256": "2d440fff23a9e47dacb8be7877cf5f400efa8bd337d0ca8697453ef62ce65df7",
+  "curveCsvSha256": "a7cc42928be136c9afb034746eecc109b94a47db0fd933d8278dbc547c38685b",
+  "wallSeconds": 2252.1
+}

@@ -1,0 +1,167 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "camera_cross_left_120fov",
+      "sensorLabel": "Cross Left 120 FOV",
+      "outputName": "camera_cross_left_120fov",
+      "transform": {
+        "position": {
+          "x": 4.25,
+          "y": 3.46,
+          "z": 0.72
+        },
+        "rotation": {
+          "yawRad": 0.9599310885968813,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_front_wide_120fov",
+      "sensorLabel": "Front Wide 120 FOV",
+      "outputName": "camera_front_wide_120fov",
+      "transform": {
+        "position": {
+          "x": 4.4,
+          "y": 3.5,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_cross_right_120fov",
+      "sensorLabel": "Cross Right 120 FOV",
+      "outputName": "camera_cross_right_120fov",
+      "transform": {
+        "position": {
+          "x": 4.25,
+          "y": 3.46,
+          "z": -0.72
+        },
+        "rotation": {
+          "yawRad": -0.9599310885968813,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 120,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_rear_left_70fov",
+      "sensorLabel": "Rear Left 70 FOV",
+      "outputName": "camera_rear_left_70fov",
+      "transform": {
+        "position": {
+          "x": -2.95,
+          "y": 3.44,
+          "z": 0.74
+        },
+        "rotation": {
+          "yawRad": 2.1816615649929116,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 70,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_rear_tele_30fov",
+      "sensorLabel": "Rear Tele 30 FOV",
+      "outputName": "camera_rear_tele_30fov",
+      "transform": {
+        "position": {
+          "x": -3.4,
+          "y": 3.5,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 3.141592653589793,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 30,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    },
+    {
+      "actorId": "ego",
+      "sensorId": "camera_rear_right_70fov",
+      "sensorLabel": "Rear Right 70 FOV",
+      "outputName": "camera_rear_right_70fov",
+      "transform": {
+        "position": {
+          "x": -2.95,
+          "y": 3.44,
+          "z": -0.74
+        },
+        "rotation": {
+          "yawRad": -2.1816615649929116,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "horizontalFovDeg": 70,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    }
+  ]
+}

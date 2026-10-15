@@ -1,0 +1,1173 @@
+{
+  "schema": "simforge.authoring-operations/v1",
+  "transaction": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "baseVersion",
+      "baseDigest",
+      "label",
+      "operations"
+    ],
+    "properties": {
+      "baseVersion": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "baseDigest": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "label": {
+        "type": "string",
+        "minLength": 1
+      },
+      "operations": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": [
+            "type"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "severity",
+        "path",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "error",
+            "warning",
+            "info"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "actorId": {
+          "type": "string"
+        }
+      }
+    },
+    "documentTransactionResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document",
+        "version",
+        "digest",
+        "changedPaths",
+        "entityIds",
+        "diagnostics",
+        "inverseDocument"
+      ],
+      "properties": {
+        "document": {
+          "type": "object"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "changedPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "entityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/diagnostic"
+          }
+        },
+        "inverseDocument": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "refusals": [
+    "stale_version",
+    "stale_digest",
+    "revision_overflow",
+    "actor_unknown",
+    "duplicate_actor",
+    "unknown_catalog_id",
+    "actor_family_unsupported",
+    "placement_no_lane",
+    "spawn_overlap",
+    "overlap_override_forbidden",
+    "ego_ineligible",
+    "static_motion_refused",
+    "timed_route_speed_owned",
+    "route_timing_infeasible",
+    "event_time_outside_clip",
+    "map_context_missing"
+  ],
+  "operations": [
+    {
+      "id": "addActor",
+      "summary": "Place a new actor: a road vehicle on a semantic lane, or a pedestrian/free static actor at a scene point.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "catalogId"
+        ],
+        "properties": {
+          "type": {
+            "const": "addActor",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "New actor id (never allocated implicitly)."
+          },
+          "catalogId": {
+            "type": "string",
+            "description": "Built-in actor (`simforge scenario actors`): vehicle.sedan, pedestrian.adult, ..."
+          },
+          "laneRsl": {
+            "type": "string",
+            "pattern": "^-?[0-9]+:[0-9]+:-?[0-9]+$",
+            "description": "Semantic lane `road:section:lane` (with s)."
+          },
+          "s": {
+            "type": "number",
+            "description": "Station along laneRsl in storage direction.",
+            "minimum": 0,
+            "x-unit": "m"
+          },
+          "x": {
+            "type": "number",
+            "description": "Scene-frame x (east).",
+            "x-unit": "m"
+          },
+          "z": {
+            "type": "number",
+            "description": "Scene-frame z (minus north).",
+            "x-unit": "m"
+          },
+          "y": {
+            "type": "number",
+            "description": "Explicit height; otherwise the map ground at (x,z) is used and refused without ground.",
+            "x-unit": "m"
+          },
+          "headingRad": {
+            "type": "number",
+            "description": "Heading in the scene frame; default: the lane heading or the actor class default.",
+            "x-unit": "rad"
+          },
+          "lateralM": {
+            "type": "number",
+            "description": "Lateral offset in the lane, positive to the left of travel.",
+            "x-unit": "m"
+          },
+          "overlapOverride": {
+            "type": "boolean",
+            "default": false,
+            "description": "Accept overlap with another actor (free/static actors only; refused for moving road vehicles)."
+          },
+          "opposing": {
+            "type": "boolean",
+            "default": false,
+            "description": "Snap to the nearest genuinely opposing lane."
+          },
+          "static": {
+            "type": "boolean",
+            "default": false,
+            "description": "Place as a static actor (no motion, zero speed)."
+          },
+          "speedKph": {
+            "type": "number",
+            "description": "Initial speed; default: posted limit for road vehicles.",
+            "minimum": 0,
+            "maximum": 160,
+            "x-unit": "km/h"
+          },
+          "bodyColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "description": "Presentation body colour `#rrggbb`."
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 80,
+            "description": "Display label."
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "laneRsl",
+              "s"
+            ]
+          },
+          {
+            "required": [
+              "x",
+              "z"
+            ]
+          }
+        ]
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "document",
+        "actorFamilies": [
+          "road_vehicle",
+          "pedestrian",
+          "static"
+        ],
+        "rules": [
+          "moving road vehicles require laneRsl+s or a point that snaps to a lane",
+          "pedestrians and free static actors use scene points",
+          "motor-vehicle overlap cannot be overridden"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [
+        "placement",
+        "ground"
+      ],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "duplicate_actor",
+        "unknown_catalog_id",
+        "actor_family_unsupported",
+        "placement_no_lane",
+        "spawn_overlap",
+        "overlap_override_forbidden",
+        "map_context_missing"
+      ]
+    },
+    {
+      "id": "moveActor",
+      "summary": "Move an actor to a lane station or scene point, keeping identity, class, static state and speed.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ],
+        "properties": {
+          "type": {
+            "const": "moveActor",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor to move."
+          },
+          "laneRsl": {
+            "type": "string",
+            "pattern": "^-?[0-9]+:[0-9]+:-?[0-9]+$",
+            "description": "Semantic lane `road:section:lane` (with s)."
+          },
+          "s": {
+            "type": "number",
+            "description": "Station along laneRsl in storage direction.",
+            "minimum": 0,
+            "x-unit": "m"
+          },
+          "x": {
+            "type": "number",
+            "description": "Scene-frame x (east).",
+            "x-unit": "m"
+          },
+          "z": {
+            "type": "number",
+            "description": "Scene-frame z (minus north).",
+            "x-unit": "m"
+          },
+          "y": {
+            "type": "number",
+            "description": "Explicit height; otherwise the map ground at (x,z) is used and refused without ground.",
+            "x-unit": "m"
+          },
+          "headingRad": {
+            "type": "number",
+            "description": "Heading in the scene frame; default: the lane heading or the actor class default.",
+            "x-unit": "rad"
+          },
+          "lateralM": {
+            "type": "number",
+            "description": "Lateral offset in the lane, positive to the left of travel.",
+            "x-unit": "m"
+          },
+          "overlapOverride": {
+            "type": "boolean",
+            "default": false,
+            "description": "Accept overlap with another actor (free/static actors only; refused for moving road vehicles)."
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "laneRsl",
+              "s"
+            ]
+          },
+          {
+            "required": [
+              "x",
+              "z"
+            ]
+          }
+        ]
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "actor",
+        "actorFamilies": [
+          "road_vehicle",
+          "pedestrian",
+          "static"
+        ],
+        "rules": [
+          "custom routes translate with the pose; the first timed point stays pinned"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [
+        "placement",
+        "ground"
+      ],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "placement_no_lane",
+        "spawn_overlap",
+        "overlap_override_forbidden",
+        "map_context_missing"
+      ]
+    },
+    {
+      "id": "duplicateActor",
+      "summary": "Copy an actor with its presentation and own events under a new id at a new position.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "newId"
+        ],
+        "properties": {
+          "type": {
+            "const": "duplicateActor",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Source actor."
+          },
+          "newId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "New actor id."
+          },
+          "laneRsl": {
+            "type": "string",
+            "pattern": "^-?[0-9]+:[0-9]+:-?[0-9]+$",
+            "description": "Semantic lane `road:section:lane` (with s)."
+          },
+          "s": {
+            "type": "number",
+            "description": "Station along laneRsl in storage direction.",
+            "minimum": 0,
+            "x-unit": "m"
+          },
+          "x": {
+            "type": "number",
+            "description": "Scene-frame x (east).",
+            "x-unit": "m"
+          },
+          "z": {
+            "type": "number",
+            "description": "Scene-frame z (minus north).",
+            "x-unit": "m"
+          },
+          "y": {
+            "type": "number",
+            "description": "Explicit height; otherwise the map ground at (x,z) is used and refused without ground.",
+            "x-unit": "m"
+          },
+          "headingRad": {
+            "type": "number",
+            "description": "Heading in the scene frame; default: the lane heading or the actor class default.",
+            "x-unit": "rad"
+          },
+          "lateralM": {
+            "type": "number",
+            "description": "Lateral offset in the lane, positive to the left of travel.",
+            "x-unit": "m"
+          },
+          "overlapOverride": {
+            "type": "boolean",
+            "default": false,
+            "description": "Accept overlap with another actor (free/static actors only; refused for moving road vehicles)."
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "laneRsl",
+              "s"
+            ]
+          },
+          {
+            "required": [
+              "x",
+              "z"
+            ]
+          }
+        ]
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "actor",
+        "actorFamilies": [
+          "road_vehicle",
+          "pedestrian",
+          "static"
+        ],
+        "rules": [
+          "copied events are renamed with their references",
+          "never changes ego"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [
+        "placement",
+        "ground"
+      ],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "duplicate_actor",
+        "placement_no_lane",
+        "spawn_overlap",
+        "overlap_override_forbidden",
+        "map_context_missing"
+      ]
+    },
+    {
+      "id": "removeRole",
+      "summary": "Delete an actor with dependent events, reasoning and ego handoff.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ],
+        "properties": {
+          "type": {
+            "const": "removeRole",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor to delete."
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "actor",
+        "actorFamilies": [
+          "road_vehicle",
+          "pedestrian",
+          "static"
+        ],
+        "rules": [
+          "prunes dependent events and the prior ego's reasoning"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown"
+      ]
+    },
+    {
+      "id": "setEgo",
+      "summary": "Make an actor the ego vehicle.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "roleId"
+        ],
+        "properties": {
+          "type": {
+            "const": "setEgo",
+            "description": "Operation id."
+          },
+          "roleId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor to make ego."
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "actor",
+        "actorFamilies": [
+          "road_vehicle"
+        ],
+        "rules": [
+          "car, truck, bus, van or motorcycle only",
+          "removes reasoning of the prior ego"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "ego_ineligible"
+      ]
+    },
+    {
+      "id": "setActorSpeed",
+      "summary": "Set an actor's initial speed.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "speedKph"
+        ],
+        "properties": {
+          "type": {
+            "const": "setActorSpeed",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor."
+          },
+          "speedKph": {
+            "type": "number",
+            "description": "Initial speed.",
+            "minimum": 0,
+            "maximum": 160,
+            "x-unit": "km/h"
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "actor",
+        "actorFamilies": [
+          "road_vehicle",
+          "pedestrian"
+        ],
+        "rules": [
+          "nonzero speed refused on static actors",
+          "refused while a timed route owns speed"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "static_motion_refused",
+        "timed_route_speed_owned"
+      ]
+    },
+    {
+      "id": "setActorStatic",
+      "summary": "Make an actor static (clears its route and motion events) or mobile again.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "static"
+        ],
+        "properties": {
+          "type": {
+            "const": "setActorStatic",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor."
+          },
+          "static": {
+            "type": "boolean",
+            "description": "true: static; false: mobile."
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "actor",
+        "actorFamilies": [
+          "road_vehicle",
+          "pedestrian",
+          "static"
+        ],
+        "rules": [
+          "static-object actors cannot become mobile"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "static_motion_refused"
+      ]
+    },
+    {
+      "id": "addLaneChange",
+      "summary": "Add a timed lane change for a mobile lane-bound road actor.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "actorId",
+          "direction",
+          "startS"
+        ],
+        "properties": {
+          "type": {
+            "const": "addLaneChange",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "New event id."
+          },
+          "actorId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor."
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right"
+            ],
+            "description": "Target lane side."
+          },
+          "startS": {
+            "type": "number",
+            "description": "Clip time the change starts.",
+            "minimum": 0,
+            "x-unit": "s"
+          },
+          "endS": {
+            "type": "number",
+            "description": "Clip time the event ends.",
+            "minimum": 0,
+            "x-unit": "s"
+          },
+          "durationS": {
+            "type": "number",
+            "description": "Lane-change duration.",
+            "exclusiveMinimum": 0,
+            "default": 3,
+            "x-unit": "s"
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "event",
+        "actorFamilies": [
+          "road_vehicle"
+        ],
+        "rules": [
+          "mobile lane-bound actors only",
+          "target lane must exist and permit the change"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [
+        "placement"
+      ],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "duplicate_actor",
+        "actor_family_unsupported",
+        "static_motion_refused",
+        "placement_no_lane",
+        "event_time_outside_clip",
+        "map_context_missing"
+      ]
+    },
+    {
+      "id": "addNextJunctionTurn",
+      "summary": "Choose the turn an actor takes at its next junction.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "actorId",
+          "direction",
+          "startS"
+        ],
+        "properties": {
+          "type": {
+            "const": "addNextJunctionTurn",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "New event id."
+          },
+          "actorId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor."
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right",
+              "straight"
+            ],
+            "description": "Movement at the next junction."
+          },
+          "startS": {
+            "type": "number",
+            "description": "Clip time the choice applies from.",
+            "minimum": 0,
+            "x-unit": "s"
+          },
+          "endS": {
+            "type": "number",
+            "description": "Clip time the event ends.",
+            "minimum": 0,
+            "x-unit": "s"
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "event",
+        "actorFamilies": [
+          "road_vehicle"
+        ],
+        "rules": [
+          "semantic route event, not placement on a turn lane"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [
+        "placement"
+      ],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "duplicate_actor",
+        "actor_family_unsupported",
+        "static_motion_refused",
+        "event_time_outside_clip",
+        "map_context_missing"
+      ]
+    },
+    {
+      "id": "setWaypointRoute",
+      "summary": "Give an actor a smooth stop-to-stop timed route through scene points (two points: a crossing).",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "actorId",
+          "points",
+          "startS",
+          "durationS"
+        ],
+        "properties": {
+          "type": {
+            "const": "setWaypointRoute",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "New event id."
+          },
+          "actorId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Actor."
+          },
+          "points": {
+            "type": "array",
+            "minItems": 2,
+            "description": "Scene points, the actor's start first.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "x",
+                "z"
+              ],
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "z": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "startS": {
+            "type": "number",
+            "description": "Clip time the route starts.",
+            "minimum": 0,
+            "x-unit": "s"
+          },
+          "durationS": {
+            "type": "number",
+            "description": "Route duration.",
+            "exclusiveMinimum": 0,
+            "x-unit": "s"
+          },
+          "endS": {
+            "type": "number",
+            "description": "Clip time the event ends.",
+            "minimum": 0,
+            "x-unit": "s"
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "event",
+        "actorFamilies": [
+          "road_vehicle",
+          "pedestrian"
+        ],
+        "rules": [
+          "first point must be the actor's pinned start",
+          "duration must be feasible for the actor class",
+          "refused on static actors and other motion owners"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [
+        "ground"
+      ],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "actor_unknown",
+        "duplicate_actor",
+        "static_motion_refused",
+        "route_timing_infeasible",
+        "event_time_outside_clip"
+      ]
+    },
+    {
+      "id": "setEventTiming",
+      "summary": "Retime an event's start and optional end.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id",
+          "startS"
+        ],
+        "properties": {
+          "type": {
+            "const": "setEventTiming",
+            "description": "Operation id."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "description": "Event."
+          },
+          "startS": {
+            "type": "number",
+            "description": "Start clip time.",
+            "minimum": 0,
+            "x-unit": "s"
+          },
+          "endS": {
+            "type": "number",
+            "description": "End clip time.",
+            "minimum": 0,
+            "x-unit": "s"
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "event",
+        "rules": [
+          "end must be after start and inside the clip"
+        ]
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "event_time_outside_clip"
+      ]
+    },
+    {
+      "id": "setWeather",
+      "summary": "Set the scenario weather.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "weather"
+        ],
+        "properties": {
+          "type": {
+            "const": "setWeather",
+            "description": "Operation id."
+          },
+          "weather": {
+            "type": "string",
+            "enum": [
+              "clear",
+              "cloudy",
+              "overcast",
+              "light_rain",
+              "heavy_rain",
+              "wet_road",
+              "fog_light",
+              "fog_dense",
+              "snow",
+              "sleet"
+            ],
+            "description": "Canonical scenario weather."
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "document"
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid"
+      ]
+    },
+    {
+      "id": "setClock",
+      "summary": "Set the precise scene clock (and the matching time-of-day preset).",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "minutes"
+        ],
+        "properties": {
+          "type": {
+            "const": "setClock",
+            "description": "Operation id."
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1439,
+            "description": "Minutes after local midnight.",
+            "x-unit": "min"
+          }
+        }
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "document"
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid"
+      ]
+    },
+    {
+      "id": "setClip",
+      "summary": "Set the clip length and/or warm-up; out-of-clip events are refused, never truncated.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "const": "setClip",
+            "description": "Operation id."
+          },
+          "clipSeconds": {
+            "type": "number",
+            "description": "Clip length.",
+            "minimum": 3,
+            "maximum": 120,
+            "x-unit": "s"
+          },
+          "warmupSeconds": {
+            "type": "number",
+            "description": "Warm-up before the clip.",
+            "minimum": 0,
+            "maximum": 30,
+            "x-unit": "s"
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "clipSeconds"
+            ]
+          },
+          {
+            "required": [
+              "warmupSeconds"
+            ]
+          }
+        ]
+      },
+      "resultSchema": {
+        "$ref": "#/$defs/documentTransactionResult"
+      },
+      "applicability": {
+        "targets": "document"
+      },
+      "effectCategory": "document",
+      "requiredContext": [],
+      "diagnostics": [
+        "stale_version",
+        "stale_digest",
+        "revision_overflow",
+        "template_invalid",
+        "event_time_outside_clip"
+      ]
+    }
+  ]
+}

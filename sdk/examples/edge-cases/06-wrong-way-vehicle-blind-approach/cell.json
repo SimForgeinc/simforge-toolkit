@@ -1,0 +1,464 @@
+{
+  "schema": "simforge.scenario-cell/v1",
+  "mapId": "easterbrook-discovery-school",
+  "siteId": "e9743022beb54b5c",
+  "drawIndex": 0,
+  "manifest": {
+    "kind": "scenario-instance-manifest",
+    "manifestVersion": 1,
+    "replayKey": {
+      "templateId": "ec-06-06-wrong-way-vehicle-blind-approach-v2",
+      "templateVersion": 2,
+      "templateDigest": "a809ec8b2cda4194",
+      "mapId": "easterbrook-discovery-school",
+      "matcherIndexDigest": "7006e23d34d3b5c23268f8c21e39fc2adaec303fd5d2e65cb618325fb869f32f",
+      "engineGraphDigest": "ae48d9dbee5577e7e8506f99ab7dc242f5bcbb13f55dc686344dcfc1068638e0",
+      "siteId": "e9743022beb54b5c",
+      "matcherVersion": "1.0.0",
+      "solverVersion": "0.2.6",
+      "paramSeed": "ec-06-06-wrong-way-vehicle-blind-approach-v2",
+      "drawIndex": 0
+    },
+    "instanceId": "ec-06-06-wrong-way-vehicle-blind-approach-v2#0",
+    "archetype": "gallery.06-wrong-way-vehicle-blind-approach",
+    "negativeControl": false,
+    "metricSubject": "focus-vehicle",
+    "operationalVariant": null,
+    "site": {
+      "siteId": "e9743022beb54b5c",
+      "score": 0.7001839759059196,
+      "verdict": "degraded",
+      "originFeatureId": "seg_ca91adf3d7d304a3",
+      "entryLaneRsl": "20:0:-1",
+      "egoTurn": null,
+      "degradationSummary": "Degraded match (score 0.70). speeds clamped to the site limit 64 kph (arrival invariants re-solved over the speed parameter). corridor.curvatureDegPer10m worst value 0.16 at s=30 m, wanted [1, 10]. corridor.speedLimitKph worst value 64 at s=0 m, wanted [30, 55]. Presentation was relaxed; the scenario still tests what it was written to test.",
+      "matchedReasons": [
+        "197.89 m of runway available, 110 m needed",
+        "0 m of runway available, 0 m needed",
+        "corridor.throughLanesOpposing holds over the whole interval (worst 1)",
+        "corridor.throughLanesSameDir holds over the whole interval (worst 1)"
+      ]
+    },
+    "params": {
+      "values": {
+        "egoSpeedKph": 40,
+        "detectionDistanceM": 45
+      },
+      "categorical": {},
+      "rejectedConstraints": []
+    },
+    "actors": [
+      {
+        "id": "focus-vehicle",
+        "actorKind": "car",
+        "roleKind": "focus",
+        "laneRsl": "20:0:-1",
+        "spawnS": 14.000026708669896,
+        "initialSpeedMps": 11.11111111111111,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "following-motorcycle",
+        "actorKind": "motorcycle",
+        "roleKind": "supporting",
+        "laneRsl": "20:0:-1",
+        "spawnS": 0,
+        "initialSpeedMps": 11.11111111111111,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "opposing-bus",
+        "actorKind": "bus",
+        "roleKind": "supporting",
+        "laneRsl": "11633:0:1",
+        "spawnS": 1.0262769772993394,
+        "initialSpeedMps": 1.1111111111111112,
+        "bindingStatus": "bound"
+      },
+      {
+        "id": "wrong-way-sedan",
+        "actorKind": "car",
+        "roleKind": "supporting",
+        "laneRsl": null,
+        "spawnS": 0,
+        "initialSpeedMps": 7.777777777777779,
+        "bindingStatus": "scene-absolute"
+      }
+    ],
+    "props": [
+      {
+        "id": "crest-occlusion",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 228.65709838543037,
+          "z": 223.761153020244,
+          "headingRad": 1.4774779796745707
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": false,
+        "essentiality": "required",
+        "occludes": {
+          "observer": "focus-vehicle",
+          "target": "wrong-way-sedan"
+        },
+        "targetRevealToConflictS": 1.4
+      },
+      {
+        "id": "right-parapet-0",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 227.41190232768804,
+          "z": 293.9061987255502,
+          "headingRad": 1.4859223126500367
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-1",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 227.7850916660557,
+          "z": 288.92844212333426,
+          "headingRad": 1.484114511347412
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-10",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 232.28161929989815,
+          "z": 244.09947389557232,
+          "headingRad": 1.4938528229774577
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-11",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 232.76288690364618,
+          "z": 239.11322862107806,
+          "headingRad": 1.4954359779007722
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-12",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 233.2314691470989,
+          "z": 234.1572092481561,
+          "headingRad": 1.4912590180390046
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-13",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 233.67398349358353,
+          "z": 229.20757792786586,
+          "headingRad": 1.4856342505698785
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-14",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 234.13315407221148,
+          "z": 224.27365803492128,
+          "headingRad": 1.4774779796745707
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-15",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 234.5836338238916,
+          "z": 219.34102455675477,
+          "headingRad": 1.4689215082452867
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-16",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 235.0692724807036,
+          "z": 214.37799292260655,
+          "headingRad": 1.4664756106872496
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-17",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 235.55752340059868,
+          "z": 209.39693087882986,
+          "headingRad": 1.4673680502017177
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-2",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 228.16937484689487,
+          "z": 283.95529251344254,
+          "headingRad": 1.4814862678808118
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-3",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 228.56898458266915,
+          "z": 278.98702712613124,
+          "headingRad": 1.4780375571657394
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-4",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 229.06549000432963,
+          "z": 274.0326955835144,
+          "headingRad": 1.4735093277835456
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-5",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 229.63498466323475,
+          "z": 269.0672152243878,
+          "headingRad": 1.47294061428038
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-6",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 230.18702445386387,
+          "z": 264.06259224588115,
+          "headingRad": 1.480186853933822
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-7",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 230.72307637145698,
+          "z": 259.05049155399087,
+          "headingRad": 1.488400722388907
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-8",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 231.2514712250874,
+          "z": 254.05747722363606,
+          "headingRad": 1.4923095513780422
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      },
+      {
+        "id": "right-parapet-9",
+        "groupId": "right-parapet",
+        "catalogId": "construction.jersey_barrier_run",
+        "pose": {
+          "x": 231.77255580263687,
+          "z": 249.08173035788005,
+          "headingRad": 1.4925595863555425
+        },
+        "dims": {
+          "l": 12.2,
+          "w": 0.61,
+          "h": 0.81
+        },
+        "scale": 1,
+        "collidable": true,
+        "essentiality": "required"
+      }
+    ],
+    "arrival": [],
+    "inputHash": "be3aa1c254bd2bd59242abc0041faf993a918658c3a68653ccf328ad2b931065",
+    "feasible": true,
+    "issues": [],
+    "notes": [
+      {
+        "path": "choreography.interactions.wrong-way-route",
+        "reason": "route(polyline) at t=0 folded into wrong-way-sedan's spawn route (170.0 m), so the arrival solver can place the actor along it"
+      },
+      {
+        "path": "roles.opposing-bus.route",
+        "reason": "lane chain extended upstream by 3 lane(s) to reach the site-evaluated spawn at frame s=100.0 m"
+      },
+      {
+        "path": "props.crest-occlusion",
+        "reason": "occlusion declared between focus-vehicle and wrong-way-sedan; reveal-to-conflict is reported by the engine, not solved for"
+      }
+    ],
+    "contractMigration": {
+      "schema": "simforge.native-input-contract-reseal/v1",
+      "sourceSha256": "1a4fe9db6915045639bbf07c5a17d0f9e985e685ea90f86a9fb5a11ee7905bcd",
+      "sourceInputHash": "9778e2561d48f6b383706e2ec8d38c0568f1bc34d223495d0060a3db5f70e968",
+      "targetAbi": 2,
+      "removedMasterFlags": 4,
+      "foldedFalseMasterFlags": 0,
+      "scope": "Rule-contract reseal only; authored poses, actors, actions, thresholds and signals unchanged. Replay metadata retains its historical materialization provenance."
+    }
+  }
+}

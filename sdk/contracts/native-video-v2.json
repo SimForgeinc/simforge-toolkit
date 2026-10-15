@@ -1,0 +1,54 @@
+{
+  "schema": "simforge.native-video-wire-fixtures/v1",
+  "requests": [
+    {
+      "i": 1,
+      "op": "start_native_video",
+      "sources": [
+        { "sourceId": "front-rgb", "width": 160, "height": 90, "fps": 10 }
+      ],
+      "quality": "high",
+      "output_dir": "/scratch/job/video"
+    },
+    { "i": 2, "op": "finish_native_video" },
+    { "i": 3, "op": "abort_native_video" }
+  ],
+  "responses": [
+    {
+      "i": 1,
+      "op": "start_native_video",
+      "ok": true,
+      "backend": "nvenc",
+      "device_target": "NVIDIA GeForce RTX 5080 vendor=0x10de device=0x00002c02 driver=595.84 Vulkan",
+      "sources": ["front-rgb"]
+    },
+    {
+      "i": 2,
+      "op": "finish_native_video",
+      "ok": true,
+      "diagnostics": "/scratch/job/diagnostics/native-video-v2.json",
+      "artifacts": [
+        {
+          "schema": "simforge.native-video/v2",
+          "sourceId": "front-rgb",
+          "codec": "h264",
+          "encoderBackend": "nvenc",
+          "width": 160,
+          "height": 90,
+          "fps": 10,
+          "frameCount": 10,
+          "bytes": 4096,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "qualityArgs": ["preset", "high", "profile", "high"],
+          "deviceTarget": "NVIDIA GeForce RTX 5080 vendor=0x10de device=0x00002c02 driver=595.84 Vulkan",
+          "readbackBytes": 0,
+          "encodeMsP50": 0.4,
+          "encodeMsP95": 0.8,
+          "decodedQualityRef": "simforge.native-video-quality/h264-reference-v1",
+          "relativePath": "video/front-rgb.mp4"
+        }
+      ]
+    },
+    { "i": 3, "op": "abort_native_video", "ok": true }
+  ]
+}

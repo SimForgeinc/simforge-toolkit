@@ -1,0 +1,32 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "drone-fpv-forward",
+      "sensorLabel": "FPV Forward",
+      "outputName": "drone-fpv-forward",
+      "transform": {
+        "position": {
+          "x": 0.52,
+          "y": 0.225,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 24,
+        "horizontalFovDeg": 110,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    }
+  ]
+}

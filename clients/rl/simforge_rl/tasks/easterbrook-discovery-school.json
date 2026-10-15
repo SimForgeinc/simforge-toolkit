@@ -1,0 +1,160 @@
+{
+  "schema": "simforge-rl.scenario-set/v1",
+  "scenarios": [
+    {
+      "name": "adult-midblock-crossing@0874ff0d",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "0874ff0db90fefba"
+    },
+    {
+      "name": "adult-midblock-crossing@4d4f3002",
+      "weight": 0.5,
+      "template": "templates/adult-midblock-crossing.template.json",
+      "site": "4d4f30027a929657"
+    },
+    {
+      "name": "backing-out-vehicle@283ff319",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "283ff319f0276e71"
+    },
+    {
+      "name": "backing-out-vehicle@2c7e218f",
+      "weight": 0.5,
+      "template": "templates/backing-out-vehicle.template.json",
+      "site": "2c7e218f7cb99815"
+    },
+    {
+      "name": "cpnco-parked-row@068efc78",
+      "weight": 0.5,
+      "template": "templates/cpnco-parked-row.template.json",
+      "site": "068efc780da81ac6"
+    },
+    {
+      "name": "cpnco-parked-row@42849edf",
+      "weight": 0.5,
+      "template": "templates/cpnco-parked-row.template.json",
+      "site": "42849edf74154e8f"
+    },
+    {
+      "name": "cut-in-brake@0b7564ef",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "0b7564ef69f7ada8"
+    },
+    {
+      "name": "cut-in-brake@904d453f",
+      "weight": 0.5,
+      "template": "templates/cut-in-brake.template.json",
+      "site": "904d453fbc5cb583"
+    },
+    {
+      "name": "cutout-reveals-stopped@21519ea4",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "21519ea43e4b7f31"
+    },
+    {
+      "name": "cutout-reveals-stopped@82d3da77",
+      "weight": 0.5,
+      "template": "templates/cutout-reveals-stopped.template.json",
+      "site": "82d3da772adb7fad"
+    },
+    {
+      "name": "cyclist-crossing-path@056c45c9",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "056c45c93387d74a"
+    },
+    {
+      "name": "cyclist-crossing-path@0ab77fc5",
+      "weight": 0.5,
+      "template": "templates/cyclist-crossing-path.template.json",
+      "site": "0ab77fc5fe94b471"
+    },
+    {
+      "name": "disabled-vehicle@1344ca06",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "1344ca060022f637"
+    },
+    {
+      "name": "disabled-vehicle@22d9e352",
+      "weight": 0.5,
+      "template": "templates/disabled-vehicle.template.json",
+      "site": "22d9e352101628c9"
+    },
+    {
+      "name": "lead-hard-brake@0f057c19",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "0f057c1979b43867"
+    },
+    {
+      "name": "lead-hard-brake@11ab01ce",
+      "weight": 0.5,
+      "template": "templates/lead-hard-brake.template.json",
+      "site": "11ab01cec68db050"
+    },
+    {
+      "name": "light-corridor@0dcb5c1c",
+      "weight": 1.0,
+      "template": "templates/light-corridor.template.json",
+      "site": "0dcb5c1cbdfbb9fc"
+    },
+    {
+      "name": "oncoming-overtake@6a1979fa",
+      "weight": 0.5,
+      "template": "templates/oncoming-overtake.template.json",
+      "site": "6a1979fa81f0f4a8"
+    },
+    {
+      "name": "oncoming-overtake@988fbaf7",
+      "weight": 0.5,
+      "template": "templates/oncoming-overtake.template.json",
+      "site": "988fbaf7446a6cde"
+    },
+    {
+      "name": "opposing-turn-encroachment@66179a67",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "66179a673899fd1b"
+    },
+    {
+      "name": "opposing-turn-encroachment@79f3de71",
+      "weight": 0.5,
+      "template": "templates/opposing-turn-encroachment.template.json",
+      "site": "79f3de719263eac9"
+    },
+    {
+      "name": "queue-tail@3f2e9f34",
+      "weight": 0.5,
+      "template": "templates/queue-tail.template.json",
+      "site": "3f2e9f34c1375338"
+    },
+    {
+      "name": "queue-tail@1d8353dd",
+      "weight": 0.5,
+      "template": "templates/queue-tail.template.json",
+      "site": "1d8353dd4889b973"
+    },
+    {
+      "name": "sideswipe@1684bf5c",
+      "weight": 1.0,
+      "template": "templates/sideswipe.template.json",
+      "site": "1684bf5c361964cd"
+    },
+    {
+      "name": "vehicle-pulls-out@256e07fd",
+      "weight": 1.0,
+      "template": "templates/vehicle-pulls-out.template.json",
+      "site": "256e07fd7c436a04"
+    }
+  ],
+  "map": {
+    "name": "easterbrook-discovery-school",
+    "version": "v9",
+    "xodrSha256": "1a21e0b1813a80a68481f21e9ca44e5907c4e611824852fd1843642c18dde9fc"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "simforge.cli-usage/v1",
+  "finishedAt": 1791880000,
+  "wallSeconds": 0.042,
+  "command": "rig init",
+  "flags": ["--class", "--out", "--preset"],
+  "outcome": "ok",
+  "errorCode": null,
+  "agent": "claude-code",
+  "cliVersion": "0.2.0-rc.4",
+  "panic": null
+}

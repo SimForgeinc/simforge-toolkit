@@ -1,0 +1,88 @@
+{
+  "activeVersion": "transfer-v2",
+  "policies": [
+    {
+      "version": "transfer-v1",
+      "strategies": {
+        "log": { "strategy": "warp" },
+        "authored-behaviour": { "strategy": "lift" },
+        "authored-motion": { "strategy": "warp" }
+      },
+      "gates": { "overrides": {} }
+    },
+    {
+      "version": "transfer-warp-v1",
+      "strategies": {
+        "log": { "strategy": "warp" },
+        "authored-behaviour": { "strategy": "warp" },
+        "authored-motion": { "strategy": "warp" },
+        "authored-mixed": { "strategy": "warp" }
+      },
+      "gates": { "overrides": {} }
+    },
+    {
+      "version": "transfer-lift-v1",
+      "strategies": {
+        "log": { "strategy": "warp" },
+        "authored-behaviour": { "strategy": "lift" },
+        "authored-motion": { "strategy": "lift" },
+        "authored-mixed": { "strategy": "lift" }
+      },
+      "gates": { "overrides": {} }
+    },
+    {
+      "version": "transfer-semantic-v1",
+      "strategies": {
+        "log": { "strategy": "warp" },
+        "authored-behaviour": { "strategy": "semantic" },
+        "authored-motion": { "strategy": "semantic" },
+        "authored-mixed": { "strategy": "semantic" }
+      },
+      "gates": { "overrides": {} }
+    },
+    {
+      "version": "transfer-v2",
+      "strategies": {
+        "log": { "strategy": "warp", "policyVersion": "transfer-warp-v1" },
+        "authored-behaviour": { "strategy": "semantic", "options": { "targetControl": ["two_way_stop_minor", "two_way_stop_major", "all_way_stop", "signal", "yield_minor", "yield_major", "stop_line_only", "uncontrolled"], "tJunction": true, "controlFallback": "as-source" } },
+        "authored-motion": { "strategy": "warp", "policyVersion": "transfer-warp-v1" },
+        "authored-mixed": { "strategy": "warp", "policyVersion": "transfer-warp-v1" }
+      },
+      "gates": { "overrides": { "TC1": "hard" }, "motionAuditVersion": "pose-motion-v2", "usability": "training-usability-v2", "interactionPreservation": true },
+      "repair": "cue-preserving-v4b"
+    },
+    {
+      "version": "transfer-warp-v2",
+      "strategies": {
+        "log": { "strategy": "warp", "options": { "sites": "network", "profile": "generalized", "crossing": "faithful" } },
+        "authored-behaviour": { "strategy": "warp", "options": { "sites": "network", "profile": "generalized", "crossing": "faithful" } },
+        "authored-motion": { "strategy": "warp", "options": { "sites": "network", "profile": "generalized", "crossing": "faithful" } },
+        "authored-mixed": { "strategy": "warp", "options": { "sites": "network", "profile": "generalized", "crossing": "faithful" } }
+      },
+      "gates": { "overrides": { "TC1": "hard" }, "motionAuditVersion": "pose-motion-v2", "usability": "training-usability-v2" },
+      "repair": "cue-preserving-v4b"
+    },
+    {
+      "version": "transfer-lift-v2",
+      "strategies": {
+        "log": { "strategy": "warp" },
+        "authored-behaviour": { "strategy": "lift" },
+        "authored-motion": { "strategy": "lift" },
+        "authored-mixed": { "strategy": "lift" }
+      },
+      "gates": { "overrides": { "TC1": "hard" }, "motionAuditVersion": "pose-motion-v2", "usability": "training-usability-v2" },
+      "repair": "cue-preserving-v4b"
+    },
+    {
+      "version": "transfer-semantic-v2",
+      "strategies": {
+        "log": { "strategy": "warp" },
+        "authored-behaviour": { "strategy": "semantic" },
+        "authored-motion": { "strategy": "semantic" },
+        "authored-mixed": { "strategy": "semantic" }
+      },
+      "gates": { "overrides": { "TC1": "hard" }, "motionAuditVersion": "pose-motion-v2", "usability": "training-usability-v2" },
+      "repair": "cue-preserving-v4b"
+    }
+  ]
+}

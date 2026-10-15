@@ -1,0 +1,33 @@
+{
+  "schema": "simforge.render-rig/v1",
+  "sources": [
+    {
+      "actorId": "ego",
+      "sensorId": "drone-mapping-nadir",
+      "sensorLabel": "Mapping Nadir",
+      "outputName": "drone-mapping-nadir",
+      "transform": {
+        "position": {
+          "x": 0.12,
+          "y": -0.06,
+          "z": 0
+        },
+        "rotation": {
+          "yawRad": 0,
+          "pitchRad": 0,
+          "rollRad": 0
+        }
+      },
+      "modality": "rgb",
+      "mountFrame": "gimbal",
+      "attributes": {
+        "width": 512,
+        "height": 384,
+        "fps": 24,
+        "horizontalFovDeg": 72,
+        "nearM": 0.05,
+        "farM": 1000
+      }
+    }
+  ]
+}

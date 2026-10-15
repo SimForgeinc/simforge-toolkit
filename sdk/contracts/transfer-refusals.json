@@ -1,0 +1,20 @@
+{
+  "transfer_same_site_unmapped": true,
+  "transfer_source_span": true,
+  "transfer_source_infeasible": true,
+  "transfer_mixed_motion": true,
+  "transfer_class_unrecordable": true,
+  "transfer_strategy_unavailable": true,
+  "transfer_strategy_inapplicable": true,
+  "transfer_source_map_unavailable": true,
+  "transfer_source_map_unsupported": true,
+  "semantic_recorded_source": true,
+  "semantic_ego_missing": true,
+  "semantic_no_ego_junction": true,
+  "semantic_arm_frame": true,
+  "semantic_role_unmappable": true,
+  "semantic_role_kind_unsupported": true,
+  "semantic_initial_route_unsupported": true,
+  "semantic_route_mode_unsupported": true,
+  "semantic_speed_expression_unsupported": true
+}
